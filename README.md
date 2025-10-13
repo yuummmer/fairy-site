@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FAIRy Site (by Datadabra)
+
+Marketing & docs website for **FAIRy** — “Fix your data before you submit—local, open, and fast.”  
+Built with Next.js + Tailwind. This repo contains only the **website** (no product code).
+
+- **Product:** FAIRy (local-first dataset pre-check & export)
+- **Company:** Datadabra  
+- **Demo/Preview:** (add link when deployed)
+- **Contact:** hello@datadabra.com
+
+---
+
+## ✨ What’s here
+
+- Product pages: **Home**, **GEO Pre-check**, **Zenodo Pre-check**, **Export Pack**, **Early Access**
+- Clean, accessible UI with Tailwind
+- Company-anchored footer (Datadabra) + product-forward header (FAIRy)
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+# clone & enter
+git clone https://github.com/yuummmer/fairy-site.git
+cd fairy-site
+
+# node version (recommended)
+nvm install && nvm use
+
+#install & run
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
+# open http://localhost: 3000
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
+```
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Pages & copy anchors
 
-To learn more about Next.js, take a look at the following resources:
+- / – Hero + “How it works” + “What you get” + FAQ
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hero tagline: “Fix your data before you submit—local, open, and fast.”
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+CTA: Download FAIRy Solo · See sample Export Pack
 
-## Deploy on Vercel
+Trust line: “Runs on your computer. Nothing is uploaded.”
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+/geo-precheck – Pre-check for GEO (dates → ISO, units → standard, IDs normalized)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/zenodo-precheck – Pre-check for Zenodo (similar checklist)
+
+/export-pack – Explains ZIP contents: metadata.json, manifest.csv (SHA-256), README, checksums
+
+/early-access – Simple form (stub); wire to your backend or form tool later
+---
+## 🧰 Tech
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+
+Node version pinned via .nvmrc (lts/*)
+---
+
+## 🧪 Scripts
+```bash
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
+```
+---
+## ☁️ Deploy
+# Option A — Vercel (recommended)
+
+1. Push this repo to GitHub (public is fine).
+
+2. Import into Vercel → select main → Deploy.
+
+3. Framework preset: Next.js (auto-detected).
+
+# Option B — GitHub Pages (static export)
+
+
+Add to next.config.ts:
+```ts
+const nextConfig = { output: "export" };
+export default nextConfig;
+```
+
+Build & export:
+```bash
+npm run build
+npx next export   # outputs to /out
+```
+
+Publish /out to a gh-pages branch (or /docs on main).
+Add a Pages GitHub Action later to automate if desired.
+---
+
+🔐 Security & privacy
+
+This repo contains only the marketing site. Do not commit secrets.
+Use .env.local for any environment variables (git-ignored by default).
+---
+
+📄 License
+
+MIT © Datadabra (or replace with your preferred license)
+---
+
+🤝 Contributing
+
+Issues & PRs welcome for copy edits, typos, accessibility, and layout tweaks.
+Product bugs/feature requests belong in fairy-core / fairy-skeleton repositories.
+---
+
+🧾 Changelog
+
+Use GitHub Releases to tag site changes (e.g., “v0.1 site shell”, “Hero refresh”).
