@@ -14,6 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/geo-precheck">GEO Pre-check</a>
               <a href="/zenodo-precheck">Zenodo Pre-check</a>
               <a href="/export-pack">Export Pack</a>
+              <a href="/platform">Platform</a>
+              <a href="/security">Security</a>
+              <a href="/resources">Resources</a>
               <a href="/early-access" className="px-3 py-1.5 rounded-full bg-black text-white">Early access</a>
             </div>
           </nav>
@@ -38,6 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <li><a className="hover:underline" href="/geo-precheck">GEO Pre-check</a></li>
                 <li><a className="hover:underline" href="/zenodo-precheck">Zenodo Pre-check</a></li>
                 <li><a className="hover:underline" href="/export-pack">Export Pack</a></li>
+                <li><a className="hover:underline" href="/platform">Platform</a></li>
+                <li><a className="hover:underline" href="/security">Security</a></li>
+                <li><a className="hover:underline" href="/resources">Resources</a></li>
                 <li><a className="hover:underline" href="/early-access">Early access</a></li>
               </ul>
             </div>
