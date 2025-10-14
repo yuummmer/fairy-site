@@ -1,0 +1,7 @@
+# Exclude sensitive/local-only content from Vercel builds
+context/
+src/app/survey/
+GOOGLE_SHEETS_SETUP.md
+INSTITUTION_SURVEY_SETUP.md
+SURVEY_DESIGN.md
+

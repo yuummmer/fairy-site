@@ -1,10 +1,8 @@
-// server component wrapper around a client form
+"use client";
+
 import FeedbackForm from '../../components/FeedbackForm';
 
-export const metadata = {
-  title: "Request Demo - FAIRy Campus by Datadabra",
-  description: "See FAIRy Campus in action. Request a personalized demo for your institution's research data validation needs."
-};
+// moved metadata to server parent if needed; this is a client page for styled-jsx
 
 export default function DemoRequestPage() {
   return (
