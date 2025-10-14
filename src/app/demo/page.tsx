@@ -1,5 +1,4 @@
-"use client";
-
+// server component wrapper around a client form
 import FeedbackForm from '../../components/FeedbackForm';
 
 export const metadata = {

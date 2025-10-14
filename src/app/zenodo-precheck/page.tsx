@@ -3,9 +3,7 @@ export const metadata = {
   description: "Pre-validate your datasets for Zenodo submission. Check FAIR principles compliance, licensing, and metadata completeness before uploading."
 };
 
-"use client";
-
-import TrackedLink from "@/src/components/TrackedLink";
+// server component; use data attributes for analytics
 
 export default function ZenodoPrecheckPage() {
   return (
@@ -25,20 +23,20 @@ export default function ZenodoPrecheckPage() {
           Check FAIR principles compliance, licensing, and metadata completeness before uploading.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <TrackedLink 
+          <a 
             href="/samples/export-pack/evidence_kit_v0.txt" 
-            event="open_evidence"
+            data-analytics-event="open_evidence"
             className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
           >
             See Sample Evidence
-          </TrackedLink>
-          <TrackedLink 
+          </a>
+          <a 
             href="/export-pack#zip-contents" 
-            event="view_export_pack"
+            data-analytics-event="view_export_pack"
             className="px-6 py-3 border border-zinc-300 text-zinc-900 rounded-lg font-medium hover:bg-zinc-50 transition-colors"
           >
             Sample Export Pack
-          </TrackedLink>
+          </a>
         </div>
       </div>
 
@@ -265,13 +263,13 @@ export default function ZenodoPrecheckPage() {
               </div>
             </div>
             <div className="text-center">
-              <TrackedLink 
+              <a 
                 href="/samples/export-pack/evidence_kit_v0.txt" 
-                event="open_evidence"
+                data-analytics-event="open_evidence"
                 className="text-sm text-green-600 hover:text-green-700 font-medium"
               >
                 Open sample evidence kit →
-              </TrackedLink>
+              </a>
             </div>
           </div>
         </div>
@@ -312,13 +310,13 @@ export default function ZenodoPrecheckPage() {
               </div>
             </div>
             <div className="text-center mt-6">
-              <TrackedLink 
+              <a 
                 href="/samples/export-pack.zip" 
-                event="sample_zip"
+                data-analytics-event="sample_zip"
                 className="text-sm text-green-600 hover:text-green-700 font-medium"
               >
                 Download sample export pack (ZIP) →
-              </TrackedLink>
+              </a>
             </div>
           </div>
         </div>

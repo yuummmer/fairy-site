@@ -81,6 +81,7 @@ export default function EarlyAccessPage() {
         <div className="max-w-2xl mx-auto">
           <div className="space-y-6">
             <FeedbackForm formType="pilot" />
+          </div>
         </div>
       </section>
 

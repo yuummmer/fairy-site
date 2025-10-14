@@ -1,6 +1,4 @@
-"use client";
-
-import TrackedLink from "@/src/components/TrackedLink";
+// server component; use data attributes for analytics
 
 export const metadata = {
   title: "Export Pack - FAIRy by Datadabra",
@@ -25,20 +23,20 @@ export default function ExportPackPage() {
           Ready for repository submission with full audit trail.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <TrackedLink 
+          <a 
             href="/samples/export-pack.zip" 
-            event="sample_zip"
+            data-analytics-event="sample_zip"
             className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
           >
             Download Sample ZIP
-          </TrackedLink>
-          <TrackedLink 
+          </a>
+          <a 
             href="#zip-contents" 
-            event="view_export_pack"
+            data-analytics-event="view_export_pack"
             className="px-6 py-3 border border-zinc-300 text-zinc-900 rounded-lg font-medium hover:bg-zinc-50 transition-colors"
           >
             View ZIP Contents
-          </TrackedLink>
+          </a>
         </div>
       </div>
 
@@ -200,7 +198,7 @@ export default function ExportPackPage() {
                 </div>
               </div>
               <div className="mt-4 text-sm">
-                <TrackedLink className="text-purple-700 hover:underline" href="/samples/export-pack/README.md" event="view_export_pack">Open README</TrackedLink>
+                <a className="text-purple-700 hover:underline" href="/samples/export-pack/README.md" data-analytics-event="view_export_pack">Open README</a>
               </div>
             </div>
 
@@ -238,7 +236,7 @@ export default function ExportPackPage() {
                 </div>
               </div>
               <div className="mt-4 text-sm">
-                <TrackedLink className="text-purple-700 hover:underline" href="/samples/export-pack/evidence_kit_v0.txt" event="open_evidence">Open evidence kit sample</TrackedLink>
+                <a className="text-purple-700 hover:underline" href="/samples/export-pack/evidence_kit_v0.txt" data-analytics-event="open_evidence">Open evidence kit sample</a>
               </div>
             </div>
 
@@ -328,13 +326,13 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
-              <TrackedLink 
+              <a 
                 href="/samples/export-pack.zip" 
-                event="sample_zip"
+                data-analytics-event="sample_zip"
                 className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
               >
                 Download Sample Export Pack (ZIP)
-              </TrackedLink>
+              </a>
             </div>
           </div>
         </div>

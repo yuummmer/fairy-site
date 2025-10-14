@@ -3,6 +3,8 @@ export const metadata = {
   description: "Fix your data before you submit—local, open, fast." 
 };
 
+import AnalyticsBindings from "../components/AnalyticsBindings";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -13,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-domain="fairy.example.com"
           src="https://plausible.io/js/script.js"
         />
+        <AnalyticsBindings />
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>

@@ -3,9 +3,7 @@ export const metadata = {
   description: "Pre-validate your datasets for GEO submission. Check dates, units, IDs, and metadata compliance before uploading to Gene Expression Omnibus."
 };
 
-"use client";
-
-import TrackedLink from "@/src/components/TrackedLink";
+// server component; use data attributes for analytics
 
 export default function GeoPrecheckPage() {
   return (
@@ -25,20 +23,20 @@ export default function GeoPrecheckPage() {
           Check dates, units, IDs, and metadata compliance before uploading.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <TrackedLink 
+          <a 
             href="/samples/export-pack/evidence_kit_v0.txt" 
-            event="open_evidence"
+            data-analytics-event="open_evidence"
             className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-zinc-900 transition-colors"
           >
             See sample evidence
-          </TrackedLink>
-          <TrackedLink 
+          </a>
+          <a 
             href="/export-pack#zip-contents" 
-            event="view_export_pack"
+            data-analytics-event="view_export_pack"
             className="px-6 py-3 border border-zinc-300 text-zinc-900 rounded-lg font-medium hover:bg-zinc-50 transition-colors"
           >
             Sample export pack
-          </TrackedLink>
+          </a>
         </div>
       </div>
 
@@ -226,13 +224,13 @@ export default function GeoPrecheckPage() {
               </div>
             </div>
             <div className="text-center">
-              <TrackedLink 
+              <a 
                 href="/samples/export-pack/evidence_kit_v0.txt" 
-                event="open_evidence"
+                data-analytics-event="open_evidence"
                 className="text-sm text-purple-700 hover:text-purple-800 font-medium"
               >
                 Open sample evidence kit →
-              </TrackedLink>
+              </a>
             </div>
           </div>
         </div>
@@ -269,13 +267,13 @@ export default function GeoPrecheckPage() {
               </div>
             </div>
             <div className="text-center mt-6">
-              <TrackedLink 
+              <a 
                 href="/samples/export-pack.zip" 
-                event="sample_zip"
+                data-analytics-event="sample_zip"
                 className="text-sm text-purple-700 hover:text-purple-800 font-medium"
               >
                 Download sample export pack (ZIP) →
-              </TrackedLink>
+              </a>
             </div>
           </div>
         </div>
