@@ -1,0 +1,15 @@
+{
+  "target_repository": "Zenodo (example)",
+  "timestamp": "2025-10-12T16:33:23Z",
+  "status": "pass",
+  "checks": [
+    { "check": "metadata.title.present", "status": "pass" },
+    { "check": "authors.orcid.format", "status": "pass" },
+    { "check": "dates.iso8601", "status": "pass" },
+    { "check": "units.ucum.tpm_column", "status": "pass" },
+    { "check": "manifest.hashes.sha256", "status": "pass" },
+    { "check": "license.present", "status": "pass" }
+  ],
+  "notes": "Dry-run passed for demonstration; real checks vary by repository."
+}
+

@@ -1,0 +1,82 @@
+# Institution Kit - FAIRy v0.1
+
+## Overview
+
+FAIRy is a local-first validator and packager for research datasets, designed to reduce deposit back-and-forth across your campus. This kit provides everything you need to evaluate and deploy FAIRy in your institution.
+
+## Key Benefits
+
+- **Reduce curator workload**: Clear validation reports with "how to fix" guidance
+- **Local-first privacy**: No data leaves your network
+- **Batch processing**: CLI pipelines for hundreds of datasets
+- **Repository compliance**: GEO/Zenodo-specific checks with guideline links
+
+## Security Summary
+
+### Local-First Architecture
+- All processing happens on-device
+- No telemetry by default (opt-in via environment variable)
+- No credentials stored
+- Offline install instructions available
+
+### Network Access
+- Update checks hit PyPI JSON only
+- Opt-out available: `export FAIRY_NO_UPDATE=1`
+- No data uploads or external API calls during validation
+
+### Transparency
+- Complete SBOM (Software Bill of Materials)
+- Third-party dependency audit trail
+- Open source with clear licensing
+
+## Deployment Options
+
+### Docker (Recommended for shared nodes)
+```bash
+docker run --rm -v /data:/data ghcr.io/fairy-app/fairy:0.1 \
+  fairy validate /data/example-geo -o /data/out
+```
+
+### Conda/Mamba
+```bash
+mamba create -n fairy -y python=3.11 && mamba activate fairy
+pip install fairy-validator==0.1.0
+fairy validate examples/geo_min -o out
+```
+
+### Pip (Local install)
+```bash
+pip install fairy-validator
+fairy validate /path/to/dataset -o out/
+```
+
+## Data Handling & Privacy
+
+- **Processing**: All validation happens locally on your hardware
+- **Storage**: No persistent storage of user data
+- **Logs**: No PII in log files
+- **Updates**: Version checks only, no usage data transmitted
+
+## Support Expectations
+
+- **Best-effort OSS**: Community-driven support via GitHub issues
+- **Response time**: 2-3 business days for critical issues
+- **Documentation**: Comprehensive guides and examples
+- **Community**: Active user community and contributor base
+
+## Getting Started
+
+1. **Download**: Get FAIRy from PyPI or Docker Hub
+2. **Test**: Run on sample dataset to see validation report
+3. **Pilot**: Start with 3-5 labs for 4-week evaluation
+4. **Deploy**: Roll out to full institution based on pilot results
+
+## Contact
+
+- **Issues**: GitHub Issues for technical support
+- **Email**: hello@fairy.dev for institutional inquiries
+- **Documentation**: https://docs.fairy.dev
+
+---
+
+*This institution kit is provided as-is for evaluation purposes. For production deployment, please contact our team for additional support and SLA options.*

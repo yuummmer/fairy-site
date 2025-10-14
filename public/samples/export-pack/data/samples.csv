@@ -1,0 +1,7 @@
+sample_id,tissue,organism,condition
+S1,liver,Homo sapiens (NCBITaxon:9606),control
+S2,liver,Homo sapiens (NCBITaxon:9606),treated
+S3,kidney,Homo sapiens (NCBITaxon:9606),control
+S4,kidney,Homo sapiens (NCBITaxon:9606),treated
+S5,heart,Homo sapiens (NCBITaxon:9606),treated
+

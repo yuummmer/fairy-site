@@ -1,0 +1,58 @@
+{
+    "title": "Toy Gene Expression Dataset (Sample for FAIRy)",
+    "description": "Tiny, fabricated dataset demonstrating a FAIRy export pack structure.",
+    "version": "0.1.0",
+    "created_at": "2025-10-12T16:33:23Z",
+    "authors": [
+      {
+        "name": "Ada Lovelace",
+        "orcid": "0000-0001-2345-6789",
+        "affiliation": "Example University"
+      },
+      {
+        "name": "Grace Hopper",
+        "orcid": "0000-0002-9876-5432",
+        "affiliation": "Example Institute"
+      }
+    ],
+    "keywords": [
+      "gene expression",
+      "toy dataset",
+      "FAIR"
+    ],
+    "license": "CC-BY-4.0",
+    "repository_target": "Zenodo (example)",
+    "organism": {
+      "label": "Homo sapiens",
+      "ncbi_taxon_id": 9606
+    },
+    "assay": {
+      "label": "RNA-seq",
+      "edam_id": "operation_3693"
+    },
+    "instrument": "Illumina NextSeq (example)",
+    "sample_count": 5,
+    "protocol_doi": "10.0000/example.protocol",
+    "links": {
+      "project_page": "https://example.org/project/FAIRy-sample"
+    },
+    "contacts": [
+      {
+        "name": "Data Steward",
+        "email": "steward@example.org"
+      }
+    ],
+    "rulepack_version": "fairy-rules-2025.10.0",
+    "validation_summary": {
+      "pass_count": 14,
+      "fail_count": 0
+    },
+    "fair_ribbon": {
+      "findable": true,
+      "accessible": true,
+      "interoperable": true,
+      "reusable": true
+    },
+    "export_note": "Sample metadata for demonstration only."
+  }
+

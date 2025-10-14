@@ -1,3 +1,7 @@
+"use client";
+
+import TrackedLink from "@/src/components/TrackedLink";
+
 export const metadata = {
   title: "Export Pack - FAIRy by Datadabra",
   description: "Complete ZIP export with metadata, checksums, and compliance evidence. Ready for repository submission with full audit trail."
@@ -21,18 +25,20 @@ export default function ExportPackPage() {
           Ready for repository submission with full audit trail.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="#sample-zip" 
+          <TrackedLink 
+            href="/samples/export-pack.zip" 
+            event="sample_zip"
             className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
           >
             Download Sample ZIP
-          </a>
-          <a 
+          </TrackedLink>
+          <TrackedLink 
             href="#zip-contents" 
+            event="view_export_pack"
             className="px-6 py-3 border border-zinc-300 text-zinc-900 rounded-lg font-medium hover:bg-zinc-50 transition-colors"
           >
             View ZIP Contents
-          </a>
+          </TrackedLink>
         </div>
       </div>
 
@@ -65,7 +71,7 @@ export default function ExportPackPage() {
         </div>
       </section>
 
-      {/* ZIP Contents Breakdown */}
+      {/* ZIP Contents Breakdown with inline viewers */}
       <section className="mb-16" id="zip-contents">
         <h2 className="text-2xl font-semibold mb-8 text-center">ZIP Contents Breakdown</h2>
         <div className="max-w-4xl mx-auto">
@@ -103,6 +109,18 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
+              <details className="mt-4">
+                <summary className="text-sm text-zinc-600 cursor-pointer">Preview metadata.json</summary>
+                <pre className="mt-3 text-xs overflow-auto bg-zinc-50 p-3 rounded">
+{`// preview
+`}
+                </pre>
+                <iframe
+                  title="metadata.json"
+                  src="/samples/export-pack/metadata.json"
+                  className="w-full h-64 border rounded"
+                />
+              </details>
             </div>
 
             {/* manifest.csv */}
@@ -138,15 +156,23 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
+              <details className="mt-4">
+                <summary className="text-sm text-zinc-600 cursor-pointer">Preview manifest.csv</summary>
+                <iframe
+                  title="manifest.csv"
+                  src="/samples/export-pack/manifest.csv"
+                  className="w-full h-48 border rounded"
+                />
+              </details>
             </div>
 
-            {/* README.txt */}
+            {/* README */}
             <div className="border rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
                   📝
                 </div>
-                <h3 className="text-lg font-semibold">README.txt</h3>
+                <h3 className="text-lg font-semibold">README</h3>
                 <span className="text-sm text-zinc-500">Usage instructions and citation</span>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
@@ -173,40 +199,46 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
+              <div className="mt-4 text-sm">
+                <TrackedLink className="text-purple-700 hover:underline" href="/samples/export-pack/README.md" event="view_export_pack">Open README</TrackedLink>
+              </div>
             </div>
 
-            {/* checksums.txt */}
+            {/* Evidence kit (text sample) */}
             <div className="border rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
                   🔍
                 </div>
-                <h3 className="text-lg font-semibold">checksums.txt</h3>
-                <span className="text-sm text-zinc-500">File integrity verification</span>
+                <h3 className="text-lg font-semibold">Evidence kit (sample)</h3>
+                <span className="text-sm text-zinc-500">Attestation summary (text sample)</span>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-medium mb-2 text-green-600">✓ Contains</h4>
                   <ul className="text-sm text-zinc-600 space-y-1">
-                    <li>• SHA-256 checksums for all files</li>
-                    <li>• MD5 checksums (legacy support)</li>
-                    <li>• File size verification</li>
-                    <li>• Integrity validation commands</li>
-                    <li>• Checksum generation timestamp</li>
-                    <li>• FAIRy version and tool info</li>
+                    <li>• Normalization attestations</li>
+                    <li>• Repository dry-run status</li>
+                    <li>• Files and hashes summary</li>
+                    <li>• Rulepack version</li>
+                    <li>• Creation timestamp</li>
+                    <li>• Evidence format note</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-medium mb-2 text-blue-600">📋 Format</h4>
                   <ul className="text-sm text-zinc-600 space-y-1">
-                    <li>• Standard checksum file format</li>
-                    <li>• SHA256SUMS compatible</li>
-                    <li>• Command-line tool ready</li>
-                    <li>• Repository validation ready</li>
-                    <li>• Automated verification support</li>
-                    <li>• Cross-platform compatibility</li>
+                    <li>• Human-readable text (sample)</li>
+                    <li>• Production includes signed JSON</li>
+                    <li>• Downloadable for reviewers</li>
+                    <li>• Archive with the dataset</li>
+                    <li>• Links to pack contents</li>
+                    <li>• Consistent metadata header</li>
                   </ul>
                 </div>
+              </div>
+              <div className="mt-4 text-sm">
+                <TrackedLink className="text-purple-700 hover:underline" href="/samples/export-pack/evidence_kit_v0.txt" event="open_evidence">Open evidence kit sample</TrackedLink>
               </div>
             </div>
 
@@ -243,6 +275,22 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
+              <details className="mt-4">
+                <summary className="text-sm text-zinc-600 cursor-pointer">Preview samples.csv</summary>
+                <iframe
+                  title="samples.csv"
+                  src="/samples/export-pack/data/samples.csv"
+                  className="w-full h-40 border rounded"
+                />
+              </details>
+              <details className="mt-4">
+                <summary className="text-sm text-zinc-600 cursor-pointer">Preview measurements.csv</summary>
+                <iframe
+                  title="measurements.csv"
+                  src="/samples/export-pack/data/measurements.csv"
+                  className="w-full h-40 border rounded"
+                />
+              </details>
             </div>
           </div>
         </div>
@@ -280,12 +328,13 @@ export default function ExportPackPage() {
                   </ul>
                 </div>
               </div>
-              <a 
-                href="#download-sample" 
+              <TrackedLink 
+                href="/samples/export-pack.zip" 
+                event="sample_zip"
                 className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
               >
                 Download Sample Export Pack (ZIP)
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>

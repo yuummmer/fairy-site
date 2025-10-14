@@ -1,0 +1,7 @@
+sample_id,gene_symbol,tpm,collection_date
+S1,TP53,12.4,9/10/2025
+S2,TP53,18.1,9/10/2025
+S3,BRCA1,7.9,9/11/2025
+S4,BRCA1,9.2,9/11/2025
+S5,MYC,22,9/12/2025
+

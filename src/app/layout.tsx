@@ -7,6 +7,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-white text-zinc-900 antialiased">
+        {/* Plausible analytics */}
+        <script
+          defer
+          data-domain="fairy.example.com"
+          src="https://plausible.io/js/script.js"
+        />
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>

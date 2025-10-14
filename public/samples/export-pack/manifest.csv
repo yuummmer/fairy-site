@@ -1,0 +1,4 @@
+path	bytes	sha256	filetype	description
+data/samples.csv	279	720527f55629e209ceab86661f278f92dd63a51d7f5c576a42212ff3df1642d5	text/csv	Sample metadata
+data/measurements.csv	167	e045f8bebabf436198e0c26ea7f34e8842ca02a9777d374bbe0a6fdaf52431f4	text/csv	Toy expression values (TPM)
+

@@ -1,3 +1,7 @@
+"use client";
+
+import FeedbackForm from '../../components/FeedbackForm';
+
 export const metadata = {
   title: "Early Access - FAIRy by Datadabra",
   description: "Request early access to FAIRy Campus. Join our pilot program for institutions and get priority support for your research data workflows."
@@ -16,6 +20,12 @@ export default function EarlyAccessPage() {
           Get priority support and help shape the future of research data validation.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/demo" 
+            className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
+          >
+            Request Demo
+          </a>
           <a 
             href="#pilot-form" 
             className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
@@ -69,263 +79,8 @@ export default function EarlyAccessPage() {
       <section className="mb-16" id="pilot-form">
         <h2 className="text-2xl font-semibold mb-8 text-center">Request Pilot Access</h2>
         <div className="max-w-2xl mx-auto">
-          <form className="space-y-6">
-            {/* Institution Information */}
-            <div className="bg-zinc-50 p-6 rounded-lg">
-              <h3 className="font-semibold mb-4">Institution Information</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="institution" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Institution Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="institution"
-                    name="institution"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Stanford University"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="department" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Department/Unit
-                  </label>
-                  <input
-                    type="text"
-                    id="department"
-                    name="department"
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Research Data Management"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="institution-type" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Institution Type *
-                  </label>
-                  <select
-                    id="institution-type"
-                    name="institution-type"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Select type</option>
-                    <option value="university">University</option>
-                    <option value="research-institute">Research Institute</option>
-                    <option value="government">Government Agency</option>
-                    <option value="hospital">Hospital/Medical Center</option>
-                    <option value="corporate">Corporate R&D</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="country" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Country *
-                  </label>
-                  <input
-                    type="text"
-                    id="country"
-                    name="country"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="United States"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="bg-zinc-50 p-6 rounded-lg">
-              <h3 className="font-semibold mb-4">Contact Information</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Dr. Jane Smith"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="title" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Job Title *
-                  </label>
-                  <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Research Data Manager"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="jane.smith@university.edu"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="+1 (555) 123-4567"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Use Case Information */}
-            <div className="bg-zinc-50 p-6 rounded-lg">
-              <h3 className="font-semibold mb-4">Use Case Information</h3>
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="use-case" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Primary Use Case *
-                  </label>
-                  <select
-                    id="use-case"
-                    name="use-case"
-                    required
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Select primary use case</option>
-                    <option value="geo-submissions">GEO submissions</option>
-                    <option value="zenodo-submissions">Zenodo submissions</option>
-                    <option value="institutional-repo">Institutional repository</option>
-                    <option value="compliance">Compliance and audit</option>
-                    <option value="bulk-processing">Bulk data processing</option>
-                    <option value="custom-validation">Custom validation rules</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="data-volume" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Expected Data Volume
-                  </label>
-                  <select
-                    id="data-volume"
-                    name="data-volume"
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Select volume range</option>
-                    <option value="small">&lt; 100 datasets/year</option>
-                    <option value="medium">100-1000 datasets/year</option>
-                    <option value="large">1000-10000 datasets/year</option>
-                    <option value="enterprise">&gt; 10000 datasets/year</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Implementation Timeline
-                  </label>
-                  <select
-                    id="timeline"
-                    name="timeline"
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Select timeline</option>
-                    <option value="immediate">Immediate (within 1 month)</option>
-                    <option value="short">Short-term (1-3 months)</option>
-                    <option value="medium">Medium-term (3-6 months)</option>
-                    <option value="long">Long-term (6+ months)</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="requirements" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Specific Requirements
-                  </label>
-                  <textarea
-                    id="requirements"
-                    name="requirements"
-                    rows={4}
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Describe any specific requirements, integrations, or customizations needed..."
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Technical Requirements */}
-            <div className="bg-zinc-50 p-6 rounded-lg">
-              <h3 className="font-semibold mb-4">Technical Requirements</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-2">
-                    Integration Requirements (select all that apply)
-                  </label>
-                  <div className="space-y-2">
-                    <label className="flex items-center">
-                      <input type="checkbox" name="integration" value="sso" className="mr-2" />
-                      <span className="text-sm">SSO/SAML integration</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="integration" value="ldap" className="mr-2" />
-                      <span className="text-sm">LDAP/Active Directory</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="integration" value="api" className="mr-2" />
-                      <span className="text-sm">API integration</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="integration" value="siem" className="mr-2" />
-                      <span className="text-sm">SIEM logging</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" name="integration" value="custom" className="mr-2" />
-                      <span className="text-sm">Custom integrations</span>
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="deployment" className="block text-sm font-medium text-zinc-700 mb-2">
-                    Preferred Deployment
-                  </label>
-                  <select
-                    id="deployment"
-                    name="deployment"
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Select deployment preference</option>
-                    <option value="cloud">Cloud-hosted</option>
-                    <option value="on-premise">On-premise</option>
-                    <option value="hybrid">Hybrid</option>
-                    <option value="no-preference">No preference</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            <div className="text-center">
-              <button
-                type="submit"
-                className="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
-              >
-                Submit Pilot Request
-              </button>
-              <p className="text-sm text-zinc-500 mt-4">
-                We'll review your request and get back to you within 2 business days.
-              </p>
-            </div>
-          </form>
+          <div className="space-y-6">
+            <FeedbackForm formType="pilot" />
         </div>
       </section>
 

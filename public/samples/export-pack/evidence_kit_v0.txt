@@ -1,0 +1,15 @@
+Evidence Kit — Sample (FAIRy)
+Dataset: Toy Gene Expression Dataset (Sample for FAIRy)
+Created: 2025-10-12T16:33:23Z
+Rulepack: fairy-rules-2025.10.0
+Repository Dry-Run: Zenodo (example) — status: pass
+Attestations:
+- Dates normalized to ISO 8601
+- Units standardized (TPM example)
+- ORCIDs present and well-formed
+- SHA-256 checksums included for data files
+Files & Hashes:
+data/samples.csv | 720527f55629... | 279 bytes
+data/measurements.csv | e045f8bebabf... | 167 bytes
+Note: This is illustrative; production evidence kits include a signed JSON.
+
