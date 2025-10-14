@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import FeedbackForm from '../../components/FeedbackForm';
+// import FeedbackForm from '../../components/FeedbackForm';
 import { trackCTA } from '../../components/CTATracking';
 
 export default function InstitutionsPage() {

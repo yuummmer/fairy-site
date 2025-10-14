@@ -44,19 +44,16 @@ export function useCTATracking() {
 }
 
 // Higher-order component for automatic CTA tracking
-export function withCTATracking<T extends React.ComponentType<any>>(
-  Component: T,
+export function withCTATracking<TProps>(
+  Component: React.ComponentType<TProps & { onClick?: (e: React.MouseEvent) => void }>,
   action: string,
   label: string
-): T {
-  return ((props: any) => {
+): React.ComponentType<TProps> {
+  return function Wrapped(props: TProps) {
     const handleClick = (e: React.MouseEvent) => {
       trackCTA(action, label);
-      if (props.onClick) {
-        props.onClick(e);
-      }
+      (props as any).onClick?.(e);
     };
-    
-    return <Component {...props} onClick={handleClick} />;
-  }) as T;
+    return <Component {...(props as TProps)} onClick={handleClick} />;
+  };
 }

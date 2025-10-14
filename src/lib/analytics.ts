@@ -10,7 +10,8 @@ export type AnalyticsEventName =
 
 export function track(eventName: AnalyticsEventName, props?: Record<string, unknown>) {
   try {
-    (window as any).plausible?.(eventName, { props });
+    const plausible = (window as unknown as { plausible?: (name: string, data?: { props?: Record<string, unknown> }) => void }).plausible;
+    plausible?.(eventName, { props });
   } catch {
     // no-op in SSR or if plausible not loaded
   }
