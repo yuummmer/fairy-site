@@ -30,9 +30,9 @@ function doPost(e) {
     // Prepare the row data
     const timestamp = new Date();
     const email = data.email || '';
-    const userType = data.userType || '';
-    const utmSource = data.utmSource || '';
-    const formType = data.formType || '';
+    const userType = data.user_type || '';
+    const utmSource = data.utm_source || '';
+    const formType = data.form_type || '';
     
     // Convert additional data to JSON string
     const additionalData = JSON.stringify(data.additionalData || {});
