@@ -21,26 +21,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>
-            <div className="flex gap-6 text-sm items-center">
-              <div className="relative group">
-                <button className="flex items-center gap-1 hover:text-zinc-600 transition-colors">
-                  Products
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-zinc-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="py-2">
-                    <a href="/geo-precheck" className="block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors">GEO Pre-check</a>
-                    <a href="/zenodo-precheck" className="block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors">Zenodo Pre-check</a>
-                    <a href="/export-pack" className="block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors">Export Pack</a>
-                    <a href="/platform" className="block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors">Platform</a>
-                    <a href="/security" className="block px-4 py-2 text-sm hover:bg-zinc-50 transition-colors">Security</a>
-                  </div>
-                </div>
-              </div>
+            <div className="flex gap-6 text-sm">
+              <a href="/geo-precheck">GEO Pre-check</a>
+              <a href="/zenodo-precheck">Zenodo Pre-check</a>
+              <a href="/export-pack">Export Pack</a>
+              <a href="/platform">Platform</a>
+              <a href="/security">Security</a>
               <a href="/resources">Resources</a>
-              <a href="/early-access" className="px-3 py-1.5 rounded-full bg-black text-white hover:bg-zinc-900 transition-colors">Early access</a>
+              <a href="/early-access" className="px-3 py-1.5 rounded-full bg-black text-white">Early access</a>
             </div>
           </nav>
         </header>
