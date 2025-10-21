@@ -210,6 +210,65 @@ export default function GeoPrecheckPage() {
           color: #4c1d95;
         }
         
+        /* Additional classes for remaining Tailwind compatibility */
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-1 > * + * { margin-top: 0.25rem; }
+        .border { border: 1px solid #e9d5ff; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .p-6 { padding: 1.5rem; }
+        .bg-white { background-color: white; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .gap-3 { gap: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .w-8 { width: 2rem; }
+        .h-8 { height: 2rem; }
+        .bg-purple-100 { background-color: #f3e8ff; }
+        .text-lg { font-size: 1.125rem; }
+        .font-semibold { font-weight: 600; }
+        .grid { display: grid; }
+        .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .gap-6 { gap: 1.5rem; }
+        .font-medium { font-weight: 500; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .text-zinc-900 { color: #4c1d95; }
+        .text-sm { font-size: 0.875rem; }
+        .text-zinc-700 { color: #6b46c1; }
+        .max-w-4xl { max-width: 56rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .text-center { text-align: center; }
+        .mb-8 { margin-bottom: 2rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .bg-zinc-900 { background-color: #4c1d95; }
+        .text-white { color: white; }
+        .p-8 { padding: 2rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .font-semibold { font-weight: 600; }
+        .mb-4 { margin-bottom: 1rem; }
+        .text-zinc-300 { color: #e0e7ff; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .max-w-2xl { max-width: 42rem; }
+        .flex-col { flex-direction: column; }
+        .sm\\:flex-row { flex-direction: row; }
+        .justify-center { justify-content: center; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .bg-white { background-color: white; }
+        .text-zinc-900 { color: #4c1d95; }
+        .hover\\:bg-zinc-100:hover { background-color: #f3f4f6; }
+        .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .border-zinc-600 { border-color: #6b46c1; }
+        .hover\\:bg-zinc-800:hover { background-color: #6b46c1; }
+        .text-zinc-300 { color: #e0e7ff; }
+        .hover\\:text-white:hover { color: white; }
+        .font-medium { font-weight: 500; }
+        .mt-6 { margin-top: 1.5rem; }
+        .text-purple-700 { color: #7c3aed; }
+        .hover\\:text-purple-800:hover { color: #6d28d9; }
+        
         @media (max-width: 768px) {
           .hero h1 {
             font-size: 2rem;
@@ -232,6 +291,14 @@ export default function GeoPrecheckPage() {
             width: 100%;
             max-width: 300px;
             justify-content: center;
+          }
+          
+          .md\\:grid-cols-2 {
+            grid-template-columns: 1fr;
+          }
+          
+          .sm\\:flex-row {
+            flex-direction: column;
           }
         }
       `}</style>
