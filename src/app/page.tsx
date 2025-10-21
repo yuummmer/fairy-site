@@ -397,49 +397,6 @@ export default function Page() {
               </a>
             </div>
             
-            {/* Minimalist Process Flow */}
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              gap: '1rem', 
-              marginTop: '2rem',
-              fontSize: '1.5rem'
-            }}>
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.5rem',
-                color: '#4c1d95'
-              }}>
-                <span style={{ fontSize: '1.25rem' }}>📁</span>
-                <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Drop</span>
-              </div>
-              
-              <div style={{ color: '#c4b5fd', fontSize: '1rem' }}>→</div>
-              
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.5rem',
-                color: '#4c1d95'
-              }}>
-                <span style={{ fontSize: '1.25rem' }}>🔧</span>
-                <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Fix</span>
-              </div>
-              
-              <div style={{ color: '#c4b5fd', fontSize: '1rem' }}>→</div>
-              
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.5rem',
-                color: '#4c1d95'
-              }}>
-                <span style={{ fontSize: '1.25rem' }}>📤</span>
-                <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>Export</span>
-              </div>
-            </div>
           </div>
         </section>
 
