@@ -587,7 +587,7 @@ export default function InstitutionsPage() {
               
               <div style={{ textAlign: 'center' }}>
                 <a 
-                  href="https://forms.google.com/your-survey-link" 
+                  href="https://forms.gle/mALqVs2Y26SS5wRr8" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn-primary"
