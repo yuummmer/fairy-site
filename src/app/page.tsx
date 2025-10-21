@@ -301,26 +301,6 @@ export default function Page() {
           text-align: center;
         }
         
-        .social-proof {
-          padding: 3.75rem 0;
-          background-color: #faf5ff;
-          text-align: center;
-        }
-        
-        .logos-grid {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 2.5rem;
-          flex-wrap: wrap;
-          opacity: 0.6;
-        }
-        
-        .logo-item {
-          font-size: 1.125rem;
-          font-weight: 500;
-          color: #6b46c1;
-        }
         
         .footer {
           padding: 2.5rem 0;
@@ -805,19 +785,6 @@ export default function Page() {
             </a>
         </div>
       </section>
-
-        {/* Social Proof */}
-        <section className="social-proof">
-          <div className="container">
-            <div className="logos-grid">
-              <div className="logo-item">GEO</div>
-              <div className="logo-item">Zenodo</div>
-              <div className="logo-item">ORCID</div>
-              <div className="logo-item">OpenAlex</div>
-              <div className="logo-item">Built with Python</div>
-            </div>
-          </div>
-        </section>
 
     </main>
     </>
