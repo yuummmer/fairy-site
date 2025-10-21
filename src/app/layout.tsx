@@ -1,6 +1,6 @@
 export const metadata = {
   title: "FAIRy by Datadabra",
-  description: "Fix your data before you submit—local, open, fast." 
+  description: "Fix your data before you submit—local, open, fast."
 };
 
 import AnalyticsBindings from "../components/AnalyticsBindings";
