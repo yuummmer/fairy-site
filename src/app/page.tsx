@@ -819,20 +819,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="footer">
-          <div className="container">
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <a href="/privacy" className="footer-link">Privacy</a>
-              <span aria-hidden style={{ color: '#a78bfa' }}>·</span>
-              <a href="https://github.com/your-org/fairy" className="footer-link">GitHub</a>
-              <span aria-hidden style={{ color: '#a78bfa' }}>·</span>
-              <a href="mailto:hello@fairy.dev" className="footer-link">Email</a>
-              <span aria-hidden style={{ color: '#a78bfa' }}>·</span>
-              <span className="footer-copyright">© 2024 FAIRy. All rights reserved.</span>
-            </div>
-          </div>
-        </footer>
     </main>
     </>
   );

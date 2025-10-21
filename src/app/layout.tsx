@@ -37,26 +37,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer (company-forward) */}
         <footer className="mx-auto max-w-6xl px-4 py-16 text-sm text-zinc-600">
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2">
               <div className="font-semibold text-zinc-900">Datadabra</div>
               <p className="mt-2 max-w-md">
                 Building local-first tools that make research data FAIR—starting with <a href="/" className="underline text-zinc-900">FAIRy</a>.
               </p>
               <p className="mt-3 text-xs">Made in the Bay Area.</p>
-            </div>
-
-            <div>
-              <div className="font-medium text-zinc-900">Product</div>
-              <ul className="mt-3 space-y-2">
-                <li><a className="hover:underline" href="/geo-precheck">GEO Pre-check</a></li>
-                <li><a className="hover:underline" href="/zenodo-precheck">Zenodo Pre-check</a></li>
-                <li><a className="hover:underline" href="/export-pack">Export Pack</a></li>
-                <li><a className="hover:underline" href="/platform">Platform</a></li>
-                <li><a className="hover:underline" href="/security">Security</a></li>
-                <li><a className="hover:underline" href="/resources">Resources</a></li>
-                <li><a className="hover:underline" href="/early-access">Early access</a></li>
-              </ul>
             </div>
 
             <div>
