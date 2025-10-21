@@ -1,3 +1,5 @@
+"use client";
+
 export const metadata = {
   title: "GEO pre-check - FAIRy by Datadabra",
   description: "Pre-validate your datasets for GEO submission. Check dates, units, IDs, and metadata compliance before uploading to Gene Expression Omnibus."
@@ -7,46 +9,274 @@ export const metadata = {
 
 export default function GeoPrecheckPage() {
   return (
-    <main className="py-16">
+    <>
+      <style jsx global>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+          color: #4c1d95;
+          background-color: #faf5ff;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+        
+        .hero {
+          padding: 5rem 0;
+          text-align: center;
+          background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+        }
+        
+        .hero h1 {
+          font-size: 3rem;
+          font-weight: 700;
+          color: #4c1d95;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+        }
+        
+        .hero .subheadline {
+          font-size: 1.25rem;
+          color: #6b46c1;
+          margin-bottom: 2.5rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 3.75rem;
+        }
+        
+        .btn-primary {
+          background-color: #7c3aed;
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+          background-color: #6d28d9;
+          transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+          background-color: transparent;
+          color: #6b46c1;
+          padding: 1rem 2rem;
+          border: 2px solid #c4b5fd;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+          border-color: #7c3aed;
+          color: #7c3aed;
+        }
+        
+        .section {
+          padding: 5rem 0;
+          background-color: #faf5ff;
+        }
+        
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #4c1d95;
+          text-align: center;
+          margin-bottom: 3.75rem;
+        }
+        
+        .feature-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+          background: #f8fafc;
+          border: 1px solid #e9d5ff;
+          border-radius: 0.75rem;
+          padding: 1.5rem;
+        }
+        
+        .feature-card h4 {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #4c1d95;
+          margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p {
+          color: #6b46c1;
+          font-size: 0.875rem;
+          margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+          background: #4c1d95;
+          color: white;
+          padding: 3rem 0;
+          text-align: center;
+        }
+        
+        .cta-section h2 {
+          font-size: 2rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+          color: #e0e7ff;
+          margin-bottom: 1.5rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .cta-buttons-dark {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        
+        .btn-white {
+          background-color: white;
+          color: #4c1d95;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+        }
+        
+        .btn-white:hover {
+          background-color: #f3f4f6;
+          transform: translateY(-1px);
+        }
+        
+        .btn-outline {
+          background-color: transparent;
+          color: white;
+          padding: 1rem 2rem;
+          border: 2px solid #e0e7ff;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+        }
+        
+        .btn-outline:hover {
+          background-color: #e0e7ff;
+          color: #4c1d95;
+        }
+        
+        @media (max-width: 768px) {
+          .hero h1 {
+            font-size: 2rem;
+          }
+          
+          .hero .subheadline {
+            font-size: 1.125rem;
+          }
+          
+          .cta-buttons,
+          .cta-buttons-dark {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .btn-primary,
+          .btn-secondary,
+          .btn-white,
+          .btn-outline {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+          }
+        }
+      `}</style>
+      
+      <main>
       {/* Hero */}
-      <div className="text-center mb-16">
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center">
+        <section className="hero">
+          <div className="container">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{ width: '4rem', height: '4rem', backgroundColor: '#f3e8ff', borderRadius: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>
             🧬
           </div>
-          <h1 className="text-4xl font-bold text-zinc-900 tracking-tight">
-            GEO pre-check
-          </h1>
+              <h1>GEO pre-check</h1>
         </div>
-        <p className="text-xl text-zinc-600 max-w-3xl mx-auto mb-8">
+            <p className="subheadline">
           Validate your datasets for Gene Expression Omnibus submission. 
           Check dates, units, IDs, and metadata compliance before uploading.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="cta-buttons">
           <a 
             href="/samples/export-pack/evidence_kit_v0.txt" 
             data-analytics-event="open_evidence"
-            className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-zinc-900 transition-colors"
+                className="btn-primary"
           >
             See sample evidence
           </a>
           <a 
             href="/export-pack#zip-contents" 
             data-analytics-event="view_export_pack"
-            className="px-6 py-3 border border-zinc-300 text-zinc-900 rounded-lg font-medium hover:bg-zinc-50 transition-colors"
+                className="btn-secondary"
           >
             Sample export pack
           </a>
         </div>
       </div>
+        </section>
 
       {/* GEO Requirements Overview */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-8 text-center">GEO submission requirements</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-6 rounded-lg border bg-white">
-            <h3 className="font-semibold mb-4 text-zinc-900">What GEO checks</h3>
-            <ul className="space-y-2 text-sm text-zinc-700">
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">GEO submission requirements</h2>
+            <div className="feature-grid">
+              <div className="feature-card">
+                <h4>What GEO checks</h4>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
               <li>• Date format consistency (ISO 8601 preferred)</li>
               <li>• Unit standardization across samples</li>
               <li>• Sample ID uniqueness and format</li>
@@ -55,9 +285,9 @@ export default function GeoPrecheckPage() {
               <li>• Data matrix structure validation</li>
             </ul>
           </div>
-          <div className="p-6 rounded-lg border bg-white">
-            <h3 className="font-semibold mb-4 text-zinc-900">Common submission failures</h3>
-            <ul className="space-y-2 text-sm text-zinc-700">
+              <div className="feature-card">
+                <h4>Common submission failures</h4>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
               <li>• Inconsistent date formats (MM/DD/YYYY vs DD/MM/YYYY)</li>
               <li>• Mixed units (mg vs mg/mL vs mg/ml)</li>
               <li>• Duplicate or invalid sample IDs</li>
@@ -65,14 +295,15 @@ export default function GeoPrecheckPage() {
               <li>• Incorrect file naming conventions</li>
               <li>• Malformed data matrices</li>
             </ul>
+              </div>
           </div>
         </div>
       </section>
 
-      {/* Detailed Checklist */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-8 text-center">GEO pre-check checklist</h2>
-        <div className="max-w-4xl mx-auto">
+        {/* Detailed Checklist */}
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">GEO pre-check checklist</h2>
           <div className="space-y-6">
             {/* Date Validation */}
             <div className="border rounded-lg p-6 bg-white">
