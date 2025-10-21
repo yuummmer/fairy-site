@@ -37,22 +37,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer (company-forward) */}
         <footer className="mx-auto max-w-6xl px-4 py-16 text-sm text-zinc-600">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2">
             <div className="md:col-span-2">
               <div className="font-semibold text-zinc-900">Datadabra</div>
               <p className="mt-2 max-w-md">
                 Building local-first tools that make research data FAIR—starting with <a href="/" className="underline text-zinc-900">FAIRy</a>.
               </p>
               <p className="mt-3 text-xs">Made in the Bay Area.</p>
-            </div>
-
-            <div>
-              <div className="font-medium text-zinc-900">Company</div>
-              <ul className="mt-3 space-y-2">
-                <li><a className="hover:underline" href="mailto:hello@datadabra.com">Contact</a></li>
-                <li><a className="hover:underline" href="#" aria-disabled>Blog</a></li>
-                <li><a className="hover:underline" href="#" aria-disabled>Press</a></li>
-              </ul>
             </div>
           </div>
 
