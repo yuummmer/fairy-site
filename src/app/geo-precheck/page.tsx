@@ -3,6 +3,8 @@ export const metadata = {
   description: "Pre-validate your datasets for GEO submission. Check dates, units, IDs, and metadata compliance before uploading to Gene Expression Omnibus."
 };
 
+// server component; use data attributes for analytics
+
 export default function GeoPrecheckPage() {
   return (
     <main className="py-16">
@@ -37,6 +39,40 @@ export default function GeoPrecheckPage() {
           </a>
         </div>
       </div>
+
+      {/* GEO Requirements Overview */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-8 text-center">GEO submission requirements</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="p-6 rounded-lg border bg-white">
+            <h3 className="font-semibold mb-4 text-zinc-900">What GEO checks</h3>
+            <ul className="space-y-2 text-sm text-zinc-700">
+              <li>• Date format consistency (ISO 8601 preferred)</li>
+              <li>• Unit standardization across samples</li>
+              <li>• Sample ID uniqueness and format</li>
+              <li>• Metadata completeness and accuracy</li>
+              <li>• File format compatibility</li>
+              <li>• Data matrix structure validation</li>
+            </ul>
+          </div>
+          <div className="p-6 rounded-lg border bg-white">
+            <h3 className="font-semibold mb-4 text-zinc-900">Common submission failures</h3>
+            <ul className="space-y-2 text-sm text-zinc-700">
+              <li>• Inconsistent date formats (MM/DD/YYYY vs DD/MM/YYYY)</li>
+              <li>• Mixed units (mg vs mg/mL vs mg/ml)</li>
+              <li>• Duplicate or invalid sample IDs</li>
+              <li>• Missing required metadata fields</li>
+              <li>• Incorrect file naming conventions</li>
+              <li>• Malformed data matrices</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Checklist */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-8 text-center">GEO pre-check checklist</h2>
+        <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             {/* Date Validation */}
             <div className="border rounded-lg p-6 bg-white">
