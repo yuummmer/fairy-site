@@ -35,7 +35,7 @@ function doPost(e) {
     const formType = data.form_type || '';
     
     // Convert additional data to JSON string
-    const additionalData = JSON.stringify(data.additionalData || {});
+    const additionalData = JSON.stringify(data.additional_data || {});
     
     // Add the new row
     sheet.appendRow([
