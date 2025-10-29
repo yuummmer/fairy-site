@@ -93,3 +93,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# slide deck template files (not for version control)
+slide-deck-template.html
+fairy-slide-deck.pdf
+convert_to_pdf.py
+SLIDE_DECK_README.md
+GOOGLE_SLIDES_TEMPLATE_GUIDE.md
