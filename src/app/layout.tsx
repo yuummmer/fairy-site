@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/zenodo-precheck">Zenodo Pre-check</a>
               <a href="/export-pack">Export Pack</a>
               <a href="/platform">Platform</a>
+              <a href="/docs">Docs</a>
               <a href="/security">Security</a>
               <a href="/resources">Resources</a>
               <a href="/early-access" className="px-3 py-1.5 rounded-full bg-black text-white hover:bg-zinc-900 transition-colors">Early access</a>

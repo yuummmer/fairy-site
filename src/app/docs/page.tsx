@@ -1,6 +1,41 @@
 "use client";
 
+import React, { useEffect, useState } from 'react';
+
 export default function Documentation() {
+  const [activeId, setActiveId] = useState<string>("checks");
+
+  useEffect(() => {
+    const sectionIds = ["checks", "coming-next", "data-handling", "contact"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop);
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        } else {
+          // fallback: find the section closest above viewport
+          const scrollY = window.scrollY + 120; // header offset
+          let current = sections[0].id;
+          for (const s of sections) {
+            if (s.offsetTop <= scrollY) current = s.id;
+          }
+          setActiveId(current);
+        }
+      },
+      { rootMargin: "-120px 0px -60% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
       <style jsx global>{`
@@ -14,54 +49,76 @@ export default function Documentation() {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
           font-size: 16px;
           line-height: 1.6;
-          color: #334155;
-          background-color: #ffffff;
+          color: #4c1d95;
+          background-color: #faf5ff;
         }
         
         .container {
-          max-width: 1000px;
+          max-width: 1200px;
           margin: 0 auto;
           padding: 0 24px;
         }
         
+        .docs-layout {
+          display: grid;
+          grid-template-columns: 260px 1fr;
+          gap: 32px;
+        }
+        
+        .sidebar {
+          position: sticky;
+          top: 84px; /* below site header */
+          align-self: start;
+          height: max-content;
+        }
+        
+        .sidebar-title {
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: #6b46c1;
+          margin-bottom: 8px;
+        }
+        
+        .sidebar-nav {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          border-left: 2px solid #e9d5ff;
+          padding-left: 12px;
+        }
+        
+        .sidebar-link {
+          color: #6b46c1;
+          text-decoration: none;
+          padding: 6px 4px;
+          border-radius: 8px;
+          transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .sidebar-link:hover { color: #7c3aed; background-color: #f3e8ff; }
+        .sidebar-link.active { color: #7c3aed; font-weight: 600; }
+        
         .header {
           padding: 40px 0;
-          border-bottom: 2px solid #e2e8f0;
+          border-bottom: 2px solid #e9d5ff;
           margin-bottom: 40px;
         }
         
         .header h1 {
           font-size: 2rem;
           font-weight: 700;
-          color: #0f172a;
+          color: #4c1d95;
           margin-bottom: 8px;
         }
         
         .header .subtitle {
-          color: #64748b;
+          color: #6b46c1;
           font-size: 1.125rem;
         }
         
-        .nav-links {
-          display: flex;
-          gap: 24px;
-          margin-bottom: 40px;
-          flex-wrap: wrap;
-        }
-        
-        .nav-link {
-          color: #64748b;
-          text-decoration: none;
-          font-weight: 500;
-          padding: 8px 16px;
-          border-radius: 8px;
-          transition: all 0.2s ease;
-        }
-        
-        .nav-link:hover {
-          color: #059669;
-          background-color: #f0fdf4;
-        }
+        /* legacy top nav (hidden on desktop; used on mobile) */
+        .nav-links { display: none; }
+        .nav-link { color: #6b46c1; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+        .nav-link:hover { color: #7c3aed; background-color: #f3e8ff; }
         
         .section {
           margin-bottom: 60px;
@@ -70,13 +127,13 @@ export default function Documentation() {
         .section-title {
           font-size: 1.75rem;
           font-weight: 600;
-          color: #0f172a;
+          color: #4c1d95;
           margin-bottom: 24px;
           padding-top: 20px;
         }
         
         .section-content {
-          color: #475569;
+          color: #6b46c1;
           line-height: 1.7;
         }
         
@@ -94,8 +151,8 @@ export default function Documentation() {
         }
         
         .highlight-box {
-          background-color: #f8fafc;
-          border: 2px solid #e2e8f0;
+          background-color: #f3e8ff;
+          border: 2px solid #e9d5ff;
           border-radius: 12px;
           padding: 24px;
           margin: 24px 0;
@@ -104,7 +161,7 @@ export default function Documentation() {
         .highlight-box h3 {
           font-size: 1.25rem;
           font-weight: 600;
-          color: #0f172a;
+          color: #4c1d95;
           margin-bottom: 16px;
         }
         
@@ -128,7 +185,7 @@ export default function Documentation() {
         
         .feature-card {
           background-color: #ffffff;
-          border: 2px solid #e2e8f0;
+          border: 2px solid #e9d5ff;
           border-radius: 12px;
           padding: 24px;
         }
@@ -136,12 +193,12 @@ export default function Documentation() {
         .feature-card h4 {
           font-size: 1.125rem;
           font-weight: 600;
-          color: #0f172a;
+          color: #4c1d95;
           margin-bottom: 12px;
         }
         
         .feature-card p {
-          color: #64748b;
+          color: #6b46c1;
           font-size: 0.875rem;
         }
         
@@ -155,18 +212,18 @@ export default function Documentation() {
         }
         
         .status-current {
-          background-color: #f0fdf4;
-          color: #166534;
+          background-color: #ede9fe;
+          color: #4c1d95;
         }
         
         .status-planned {
-          background-color: #fef3c7;
-          color: #92400e;
+          background-color: #f3e8ff;
+          color: #6b46c1;
         }
         
         .contact-section {
-          background-color: #f0fdf4;
-          border: 2px solid #bbf7d0;
+          background-color: #f3e8ff;
+          border: 2px solid #e9d5ff;
           border-radius: 18px;
           padding: 32px;
           text-align: center;
@@ -175,17 +232,17 @@ export default function Documentation() {
         .contact-title {
           font-size: 1.5rem;
           font-weight: 600;
-          color: #0f172a;
+          color: #4c1d95;
           margin-bottom: 16px;
         }
         
         .contact-text {
-          color: #374151;
+          color: #6b46c1;
           margin-bottom: 24px;
         }
         
         .btn-contact {
-          background-color: #059669;
+          background-color: #7c3aed;
           color: white;
           padding: 16px 32px;
           border-radius: 12px;
@@ -199,7 +256,7 @@ export default function Documentation() {
         }
         
         .btn-contact:hover {
-          background-color: #047857;
+          background-color: #6d28d9;
           transform: translateY(-1px);
         }
         
@@ -207,17 +264,22 @@ export default function Documentation() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          color: #64748b;
+          color: #6b46c1;
           text-decoration: none;
           font-weight: 500;
           margin-bottom: 24px;
         }
         
         .back-link:hover {
-          color: #059669;
+          color: #7c3aed;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+          .docs-layout { grid-template-columns: 1fr; }
+          .sidebar { position: relative; top: 0; border: none; }
+          .sidebar-nav { flex-direction: row; flex-wrap: wrap; border-left: none; padding-left: 0; gap: 8px; }
+          .sidebar-title { display: none; }
+          .nav-links { display: flex; gap: 12px; margin-bottom: 16px; }
           .nav-links {
             flex-direction: column;
             gap: 12px;
@@ -238,15 +300,27 @@ export default function Documentation() {
           <h1>FAIRy documentation</h1>
           <p className="subtitle">Everything you need to know about dataset validation</p>
         </div>
-        
-        <nav className="nav-links">
-          <a href="#checks" className="nav-link">What FAIRy checks</a>
-          <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
-          <a href="#data-handling" className="nav-link">Data handling</a>
-          <a href="#contact" className="nav-link">Contact</a>
-        </nav>
-        
-        <section id="checks" className="section">
+
+        <div className="docs-layout">
+          <aside className="sidebar" aria-label="On this page">
+            <div className="sidebar-title">On this page</div>
+            <nav className="sidebar-nav">
+              <a href="#checks" className={`sidebar-link ${activeId === 'checks' ? 'active' : ''}`}>What FAIRy checks</a>
+              <a href="#coming-next" className={`sidebar-link ${activeId === 'coming-next' ? 'active' : ''}`}>What&apos;s coming next</a>
+              <a href="#data-handling" className={`sidebar-link ${activeId === 'data-handling' ? 'active' : ''}`}>Data handling</a>
+              <a href="#contact" className={`sidebar-link ${activeId === 'contact' ? 'active' : ''}`}>Contact</a>
+            </nav>
+          </aside>
+
+          <div>
+            <nav className="nav-links" aria-label="On this page (mobile)">
+              <a href="#checks" className="nav-link">What FAIRy checks</a>
+              <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
+              <a href="#data-handling" className="nav-link">Data handling</a>
+              <a href="#contact" className="nav-link">Contact</a>
+            </nav>
+
+            <section id="checks" className="section">
           <h2 className="section-title">What FAIRy checks today</h2>
           <div className="section-content">
             <p>
@@ -281,9 +355,9 @@ export default function Documentation() {
               </ul>
             </div>
           </div>
-        </section>
-        
-        <section id="coming-next" className="section">
+            </section>
+            
+            <section id="coming-next" className="section">
           <h2 className="section-title">What&apos;s coming next</h2>
           <div className="section-content">
             <p>
@@ -332,10 +406,10 @@ export default function Documentation() {
                 # Generates: validation-report.html + manifest.json
               </div>
             </div>
-          </div>
-        </section>
-        
-        <section id="data-handling" className="section">
+              </div>
+            </section>
+            
+            <section id="data-handling" className="section">
           <h2 className="section-title">Data handling</h2>
           <div className="section-content">
             <p>
@@ -370,21 +444,23 @@ export default function Documentation() {
               <strong>Data retention:</strong> Uploaded data is automatically deleted after 
               validation completes. We never use your data for training or other purposes.
             </p>
+              </div>
+            </section>
+            
+            <section id="contact" className="section">
+              <div className="contact-section">
+                <h2 className="contact-title">Get involved</h2>
+                <p className="contact-text">
+                  Help shape FAIRy&apos;s development by sharing your feedback, 
+                  reporting issues, or requesting new features.
+                </p>
+                <a href="mailto:hello@fairy.dev" className="btn-contact">
+                  📧 Contact us
+                </a>
+              </div>
+            </section>
           </div>
-        </section>
-        
-        <section id="contact" className="section">
-          <div className="contact-section">
-            <h2 className="contact-title">Get involved</h2>
-            <p className="contact-text">
-              Help shape FAIRy&apos;s development by sharing your feedback, 
-              reporting issues, or requesting new features.
-            </p>
-            <a href="mailto:hello@fairy.dev" className="btn-contact">
-              📧 Contact us
-            </a>
-          </div>
-        </section>
+        </div>
       </div>
     </>
   );
