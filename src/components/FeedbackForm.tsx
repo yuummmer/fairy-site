@@ -123,7 +123,7 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
         setSubmitStatus('error');
         setErrorMessage(result.error || 'An error occurred. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
