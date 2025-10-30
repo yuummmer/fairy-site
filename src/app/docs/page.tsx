@@ -324,22 +324,20 @@ export default function Documentation() {
           <h2 className="section-title">What FAIRy checks today</h2>
           <div className="section-content">
             <p>
-              FAIRy currently provides comprehensive validation for two major research repositories:
+              FAIRy focuses on the common reasons datasets get delayed or rejected during submission. We&apos;re modeling these checks on patterns from public repositories like GEO and Zenodo.
             </p>
             
             <div className="feature-grid">
               <div className="feature-card">
                 <h4>GEO (Gene Expression Omnibus)</h4>
                 <p>
-                  Validates metadata completeness, file naming conventions, 
-                  platform specifications, and experimental design requirements.
+                  Checks for missing required fields, filename patterns that include the accession ID, basic platform / sample annotations, and other issues that commonly cause GEO submissions to bounce.
                 </p>
               </div>
               <div className="feature-card">
                 <h4>Zenodo</h4>
                 <p>
-                  Checks DOI requirements, license compliance, 
-                  file organization, and metadata standards.
+                  Flags missing descriptive metadata, unclear licensing, and file organization issues that make it hard to publish a clean record.
                 </p>
               </div>
             </div>
@@ -349,61 +347,63 @@ export default function Documentation() {
               <ul>
                 <li><strong>Metadata completeness:</strong> Required fields, data types, and format validation</li>
                 <li><strong>File organization:</strong> Naming conventions, directory structure, and file formats</li>
-                <li><strong>Repository-specific rules:</strong> Platform requirements, organism specifications, and experimental design</li>
+                <li><strong>Repository-style expectations:</strong> sample/platform annotations, organism/host fields, accession-aware filenames, and other elements commonly required at submission time</li>
                 <li><strong>Data integrity:</strong> Checksums, file sizes, and format validation</li>
-                <li><strong>Compliance:</strong> License requirements, DOI formatting, and policy adherence</li>
+                <li><strong>Reuse signals:</strong> license clarity, contact information, and basic attribution info so a curator (or future user) knows who to reach and how it can be shared</li>
               </ul>
             </div>
           </div>
             </section>
             
             <section id="coming-next" className="section">
-          <h2 className="section-title">What&apos;s coming next</h2>
+          <h2 className="section-title">What we&apos;re exploring with early partners</h2>
           <div className="section-content">
             <p>
-              We&apos;re actively developing support for additional repositories and enhanced validation capabilities:
+              We&apos;re scoping next steps with institutions to expand FAIRy&apos;s preflight checks to more data types, formats, and repositories.
             </p>
-            
+
             <div className="feature-grid">
               <div className="feature-card">
-                <h4>SRA/NCBI preflight checks <span className="status-badge status-planned">Planned</span></h4>
+                <h4>SRA / NCBI-style preflight</h4>
                 <p>
-                  Comprehensive validation for Sequence Read Archive submissions 
-                  including FASTQ quality checks and metadata requirements.
+                  Check that required metadata fields and filenames are present before attempting SRA submission.
                 </p>
+                <p><strong>Goal:</strong> catch missing sample / experiment / run info early so you don’t learn about it during upload.</p>
               </div>
               <div className="feature-card">
-                <h4>GFF3/FASTA validation <span className="status-badge status-planned">Planned</span></h4>
+                <h4>FASTA / GFF3 checks</h4>
                 <p>
-                  Specialized checks for genomic data formats including 
-                  sequence validation and annotation file compliance.
+                  Basic structural checks for common genomics formats (FASTA, GFF3): do the files parse, are the expected fields present, do IDs line up.
                 </p>
+                <p><strong>Goal:</strong> reduce back-and-forth on “the file won’t load” issues.</p>
               </div>
               <div className="feature-card">
-                <h4>Dryad integration <span className="status-badge status-planned">Planned</span></h4>
+                <h4>Generalist repository support</h4>
                 <p>
-                  Support for Dryad repository requirements including 
-                  data package validation and metadata standards.
+                  Extend preflight checks for generalist repositories (e.g. Dryad, Zenodo-style deposits): make sure descriptive metadata, licensing, and basic organization are present before packaging.
                 </p>
+                <p><strong>Goal:</strong> fewer “what is this / who owns this / can we even share this?” emails.</p>
               </div>
               <div className="feature-card">
-                <h4>Batch processing <span className="status-badge status-planned">Planned</span></h4>
+                <h4>Multi-dataset runs</h4>
                 <p>
-                  Validate multiple datasets simultaneously with 
-                  comprehensive reporting and progress tracking.
+                  Run the same preflight rules across many submissions and get a summary of which ones are missing required fields.
                 </p>
+                <p><strong>Goal:</strong> help cores / data offices apply consistent intake standards across labs.</p>
               </div>
             </div>
-            
+
             <div className="highlight-box">
-              <h3>Version 0.1 promise</h3>
-              <p>
-                Our first release focuses on delivering one core promise: 
-                <strong>One command → one report + manifest</strong>
-              </p>
-              <div className="code-block">
-                fairy validate ./my-dataset --repository geo<br/>
-                # Generates: validation-report.html + manifest.json
+              <h3>Core pilot promise</h3>
+              <p>FAIRy’s job is simple:</p>
+              <p><strong>One run →</strong> a human-readable readiness sheet (PASS / WARN / FAIL + how to fix) → plus a structured summary you can archive.</p>
+              <div className="code-block">fairy validate /path/to/dataset --out out/</div>
+              <div className="highlight-box">
+                <h4>Outputs</h4>
+                <ul>
+                  <li><code>readiness-report.html</code> — what to fix, in plain English</li>
+                  <li><code>validation-summary.json</code> — machine-readable summary</li>
+                </ul>
               </div>
             </div>
               </div>
@@ -412,38 +412,36 @@ export default function Documentation() {
             <section id="data-handling" className="section">
           <h2 className="section-title">Data handling</h2>
           <div className="section-content">
-            <p>
-              FAIRy is designed with privacy and security as core principles:
-            </p>
-            
+            <p>FAIRy is designed to respect institutional boundaries, sensitive data, and curator workload.</p>
+
             <div className="highlight-box">
-              <h3>Local-first approach</h3>
-              <p>
-                All validation happens on your device. Your data never leaves your computer 
-                unless you explicitly choose to upload it for processing.
-              </p>
+              <h3>Local-only processing</h3>
+              <p>All validation runs inside your environment (laptop, lab machine, core facility server, HPC cluster, etc.).</p>
+              <p>FAIRy does not send your raw data, filenames, sample IDs, coordinates, or metadata to us.</p>
             </div>
-            
+
             <div className="highlight-box">
-              <h3>Opt-in uploads</h3>
-              <p>
-                When you choose to upload data for enhanced processing, we use industry-standard 
-                encryption and never store your data longer than necessary for validation.
-              </p>
+              <h3>Institution control</h3>
+              <p>You decide where reports are written and who sees them. FAIRy produces:</p>
+              <ul>
+                <li>a human-readable readiness sheet (PASS / WARN / FAIL, why it matters, how to fix), and</li>
+                <li>a machine-readable summary.</li>
+              </ul>
+              <p>You can share those internally without sharing the underlying data.</p>
             </div>
-            
+
             <div className="highlight-box">
-              <h3>No tracking</h3>
-              <p>
-                Version 0.1 includes no analytics, tracking, or data collection beyond 
-                what you explicitly provide through forms or uploads.
-              </p>
+              <h3>No phoning home</h3>
+              <p>FAIRy does not collect usage analytics or send telemetry.</p>
+              <p>We don’t phone home with filenames, metadata, run logs, or error details.</p>
+              <p>The only information we receive is what you explicitly choose to send us (for example, if you fill out a pilot interest form).</p>
             </div>
-            
-            <p>
-              <strong>Data retention:</strong> Uploaded data is automatically deleted after 
-              validation completes. We never use your data for training or other purposes.
-            </p>
+
+            <div className="highlight-box">
+              <h3>Data use</h3>
+              <p>We do not use your datasets or metadata to train models or build products.</p>
+              <p>FAIRy is designed to be run locally so your data stays under your control.</p>
+            </div>
               </div>
             </section>
             
@@ -454,9 +452,7 @@ export default function Documentation() {
                   Help shape FAIRy&apos;s development by sharing your feedback, 
                   reporting issues, or requesting new features.
                 </p>
-                <a href="mailto:hello@fairy.dev" className="btn-contact">
-                  📧 Contact us
-                </a>
+                <a href="mailto:hello@datadabra.com" className="btn-contact">hello@datadabra.com</a>
               </div>
             </section>
           </div>
