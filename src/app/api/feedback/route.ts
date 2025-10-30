@@ -13,16 +13,16 @@ export async function POST(request: NextRequest) {
         { success: false, error: 'Name, title, email, and institution are required for demo requests' },
         { status: 400 }
       );
-    } else if (body.form_type !== 'demo' && !body.email) {
+    } else if (body.form_type !== 'demo' && body.form_type !== 'biofair_pilot_interest' && !body.email) {
       return NextResponse.json(
         { success: false, error: 'Email is required' },
         { status: 400 }
       );
     }
     
-    // Validate email format
+    // Validate email format if provided (some forms may omit email)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
+    if (body.email && !emailRegex.test(body.email)) {
       return NextResponse.json(
         { success: false, error: 'Invalid email format' },
         { status: 400 }
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     
     // Prepare data for Google Sheets
     const submissionData = {
-      email: body.email,
+      email: body.email || '',
       user_type: body.user_type || '',
       utm_source: body.utm_source || 'website',
       form_type: body.form_type || 'waitlist',
@@ -55,6 +55,11 @@ export async function POST(request: NextRequest) {
         compliance_requirements: body.compliance_requirements || '',
         current_workflow: body.current_workflow || '',
         biggest_challenge: body.biggest_challenge || '',
+        // BIOFAIR short inline form custom fields
+        org: body.org || body.institution || '',
+        role: body.role || body.title || '',
+        data_type: body.dataType || body.data_type || '',
+        pilot_readiness: body.willingToPilot || body.pilot_readiness || '',
         timestamp: new Date().toISOString(),
         user_agent: request.headers.get('user-agent') || '',
         ip_address: request.headers.get('x-forwarded-for') || 

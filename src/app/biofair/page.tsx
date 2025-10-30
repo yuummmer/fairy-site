@@ -6,24 +6,73 @@ export default function BiofairPage() {
   const [formData, setFormData] = useState({
     name: '',
     org: '',
+    role: '',
     dataType: '',
     willingToPilot: ''
   });
   const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // For now, just show success. Can wire to backend or Google Forms later.
-    setSubmitted(true);
-    // Optionally: redirect to Google Form or send to API
-    // window.location.href = 'YOUR_GOOGLE_FORM_URL';
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<{ [k: string]: string }>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+    // simple client-side validation
+    const errors: { [k: string]: string } = {};
+    if (!formData.name.trim()) errors.name = 'please enter your name';
+    if (!formData.org.trim()) errors.org = 'please enter your organization';
+    if (!formData.role.trim()) errors.role = 'please enter your role';
+    if (!formData.dataType.trim()) errors.dataType = 'please describe your data';
+    if (!formData.willingToPilot) errors.willingToPilot = 'please choose an option';
+    if (!email.trim()) errors.email = 'please enter your email';
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) errors.email = 'please enter a valid email';
+    }
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      setIsSubmitting(false);
+      return;
+    }
+    try {
+      const res = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form_type: 'biofair_pilot_interest',
+          utm_source: 'biofair',
+          name: formData.name,
+          org: formData.org,
+          role: formData.role,
+          dataType: formData.dataType,
+          willingToPilot: formData.willingToPilot,
+          email,
+          website: '' // honeypot left blank intentionally
+        })
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || 'Submission failed');
+      }
+      setSubmitted(true);
+      setFormData({ name: '', org: '', role: '', dataType: '', willingToPilot: '' });
+      setEmail('');
+      setFieldErrors({});
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -297,63 +346,117 @@ export default function BiofairPage() {
       <div className="container">
         {/* Hero Section */}
         <section className="hero">
-          <h1>BIOFAIR pilot interest</h1>
+          <h1>Help shape a “BIOFAIR-ready” preflight check</h1>
           <p className="subheadline">
-            FAIRy is a local preflight checker. We’re looking for 1–2 partners to co-develop tiny readiness rulepacks. As BIOFAIR publishes its roadmap, FAIRy can serve as a small, testable piece of it.
+            A tiny, local metadata preflight for your domain (wet lab, ecology, environmental sensing, biodiversity collections, etc.) and a feedback loop to the BIOFAIR community.
           </p>
         </section>
 
-        {/* Who We Need */}
+        {/* Who this is for */}
         <section className="content-section">
           <div className="section-inner">
-            <h2 className="section-title">Who we need (any domain welcome)</h2>
+            <h2 className="section-title">Who this is for</h2>
             <ul className="bullet-list">
               <li className="bullet-item">
-                <span className="bullet-text">Wet-lab people / cores who submit to GEO / ENA / Zenodo / etc.</span>
+                <span className="bullet-text">Sequencing cores / wet-lab researchers submitting to GEO/ENA/etc.</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Curators / data stewards</span>
+                <span className="bullet-text">Environmental monitoring / ecology / biodiversity data teams</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Pilots for institutions</span>
+                <span className="bullet-text">Collections managers / data stewards who get stuck cleaning other people’s spreadsheets</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Anyone who has to convince collaborators “no, we actually need ISO dates and site IDs, I’m not being difficult”</span>
               </li>
             </ul>
           </div>
         </section>
 
-        {/* What we're looking for */}
+        {/* What FAIRy does today */}
         <section className="content-section">
           <div className="section-inner">
-            <h2 className="section-title">What we're looking for from you</h2>
+            <h2 className="section-title">What FAIRy does today</h2>
             <ul className="bullet-list">
               <li className="bullet-item">
-                <span className="bullet-text">Let us run FAIRy on one small example dataset structure/metadata (no raw data).</span>
+                <span className="bullet-text">Runs locally / offline before you submit data anywhere</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Tell us where the checks are useless / missing.</span>
+                <span className="bullet-text">Checks basic metadata and structure</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Optional: help define 2–3 'must pass before upload' rules for your domain.</span>
+                <span className="bullet-text">Gives you PASS / WARN / FAIL with “why it matters” and “how to fix”</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Generates a shareable, data-free readiness sheet you can send to PIs, curators, or collaborators</span>
               </li>
             </ul>
           </div>
         </section>
 
-        {/* What You Get Back */}
+        {/* What I’m looking for now */}
         <section className="content-section">
           <div className="section-inner">
-            <h2 className="section-title">What you get back</h2>
+            <h2 className="section-title">What I’m looking for now</h2>
+            <p className="bullet-text" style={{ marginBottom: '1rem' }}>
+              I’m lining up 1–2 pilot partners in different domains to co-develop tiny “readiness rulepacks.”
+            </p>
+            <p className="bullet-text" style={{ marginBottom: '1rem' }}>
+              Here’s what that means:
+            </p>
             <ul className="bullet-list">
               <li className="bullet-item">
-                <span className="bullet-text">A shareable PASS/WARN/FAIL Markdown one-pager you can show to other collaborators / PIs / data stewards</span>
+                <span className="bullet-text">We write down the 5–7 “don’t publish without this” metadata fields you absolutely need in your world (e.g. stable sample/site ID, ISO date, location/site, method/instrument, contact).</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">A short writeup of top recurring failure modes (no private data) that you can reuse when you argue for better data practices internally</span>
+                <span className="bullet-text">FAIRy enforces that locally and generates a data-free PASS / WARN / FAIL sheet plus fix hints.</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Credit in the early 'BIOFAIR-ready preflight' draft</span>
+                <span className="bullet-text">You can attach that sheet to submissions, internal handoffs, data management plans, etc.</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">I’ll summarize the most common blockers (e.g. missing site coordinates, non-ISO dates, unclear method) and share those patterns — without your raw data — back to the BIOFAIR community as gap analysis.</span>
               </li>
             </ul>
+          </div>
+        </section>
+
+        
+
+        {/* What you get */}
+        <section className="content-section">
+          <div className="section-inner">
+            <h2 className="section-title">What you get</h2>
+            <ul className="bullet-list">
+              <li className="bullet-item">
+                <span className="bullet-text">A data-free readiness sheet (PASS / WARN / FAIL + how to fix) you can show to a PI, collaborator, repository, program officer, etc.</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">A short internal summary of the top recurring issues FAIRy found, which you can reuse when you argue for better upstream metadata practices.</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Acknowledgment as an early contributor when I circulate the first “BIOFAIR-ready preflight” pattern back to this community.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* How much time is this? */}
+        <section className="content-section">
+          <div className="section-inner">
+            <h2 className="section-title">How much time is this?</h2>
+            <ul className="bullet-list">
+              <li className="bullet-item">
+                <span className="bullet-text">Express (≈ 90 min, 1 week): tiny sample → one pass with FAIRy → readiness sheet.</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Standard (≈ 3–5 hrs, 2 weeks): one iterate-and-re-run loop + short “top blockers” summary.</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Deep-dive (≈ 6–8 hrs, 4 weeks): a couple of loops + a v0 rulepack draft and teaching note.</span>
+              </li>
+            </ul>
+            <p className="bullet-text" style={{ marginTop: '0.75rem' }}>No raw data needed. We can do this mostly async; calls optional.</p>
           </div>
         </section>
 
@@ -362,10 +465,7 @@ export default function BiofairPage() {
           <div className="contact-inner">
             <h2 className="section-title" style={{ textAlign: 'center' }}>Get in touch</h2>
             
-            <div className="contact-email">
-              <p style={{ marginBottom: '0.5rem', color: '#6b46c1' }}>Email us directly:</p>
-              <a href="mailto:hello@datadabra.com">hello@datadabra.com</a>
-            </div>
+            {/* Email instruction moved below the form per request */}
 
             <div className="biofair-form">
               {submitted ? (
@@ -375,6 +475,9 @@ export default function BiofairPage() {
               ) : (
                 <>
                   <form onSubmit={handleSubmit}>
+                    <p style={{ marginBottom: '0.75rem', color: '#6b46c1', textAlign: 'center' }}>Interested in being a pilot partner?</p>
+                    <p style={{ marginBottom: '1rem', color: '#6b46c1', textAlign: 'center' }}>Tell us a little bit and we’ll follow up.</p>
+
                     <div className="form-group">
                       <label htmlFor="name" className="form-label">Name</label>
                       <input
@@ -386,10 +489,11 @@ export default function BiofairPage() {
                         onChange={handleChange}
                         required
                       />
+                      {fieldErrors.name && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.name}</div>}
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="org" className="form-label">Organization</label>
+                      <label htmlFor="org" className="form-label">Organization / lab / team</label>
                       <input
                         type="text"
                         id="org"
@@ -399,32 +503,48 @@ export default function BiofairPage() {
                         onChange={handleChange}
                         required
                       />
+                      {fieldErrors.org && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.org}</div>}
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="dataType" className="form-label">Data type</label>
+                      <label htmlFor="role" className="form-label">Role</label>
                       <input
                         type="text"
+                        id="role"
+                        name="role"
+                        className="form-input"
+                        value={formData.role}
+                        onChange={handleChange}
+                        placeholder="e.g., researcher, data steward, core facility manager"
+                        required
+                      />
+                      {fieldErrors.role && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.role}</div>}
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="dataType" className="form-label">What kind of data do you manage? <span style={{ fontWeight: 'normal' }}>(RNA-seq? soil metagenomics? sensor data? biodiversity surveys? remote sensing products?)</span></label>
+                      <textarea
                         id="dataType"
                         name="dataType"
                         className="form-input"
                         value={formData.dataType}
                         onChange={handleChange}
-                        placeholder="e.g., RNA-seq, metagenomics, ecological surveys"
+                        rows={3}
                         required
                       />
+                      {fieldErrors.dataType && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.dataType}</div>}
                     </div>
 
                     <div className="form-group">
-                      <label className="form-label">Willing to pilot?</label>
-                      <div className="form-radio-group">
+                      <label className="form-label" id="pilot-readiness-label">Are you open to testing a tiny rulepack in the next ~1–2 months?</label>
+                      <div className="form-radio-group" role="radiogroup" aria-labelledby="pilot-readiness-label">
                         <div className="form-radio">
                           <input
                             type="radio"
                             id="pilot-yes"
                             name="willingToPilot"
-                            value="yes"
-                            checked={formData.willingToPilot === 'yes'}
+                            value="Yes"
+                            checked={formData.willingToPilot === 'Yes'}
                             onChange={handleChange}
                             required
                           />
@@ -433,25 +553,58 @@ export default function BiofairPage() {
                         <div className="form-radio">
                           <input
                             type="radio"
-                            id="pilot-no"
+                            id="pilot-talk"
                             name="willingToPilot"
-                            value="no"
-                            checked={formData.willingToPilot === 'no'}
+                            value="Not sure, let’s talk"
+                            checked={formData.willingToPilot === 'Not sure, let’s talk'}
                             onChange={handleChange}
                             required
                           />
-                          <label htmlFor="pilot-no">No</label>
+                          <label htmlFor="pilot-talk">Not sure, let’s talk</label>
                         </div>
                       </div>
+                      {fieldErrors.willingToPilot && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.willingToPilot}</div>}
                     </div>
 
-                    <button type="submit" className="btn-primary">
-                      Submit
+                    {/* Email (required) */}
+                    <div className="form-group" style={{ marginTop: '1rem' }}>
+                      <label htmlFor="email" className="form-label">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="form-input"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@institution.edu"
+                        autoComplete="email"
+                      />
+                      {fieldErrors.email && <div style={{ color: '#b91c1c', marginTop: '0.25rem' }}>{fieldErrors.email}</div>}
+                    </div>
+
+                    {/* Honeypot for spam protection */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}
+                      onChange={() => {}}
+                    />
+
+                    {errorMessage && (
+                      <div style={{ marginBottom: '1rem', color: '#b91c1c', textAlign: 'center' }}>{errorMessage}</div>
+                    )}
+
+                    <button type="submit" className="btn-primary" disabled={isSubmitting}>
+                      {isSubmitting ? 'Saving...' : 'Submit'}
                     </button>
                   </form>
-                  <a href="#" className="google-form-link">
-                    Or use Google Form instead
-                  </a>
+
+                  <div className="contact-email" style={{ marginTop: '1rem' }}>
+                    <p style={{ marginBottom: '0.5rem', color: '#6b46c1' }}>You can also email <a href="mailto:hello@datadabra.com">hello@datadabra.com</a> with the info above. Subject line: “BIOFAIR pilot partner.”</p>
+                  </div>
                 </>
               )}
             </div>
