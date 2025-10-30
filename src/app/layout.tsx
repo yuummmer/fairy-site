@@ -41,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="border-t mt-10 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <span>© {new Date().getFullYear()} Datadabra. FAIRy is a Datadabra product.</span>
             <div className="flex gap-4">
+              <a href="/biofair" className="hover:underline">BIOFAIR pilot</a>
               <a href="#" className="hover:underline">Privacy</a>
               <a href="#" className="hover:underline">Terms</a>
             </div>
