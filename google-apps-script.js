@@ -5,6 +5,8 @@
 
 // Replace this with your actual Google Sheet ID
 const SPREADSHEET_ID = '1ifrVD_lfEijmVu56aZgy-xNIae5EVyzdio1JXs4Q9eI';
+// Optional: set to use a specific tab; if not found, falls back to the first sheet
+const SHEET_NAME = 'Feedback Submissions';
 
 function doPost(e) {
   try {
@@ -13,11 +15,11 @@ function doPost(e) {
     
     // Get the spreadsheet
     const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
-    let sheet = spreadsheet.getSheetByName('Feedback Submissions');
+    let sheet = spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.getSheets()[0];
     
     // Create the sheet if it doesn't exist
     if (!sheet) {
-      sheet = spreadsheet.insertSheet('Feedback Submissions');
+      sheet = spreadsheet.insertSheet(SHEET_NAME);
       // Add headers
       sheet.getRange(1, 1, 1, 11).setValues([
         ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Name', 'Org', 'Role', 'Data Type', 'Pilot Readiness', 'Additional Data']
@@ -46,12 +48,11 @@ function doPost(e) {
     
     // Add the new row
     // Ensure headers exist (old sheets) and extend if needed
-    const headerRange = sheet.getRange(1, 1, 1, sheet.getLastColumn());
+    const headerRange = sheet.getRange(1, 1, 1, Math.max(11, sheet.getLastColumn()));
     const headers = headerRange.getValues()[0];
-    if (headers.length < 11) {
-      sheet.getRange(1, 1, 1, 11).setValues([
-        ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Name', 'Org', 'Role', 'Data Type', 'Pilot Readiness', 'Additional Data']
-      ]);
+    const desiredHeaders = ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Name', 'Org', 'Role', 'Data Type', 'Pilot Readiness', 'Additional Data'];
+    if (headers.slice(0, desiredHeaders.length).join('|') !== desiredHeaders.join('|')) {
+      sheet.getRange(1, 1, 1, desiredHeaders.length).setValues([desiredHeaders]);
     }
 
     sheet.appendRow([
@@ -70,6 +71,7 @@ function doPost(e) {
     
     // Auto-resize columns
     sheet.autoResizeColumns(1, 11);
+    console.log('Row appended', { email, userType, utmSource, formType, name, org, role, dataType, pilotReadiness });
     
     // Return success response
     return ContentService
