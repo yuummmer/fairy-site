@@ -53,7 +53,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex gap-4">
               <a href="#" className="hover:underline">Privacy</a>
               <a href="#" className="hover:underline">Terms</a>
-              <a href="#" className="hover:underline">Security</a>
             </div>
           </div>
         </footer>
