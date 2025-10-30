@@ -4,6 +4,7 @@ export const metadata = {
 };
 
 import AnalyticsBindings from "../components/AnalyticsBindings";
+import AnnouncementBar from "../components/AnnouncementBar";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>
           </nav>
         </header>
+
+        <AnnouncementBar />
 
         <main className="mx-auto max-w-6xl px-4">{children}</main>
 
