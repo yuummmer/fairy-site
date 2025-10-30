@@ -6,7 +6,7 @@
 // Replace this with your actual Google Sheet ID
 const SPREADSHEET_ID = '1ifrVD_lfEijmVu56aZgy-xNIae5EVyzdio1JXs4Q9eI';
 // Optional: set to use a specific tab; if not found, falls back to the first sheet
-const SHEET_NAME = 'feedback submissions';
+const SHEET_NAME = 'Feedback Submissions';
 
 function doPost(e) {
   try {

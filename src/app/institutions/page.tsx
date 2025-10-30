@@ -344,6 +344,35 @@ export default function InstitutionsPage() {
             <p className="subheadline">
               FAIRy runs locally to produce clear validation reports and manifests your curators can trust—local-first, no telemetry.
             </p>
+            <div style={{
+              background: '#ffffff',
+              border: '2px solid #e9d5ff',
+              borderRadius: '0.75rem',
+              padding: '1.25rem 1.5rem',
+              maxWidth: '800px',
+              margin: '0 auto 1.5rem',
+              textAlign: 'left'
+            }}>
+              <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
+                FAIRy is currently in pilot with early institutional partners.
+              </p>
+              <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
+                We’re co-developing small “preflight rulepacks” that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
+              </p>
+              <p style={{ color: '#4c1d95', marginBottom: '0.75rem' }}>
+                FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+                <span style={{ color: '#6b46c1', fontWeight: 600 }}>Interested in being a pilot site?</span>
+                <a 
+                  href="#pilot" 
+                  className="btn-secondary"
+                  onClick={() => trackCTA('institution_pilot_note', 'jump_to_survey')}
+                >
+                  Jump to institution survey
+                </a>
+              </div>
+            </div>
             
             <div className="cta-buttons">
               <a 
@@ -389,19 +418,19 @@ export default function InstitutionsPage() {
                 className={`tab ${activeTab === 'core' ? 'active' : ''}`}
                 onClick={() => setActiveTab('core')}
               >
-                Core staff (Samir)
+                Core staff
               </button>
               <button 
                 className={`tab ${activeTab === 'rdm' ? 'active' : ''}`}
                 onClick={() => setActiveTab('rdm')}
               >
-                RDM teams (Dr. Lopez)
+                RDM teams
               </button>
               <button 
                 className={`tab ${activeTab === 'security' ? 'active' : ''}`}
                 onClick={() => setActiveTab('security')}
               >
-                Security (Mina)
+                Security
               </button>
             </div>
             
@@ -531,15 +560,15 @@ export default function InstitutionsPage() {
           </div>
         </section>
 
-        {/* Institution Kit Section */}
+        {/* Pilot Kit Section */}
         <section id="institution-kit" className="section" style={{ backgroundColor: '#f3e8ff' }}>
           <div className="container">
             <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Institution kit
+                Pilot kit
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '2rem' }}>
-                Everything you need for evaluation and deployment
+                What you’ll get as part of an institutional pilot
               </p>
               
               <div style={{ background: 'white', padding: '2rem', borderRadius: '1rem', border: '2px solid #e9d5ff', marginBottom: '2rem' }}>
@@ -548,10 +577,10 @@ export default function InstitutionsPage() {
                 </h3>
                 <ul style={{ textAlign: 'left', color: '#6b46c1', fontSize: '0.875rem' }}>
                   <li>One-pager overview</li>
-                  <li>Security summary + SBOM link</li>
-                  <li>Deployment options (pip/conda/Docker)</li>
+                  <li>Data handling & local-only model (no data leaves your institution)</li>
+                  <li>We’ll walk you through local run options (pip/conda/Docker) during pilot</li>
                   <li>Data handling & privacy policy</li>
-                  <li>Support expectations and issue reporting</li>
+                  <li>You’ll have direct contact with us during pilot for tweaks and questions</li>
                 </ul>
               </div>
               
@@ -642,12 +671,10 @@ export default function InstitutionsPage() {
                 <p>"If FAIRy says green, curator fast-tracks metadata review."</p>
               </div>
             </div>
+            <p style={{ color: '#6b46c1', fontSize: '0.95rem', textAlign: 'center', marginTop: '0.5rem' }}>
+              We’re validating this workflow now with early partners so we can confirm where it saves curator time.
+            </p>
             
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <a href="/rollout-templates" className="btn-secondary">
-                Download templates
-              </a>
-            </div>
           </div>
         </section>
 
