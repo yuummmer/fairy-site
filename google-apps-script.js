@@ -6,12 +6,14 @@
 // Replace this with your actual Google Sheet ID
 const SPREADSHEET_ID = '1ifrVD_lfEijmVu56aZgy-xNIae5EVyzdio1JXs4Q9eI';
 // Optional: set to use a specific tab; if not found, falls back to the first sheet
-const SHEET_NAME = 'Feedback Submissions';
+const SHEET_NAME = 'feedback submissions';
 
 function doPost(e) {
   try {
     // Parse the incoming data
     const data = JSON.parse(e.postData.contents);
+    console.log('Incoming keys', Object.keys(data || {}));
+    console.log('Additional_data keys', Object.keys((data && data.additional_data) || {}));
     
     // Get the spreadsheet
     const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
