@@ -19,12 +19,12 @@ function doPost(e) {
     if (!sheet) {
       sheet = spreadsheet.insertSheet('Feedback Submissions');
       // Add headers
-      sheet.getRange(1, 1, 1, 6).setValues([
-        ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Additional Data']
+      sheet.getRange(1, 1, 1, 11).setValues([
+        ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Name', 'Org', 'Role', 'Data Type', 'Pilot Readiness', 'Additional Data']
       ]);
       // Format headers
-      sheet.getRange(1, 1, 1, 6).setFontWeight('bold');
-      sheet.getRange(1, 1, 1, 6).setBackground('#f0f0f0');
+      sheet.getRange(1, 1, 1, 11).setFontWeight('bold');
+      sheet.getRange(1, 1, 1, 11).setBackground('#f0f0f0');
     }
     
     // Prepare the row data
@@ -34,21 +34,42 @@ function doPost(e) {
     const utmSource = data.utm_source || '';
     const formType = data.form_type || '';
     
-    // Convert additional data to JSON string
-    const additionalData = JSON.stringify(data.additional_data || {});
+    // Pull common fields out of additional_data for easy filtering
+    const addl = data.additional_data || {};
+    const name = addl.name || '';
+    const org = addl.org || '';
+    const role = addl.role || '';
+    const dataType = addl.data_type || addl.dataType || '';
+    const pilotReadiness = addl.pilot_readiness || addl.willingToPilot || '';
+    // Convert entire additional_data to JSON string as well
+    const additionalData = JSON.stringify(addl);
     
     // Add the new row
+    // Ensure headers exist (old sheets) and extend if needed
+    const headerRange = sheet.getRange(1, 1, 1, sheet.getLastColumn());
+    const headers = headerRange.getValues()[0];
+    if (headers.length < 11) {
+      sheet.getRange(1, 1, 1, 11).setValues([
+        ['Timestamp', 'Email', 'User Type', 'UTM Source', 'Form Type', 'Name', 'Org', 'Role', 'Data Type', 'Pilot Readiness', 'Additional Data']
+      ]);
+    }
+
     sheet.appendRow([
       timestamp,
       email,
       userType,
       utmSource,
       formType,
+      name,
+      org,
+      role,
+      dataType,
+      pilotReadiness,
       additionalData
     ]);
     
     // Auto-resize columns
-    sheet.autoResizeColumns(1, 6);
+    sheet.autoResizeColumns(1, 11);
     
     // Return success response
     return ContentService

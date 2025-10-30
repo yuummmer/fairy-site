@@ -85,6 +85,19 @@ export async function POST(request: NextRequest) {
       );
     }
     
+    // Log minimal payload for troubleshooting (visible in server logs)
+    try {
+      if (submissionData.form_type === 'biofair_pilot_interest') {
+        console.log('biofair submission', {
+          email: submissionData.email,
+          org: submissionData.additional_data.org,
+          role: submissionData.additional_data.role,
+          data_type: submissionData.additional_data.data_type,
+          pilot_readiness: submissionData.additional_data.pilot_readiness
+        });
+      }
+    } catch {}
+
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
