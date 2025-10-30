@@ -21,9 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>
-            <div className="flex gap-6 text-sm">
-              <a href="/docs">Docs</a>
-            </div>
           </nav>
         </header>
 
