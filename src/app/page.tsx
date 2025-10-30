@@ -395,13 +395,6 @@ export default function Page() {
               >
                 For institutions
               </a>
-            <a 
-              href="/biofair" 
-              className="btn-secondary"
-              onClick={() => trackCTA('hero_cta_click', 'biofair_pilot')}
-            >
-              BIOFAIR pilot
-            </a>
             </div>
             
           </div>
