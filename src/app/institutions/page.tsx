@@ -340,7 +340,7 @@ export default function InstitutionsPage() {
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
-            <h1>Reduce deposit back-and-forth across your campus</h1>
+            <h1>Cut the back-and-forth before intake</h1>
             <p className="subheadline">
               FAIRy runs locally to produce clear validation reports and manifests your curators can trust—local-first, no telemetry.
             </p>
@@ -374,29 +374,7 @@ export default function InstitutionsPage() {
               </div>
             </div>
             
-            <div className="cta-buttons">
-              <a 
-                href="/sample-report" 
-                className="btn-primary"
-                onClick={() => trackCTA('institution_hero_cta', 'see_sample_report')}
-              >
-                See sample report
-              </a>
-              <a 
-                href="#institution-kit" 
-                className="btn-secondary"
-                onClick={() => trackCTA('institution_hero_cta', 'institution_kit_pdf')}
-              >
-                Institution kit (PDF)
-              </a>
-              <a 
-                href="#pilot" 
-                className="btn-secondary"
-                onClick={() => trackCTA('institution_hero_cta', 'take_survey')}
-              >
-                Take survey
-              </a>
-            </div>
+            <div className="cta-buttons"></div>
             
             {/* Security Callout */}
             <div className="security-callout">
