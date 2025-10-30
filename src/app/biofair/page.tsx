@@ -299,20 +299,38 @@ export default function BiofairPage() {
         <section className="hero">
           <h1>BIOFAIR pilot interest</h1>
           <p className="subheadline">
-            FAIRy is a local, repo-agnostic preflight and shareable attestation to reduce late-stage submission bounces. I'm looking for 1–2 pilot partners across molecular biology and environmental / ecological data to help define a minimal 'BIOFAIR-ready' rulepack.
+            FAIRy is a local preflight checker. We’re looking for 1–2 partners to co-develop tiny readiness rulepacks. As BIOFAIR publishes its roadmap, FAIRy can serve as a small, testable piece of it.
           </p>
         </section>
 
-        {/* What I'm Asking */}
+        {/* Who We Need */}
         <section className="content-section">
           <div className="section-inner">
-            <h2 className="section-title">What I'm looking for from you</h2>
+            <h2 className="section-title">Who we need (any domain welcome)</h2>
             <ul className="bullet-list">
               <li className="bullet-item">
-                <span className="bullet-text">Let me run FAIRy on one small example dataset structure/metadata (no raw data).</span>
+                <span className="bullet-text">Wet-lab people / cores who submit to GEO / ENA / Zenodo / etc.</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Tell me where the checks are useless / missing.</span>
+                <span className="bullet-text">Curators / data stewards</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Pilots for institutions</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* What we're looking for */}
+        <section className="content-section">
+          <div className="section-inner">
+            <h2 className="section-title">What we're looking for from you</h2>
+            <ul className="bullet-list">
+              <li className="bullet-item">
+                <span className="bullet-text">Let us run FAIRy on one small example dataset structure/metadata (no raw data).</span>
+              </li>
+              <li className="bullet-item">
+                <span className="bullet-text">Tell us where the checks are useless / missing.</span>
               </li>
               <li className="bullet-item">
                 <span className="bullet-text">Optional: help define 2–3 'must pass before upload' rules for your domain.</span>
@@ -345,14 +363,14 @@ export default function BiofairPage() {
             <h2 className="section-title" style={{ textAlign: 'center' }}>Get in touch</h2>
             
             <div className="contact-email">
-              <p style={{ marginBottom: '0.5rem', color: '#6b46c1' }}>Email me directly:</p>
+              <p style={{ marginBottom: '0.5rem', color: '#6b46c1' }}>Email us directly:</p>
               <a href="mailto:hello@datadabra.com">hello@datadabra.com</a>
             </div>
 
             <div className="biofair-form">
               {submitted ? (
                 <div className="success-message">
-                  <p>Thank you for your interest! I'll be in touch soon.</p>
+                  <p>Thank you for your interest! We'll be in touch soon.</p>
                 </div>
               ) : (
                 <>
