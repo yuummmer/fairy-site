@@ -21,6 +21,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
           <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">FAIRy</a>
+            <div className="flex gap-6 text-sm">
+              <a href="/geo-precheck">GEO Pre-check</a>
+              <a href="/zenodo-precheck">Zenodo Pre-check</a>
+              <a href="/export-pack">Export Pack</a>
+              <a href="/platform">Platform</a>
+              <a href="/docs">Docs</a>
+              <a href="/security">Security</a>
+              <a href="/resources">Resources</a>
+              <a href="/early-access" className="px-3 py-1.5 rounded-full bg-black text-white hover:bg-zinc-900 transition-colors">Early access</a>
+            </div>
           </nav>
         </header>
 
