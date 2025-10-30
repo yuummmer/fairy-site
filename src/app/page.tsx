@@ -376,9 +376,9 @@ export default function Page() {
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
-            <h1>Make data FAIR, not frustrating</h1>
+            <h1>Make data ready before you hand it off.</h1>
             <p className="subheadline">
-              Package and deposit datasets to GEO and Zenodo with clear, actionable guidance and reproducible artifacts
+              FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix — so curators don’t have to chase missing fields and bad filenames.
             </p>
             <div className="cta-buttons">
               <a 
@@ -405,21 +405,22 @@ export default function Page() {
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Make research data FAIR, not frustrating
+                Make data ready before you hand it off.
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
-                One command turns a dataset into a clear validation report and manifest you can attach to your GEO/Zenodo submission.
+                FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix — so curators don’t have to chase missing fields and bad filenames.
               </p>
               <div className="cta-buttons" style={{ marginBottom: '0' }}>
                 <a href="/sample-report" className="btn-primary">
                   See sample report
                 </a>
-                <a href="#quick-install" className="btn-secondary">
-                  Download FAIRy (v0.1)
+                <a href="/institutions#pilot" className="btn-secondary">
+                  Partner with us (pilot)
                 </a>
               </div>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
-                <a href="/survey" style={{ color: '#6b7280', textDecoration: 'underline' }}>60-sec survey</a>
+                For data stewards / data managers / core facilities →{' '}
+                <a href="/survey" style={{ color: '#6b7280', textDecoration: 'underline' }}>Take the 1-minute pilot intake</a>
               </p>
             </div>
             
@@ -437,7 +438,7 @@ export default function Page() {
               }}
             >
               <div className="demo-badge">Demo / sample data</div>
-              <h3 className="demo-title">Validation report preview</h3>
+              <h3 className="demo-title">Preflight readiness sheet</h3>
               <div className="check-item">
                 <div className="check-dot check-pass"></div>
                 <span className="check-label">Metadata completeness ✓</span>
@@ -450,6 +451,9 @@ export default function Page() {
                 <div className="check-dot check-fail"></div>
                 <span className="check-label">Required fields missing ✗</span>
               </div>
+              <p style={{ marginTop: '12px', color: '#6b46c1' }}>
+                What your curator / data manager gets back from FAIRy: PASS / WARN / FAIL plus how to fix it, no raw data included.
+              </p>
               <p style={{ marginTop: '20px', color: '#64748b', fontSize: '0.875rem' }}>
                 View sample report →
               </p>
@@ -465,10 +469,10 @@ export default function Page() {
               textAlign: 'center'
             }}>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Command line first, or view with Streamlit
+                How FAIRy runs in your environment
               </h3>
               
-              {/* CLI Option - Primary */}
+              {/* CLI Option - Pilot */}
               <div style={{ 
                 background: '#ffffff', 
                 border: '2px solid #7c3aed', 
@@ -492,12 +496,15 @@ export default function Page() {
                     fontSize: '0.75rem', 
                     fontWeight: '500' 
                   }}>
-                    PRIMARY
+                    PILOT
                   </div>
                   <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', margin: '0' }}>
-                    Command-line interface
+                    Pilot workflow · Command line run
                   </h4>
                 </div>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
+                  During pilot, you run FAIRy locally on a folder or metadata sheet. It generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) and a structured JSON summary.
+                </p>
                 <div style={{ 
                   background: '#f3e8ff', 
                   border: '1px solid #e9d5ff', 
@@ -507,12 +514,11 @@ export default function Page() {
                   fontSize: '0.875rem',
                   marginBottom: '0.75rem'
                 }}>
-                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem' }}>$ pip install fairy-validator</div>
-                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem' }}>$ fairy validate /path/to/dataset -o out/</div>
-                  <div style={{ color: '#059669' }}>✓ HTML report opens automatically in browser</div>
+                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem', fontWeight: 600 }}>Example invocation (local run):</div>
+                  <pre style={{ margin: 0, color: '#6b46c1', whiteSpace: 'pre-wrap' }}><code>fairy validate /path/to/dataset --out out/</code></pre>
                 </div>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
-                  Fast, direct workflow. All processing happens locally.
+                  All processing happens on your own machine. No uploads, no accounts.
                 </p>
               </div>
               
@@ -543,24 +549,17 @@ export default function Page() {
                     OPTIONAL
                   </div>
                   <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', margin: '0' }}>
-                    Visual interface
+                    Optional visual review
                   </h4>
                 </div>
-                <div style={{ 
-                  background: '#f3e8ff', 
-                  border: '1px solid #e9d5ff', 
-                  padding: '1rem', 
-                  borderRadius: '0.75rem', 
-                  fontFamily: 'Monaco, Consolas, "Courier New", monospace',
-                  fontSize: '0.875rem',
-                  marginBottom: '0.75rem'
-                }}>
-                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem' }}>$ pip install "fairy-validator[ui]"</div>
-                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem' }}>$ fairy ui /path/to/dataset</div>
-                  <div style={{ color: '#059669' }}>✓ Opens Streamlit interface in browser</div>
-                </div>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
+                  For teams that don’t want command line, FAIRy can render an interactive report in a local browser window.
+                </p>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
+                  Same checks, same PASS / WARN / FAIL guidance — just click-to-view instead of terminal.
+                </p>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
-                  Interactive validation and preview. Still processes locally.
+                  Still runs locally. Still no data leaves.
                 </p>
               </div>
               
@@ -572,15 +571,15 @@ export default function Page() {
                 marginBottom: '1.5rem'
               }}>
                 <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
-                  🔒 <strong>Local-first privacy:</strong> No data leaves your device. All processing happens on your machine.
+                  🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
                 </p>
               </div>
               
               <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }}>
-                Get early access
+                Join pilot
               </a>
               <a href="/sample-report" className="btn-secondary">
-                See what you'll get
+                View sample report
               </a>
             </div>
           </div>
@@ -589,13 +588,13 @@ export default function Page() {
         {/* How It Works - Solo */}
         <section className="how-it-works">
           <div className="container">
-            <h2 className="section-title">How it works</h2>
+            <h2 className="section-title">How FAIRy fits your intake process</h2>
             <div className="steps-grid">
               <div className="step-card">
                 <div className="step-number">1</div>
-                <h3 className="step-title">Drop in your dataset</h3>
+                <h3 className="step-title">Run FAIRy on your dataset</h3>
                 <p className="step-description">
-                  Upload a folder or provide a repository path. We&apos;ll scan your files and metadata automatically.
+                  Point FAIRy at a folder or metadata sheet in your environment. It scans filenames and required fields locally — no data leaves your system.
                 </p>
                 <a href="/docs" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px' }}>
                   Learn more →
@@ -605,7 +604,7 @@ export default function Page() {
                 <div className="step-number">2</div>
                 <h3 className="step-title">Fix issues with clear tips</h3>
                 <p className="step-description">
-                  Get specific file and field pointers for each issue. No guessing—we point to the exact location to fix.
+                  FAIRy tells you exactly what’s wrong (bad filename, missing contact email, non-ISO date) and how to fix it. No guessing — we point to the exact column / file.
                 </p>
                 <a href="/docs" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px' }}>
                   Learn more →
@@ -613,23 +612,26 @@ export default function Page() {
               </div>
               <div className="step-card">
                 <div className="step-number">3</div>
-                <h3 className="step-title">Export manifest + report</h3>
+                <h3 className="step-title">Generate a readiness sheet</h3>
                 <p className="step-description">
-                  Generate compliance-ready manifests and HTML/PDF reports, then deposit directly to your repository.
+                  FAIRy produces a one-page PASS / WARN / FAIL report (why it matters + how to fix) that you can hand back to the lab / PI — or attach to a ticket before submission.
                 </p>
-                <a href="/docs" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px' }}>
-                  Learn more →
+                <a href="/sample-report" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px' }}>
+                  See sample report →
                 </a>
               </div>
             </div>
             
             <div style={{ textAlign: 'center', marginTop: '3rem' }}>
               <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }}>
-                Download FAIRy Solo
+                Join pilot
               </a>
-              <a href="/survey" className="btn-secondary">
-                60-second survey
+              <a href="/sample-report" className="btn-secondary">
+                View sample report
               </a>
+              <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
+                For data stewards / data managers / core facilities → <a href="/survey" style={{ color: '#6b7280', textDecoration: 'underline' }}>1-minute pilot intake</a>
+              </p>
             </div>
           </div>
         </section>
@@ -639,10 +641,10 @@ export default function Page() {
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Reduce deposit back-and-forth across your campus
+                Get cleaner submissions the first time
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '2rem' }}>
-                FAIRy runs locally to produce clear validation reports and manifests your curators can trust—local-first, no telemetry.
+                FAIRy runs locally and flags missing metadata, filename problems, and other issues that block submission — before your curator or data manager ever touches the dataset.
               </p>
               
               {/* Security Callout */}
@@ -656,44 +658,36 @@ export default function Page() {
                 margin: '0 auto 2rem'
               }}>
                 <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
-                  🔒 <strong>Local-first privacy:</strong> Runs locally · No uploads · PyPI JSON ping only for version checks (opt-out: FAIRY_NO_UPDATE=1)
+                  🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
                 </p>
               </div>
             </div>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
               <div className="step-card">
-                <div className="step-number" style={{ backgroundColor: '#059669' }}>⚡</div>
-                <h3 className="step-title">Batch processing</h3>
+                <div className="step-number" style={{ backgroundColor: '#059669' }}>📏</div>
+                <h3 className="step-title">Consistent intake rules</h3>
                 <p className="step-description">
-                  Process hundreds of datasets with CLI pipelines. Non-interactive exit codes for CI/CD integration.
+                  Turn your “we can’t accept this without X” policies (sample IDs, contact email, ISO dates, file naming, permit/embargo flags) into a reusable preflight check. Everyone gets held to the same standard.
                 </p>
               </div>
               <div className="step-card">
-                <div className="step-number" style={{ backgroundColor: '#059669' }}>📋</div>
-                <h3 className="step-title">Curator-ready reports</h3>
+                <div className="step-number" style={{ backgroundColor: '#059669' }}>📝</div>
+                <h3 className="step-title">One-page readiness sheet</h3>
                 <p className="step-description">
-                  PDF reports with clear "how to fix" guidance. Links back to GEO/Zenodo guidelines for compliance.
+                  FAIRy produces a PASS / WARN / FAIL summary with plain-language “how to fix” instructions. You can send it back to the lab / PI instead of rewriting the same email.
                 </p>
               </div>
               <div className="step-card">
                 <div className="step-number" style={{ backgroundColor: '#059669' }}>🔒</div>
-                <h3 className="step-title">Security-first</h3>
+                <h3 className="step-title">Local-only by design</h3>
                 <p className="step-description">
-                  No data leaves your network. Offline install instructions. SBOM transparency for procurement.
+                  FAIRy runs inside your environment. No raw data, filenames, locations, or metadata are uploaded. No accounts, no credentials, no cloud.
                 </p>
               </div>
             </div>
             
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <a 
-                href="/institutions" 
-                className="btn-primary" 
-                style={{ marginRight: '1rem' }}
-                onClick={() => trackCTA('institution_preview_cta', 'see_institution_features')}
-              >
-                See institution features
-              </a>
               <a 
                 href="/sample-report" 
                 className="btn-secondary" 
@@ -704,10 +698,18 @@ export default function Page() {
               </a>
               <a 
                 href="/institutions#pilot" 
-                className="btn-secondary"
-                onClick={() => trackCTA('institution_preview_cta', 'take_survey')}
+                className="btn-primary" 
+                style={{ marginRight: '1rem' }}
+                onClick={() => trackCTA('institution_preview_cta', 'join_pilot')}
               >
-                Take survey
+                Join pilot
+              </a>
+              <a 
+                href="/institutions" 
+                className="btn-secondary"
+                onClick={() => trackCTA('institution_preview_cta', 'for_data_managers_curators')}
+              >
+                For data managers / curators
               </a>
             </div>
           </div>

@@ -1,6 +1,14 @@
 "use client";
 
+import { useEffect, useState } from 'react';
+
 export default function SampleReportPage() {
+  const [generatedTimestamp, setGeneratedTimestamp] = useState("");
+
+  useEffect(() => {
+    const now = new Date();
+    setGeneratedTimestamp(`${now.toLocaleDateString()} at ${now.toLocaleTimeString()}`);
+  }, []);
   return (
     <>
       <style jsx global>{`
@@ -256,7 +264,7 @@ export default function SampleReportPage() {
         <div className="header">
           <h1>FAIRy validation report</h1>
           <p className="subtitle">Dataset: GSM123456_sample_dataset</p>
-          <p className="subtitle">Generated: {new Date().toLocaleDateString()} at {new Date().toLocaleTimeString()}</p>
+          <p className="subtitle" suppressHydrationWarning>Generated: {generatedTimestamp}</p>
           
           <div className="cta-buttons">
             <button 
