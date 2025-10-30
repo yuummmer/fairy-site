@@ -271,6 +271,10 @@ export default function SampleReportPage() {
           </div>
         </div>
         
+        <div style={{ textAlign: 'center', color: '#6b7280', marginBottom: '1.5rem' }}>
+          This report flags missing or inconsistent metadata before repository submission. You can send it back to the lab / PI as a “please fix these before we can accept this” note — no raw data included.
+        </div>
+
         <div className="summary-banner">
           <div className="summary-item">
             <div className="summary-number pass">12</div>
@@ -282,7 +286,7 @@ export default function SampleReportPage() {
           </div>
           <div className="summary-item">
             <div className="summary-number fail">1</div>
-            <div className="summary-label">Issues to fix</div>
+            <div className="summary-label">Critical issue to fix before submission</div>
           </div>
         </div>
         
@@ -341,24 +345,27 @@ export default function SampleReportPage() {
           <div className="check-item fail">
             <div className="check-icon">✗</div>
             <div className="check-content">
-              <div className="check-title">Required fields missing</div>
-              <div className="check-description">Critical metadata fields are missing for GEO submission.</div>
+              <div className="check-title">Required fields missing (blocks submission)</div>
+              <div className="check-description">These required fields are missing and will cause a repository to reject or delay your dataset.</div>
               <div className="check-fix">
-                <strong>How to fix:</strong> Add the following required fields to your metadata: "contact_name", "contact_email", "platform_type".
+                <strong>How to fix:</strong> Add the following fields to your metadata: contact_name, contact_email, platform_type.
               </div>
             </div>
           </div>
         </div>
         
         <div className="checks-section">
-          <h2 className="section-title">Repository compliance mapping</h2>
+          <h2 className="section-title">Repository-style expectations</h2>
+          <p style={{ color: '#6b7280', marginTop: '0.5rem', marginBottom: '1rem' }}>
+            These checks are modeled on common reject reasons from public repositories like GEO and Zenodo (missing required fields, bad filenames, nonstandard dates). This is not an official submission approval.
+          </p>
           
           <table className="mapping-table">
             <thead>
               <tr>
                 <th>FAIRy check</th>
-                <th>GEO guideline</th>
-                <th>Zenodo guideline</th>
+                <th>GEO-style requirement</th>
+                <th>Zenodo-style requirement</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -392,8 +399,9 @@ export default function SampleReportPage() {
         </div>
         
         <div className="footer">
-          <p><strong>Provenance:</strong> This report was generated using FAIRy v0.1.0</p>
-          <p><strong>Command used:</strong> fairy validate /path/to/dataset -o out/ --format html</p>
+          <p><strong>Provenance:</strong> This report was generated using a FAIRy pilot build (pre-release).</p>
+          <p><strong>Command used (local run on 2025-10-14):</strong><br/>fairy validate /path/to/dataset --out out/ --format html</p>
+          <p>File hash digest (for provenance / reproducibility):</p>
           <div className="manifest">
             <strong>SHA256 manifest:</strong><br/>
             dataset_metadata.json: a1b2c3d4e5f6...<br/>

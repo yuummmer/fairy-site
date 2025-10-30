@@ -404,12 +404,6 @@ export default function InstitutionsPage() {
               >
                 RDM teams
               </button>
-              <button 
-                className={`tab ${activeTab === 'security' ? 'active' : ''}`}
-                onClick={() => setActiveTab('security')}
-              >
-                Security
-              </button>
             </div>
             
             {/* Core Staff Content */}
@@ -421,32 +415,27 @@ export default function InstitutionsPage() {
                 
                 <div className="feature-grid">
                   <div className="feature-card">
-                    <h4>Batch processing</h4>
-                    <p>Process hundreds of datasets with CLI pipelines and non-interactive exit codes for CI integration.</p>
-                    <div className="code-block">
-                      fairy validate /lab_mount/* -o out/ --json
-                    </div>
+                    <h4>Upstream sanity check</h4>
+                    <p>Pre-check before handoff to PIs</p>
+                    <p>Run FAIRy locally on a sample sheet / metadata sheet before you return results to a lab or PI.</p>
+                    <p>It flags missing required fields, broken IDs, filename issues, permit / embargo gaps, etc. — the stuff that will get them bounced later.</p>
+                    <p>Result: you stop writing the same “please fix these 5 things” email for every project.</p>
                   </div>
                   
                   <div className="feature-card">
-                    <h4>CI/CD integration</h4>
-                    <p>Non-interactive exit codes for automated pipelines and Slurm/Snakemake workflows.</p>
-                    <div className="code-block">
-                      # Slurm example
-                      fairy validate $DATASET_PATH -o $OUTPUT_DIR
-                      if [ $? -eq 0 ]; then
-                        echo "Validation passed"
-                      fi
-                    </div>
+                    <h4>Your policy, enforced consistently</h4>
+                    <p>Reusable intake rules</p>
+                    <p>We encode your “we don’t accept this without X” policy (stable sample IDs, ISO dates, site / instrument info, contact email, file naming conventions) into a rulepack.</p>
+                    <p>Everyone gets checked against the same rules instead of whoever yells loudest.</p>
+                    <p>FAIRy produces a one-page readiness sheet (PASS / WARN / FAIL + how to fix) you can hand back to the lab.</p>
                   </div>
                   
                   <div className="feature-card">
-                    <h4>Optional UI</h4>
-                    <p>Streamlit interface for interactive validation when needed.</p>
-                    <div className="code-block">
-                      pip install "fairy-validator[ui]"
-                      fairy ui /path/to/report.json
-                    </div>
+                    <h4>Drop-in workflow</h4>
+                    <p>Fits how you already work</p>
+                    <p>FAIRy runs on your machine, offline.</p>
+                    <p>You get both structured output (JSON) and a human-readable summary, so you can plug it into whatever you already use — a queue, a ticket, or a lightweight pipeline — without sending any data off-box.</p>
+                    <p>If you want researchers to self-check, FAIRy can also generate an interactive report view instead of just CLI output.</p>
                   </div>
                 </div>
               </div>
@@ -461,8 +450,8 @@ export default function InstitutionsPage() {
                 
                 <div className="feature-grid">
                   <div className="feature-card">
-                    <h4>Repository-specific checks</h4>
-                    <p>Current checks for GEO/Zenodo with links to official guidelines. Coming next: SRA, BioSample preflight.</p>
+                    <h4>Repository-style preflight checks</h4>
+                    <p>We’re modeling FAIRy’s rulepacks after what repositories like GEO and Zenodo already reject at submission time (missing required fields, bad filenames, etc.). Coming next: SRA and BioSample-style preflight.</p>
                     <ul style={{ color: '#6b46c1', fontSize: '0.875rem', marginTop: '0.5rem' }}>
                       <li>Metadata completeness validation</li>
                       <li>File naming convention checks</li>
@@ -482,59 +471,15 @@ export default function InstitutionsPage() {
                   </div>
                   
                   <div className="feature-card">
-                    <h4>PDF/HTML outputs</h4>
-                    <p>Print-ready reports with sticky headers and accessibility features for archiving.</p>
-                    <ul style={{ color: '#6b46c1', fontSize: '0.875rem', marginTop: '0.5rem' }}>
-                      <li>Download as PDF for ticket systems</li>
-                      <li>SHA256 manifest for provenance</li>
-                      <li>Command used tracking</li>
-                    </ul>
+                    <h4>Exportable reports</h4>
+                    <p>FAIRy produces a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that you can save, print, or attach to a ticket/request.</p>
+                    <p>We’re working on lightweight provenance details — like including the command used and file hashes — so you can show when/what was checked.</p>
                   </div>
                 </div>
               </div>
             )}
             
-            {/* Security Teams Content */}
-            {activeTab === 'security' && (
-              <div className="tab-content">
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1.5rem' }}>
-                  For IT security and governance teams
-                </h3>
-                
-                <div className="feature-grid">
-                  <div className="feature-card">
-                    <h4>Local-first architecture</h4>
-                    <p>No telemetry in v0.1. All processing happens on-device. Environment variable to opt-in to future analytics.</p>
-                    <div className="code-block">
-                      # Offline install
-                      pip install fairy-validator --no-deps
-                      # No credentials stored
-                      # No data uploads
-                    </div>
-                  </div>
-                  
-                  <div className="feature-card">
-                    <h4>Transparency & compliance</h4>
-                    <p>SBOM (pip/conda lockfile), LICENSE, third-party dependency list. Update checks hit PyPI JSON only.</p>
-                    <div className="code-block">
-                      # Opt-out update checks
-                      export FAIRY_NO_UPDATE=1
-                      fairy validate /data/dataset
-                    </div>
-                  </div>
-                  
-                  <div className="feature-card">
-                    <h4>Procurement-ready</h4>
-                    <p>Complete security documentation, dependency audit trail, and compliance evidence for institutional approval.</p>
-                    <ul style={{ color: '#6b46c1', fontSize: '0.875rem', marginTop: '0.5rem' }}>
-                      <li>Software Bill of Materials (SBOM)</li>
-                      <li>Third-party dependency audit</li>
-                      <li>Privacy impact assessment</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )}
+            
           </div>
         </section>
 
