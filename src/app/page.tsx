@@ -376,9 +376,9 @@ export default function Page() {
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
-            <h1>Make data ready before you hand it off.</h1>
+            <h1>Make data fair not frustrating.</h1>
             <p className="subheadline">
-              FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix — so curators don’t have to chase missing fields and bad filenames.
+              A local-first validator, fixer and packager for research datasets to cut down bounced submissions and back-and-forth
             </p>
             <div className="cta-buttons">
               <a 
@@ -405,7 +405,7 @@ export default function Page() {
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Make data ready before you hand it off.
+                Stop chasing missing fields. FAIRy tells the lab exactly what to fix.
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
                 FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix — so curators don’t have to chase missing fields and bad filenames.
