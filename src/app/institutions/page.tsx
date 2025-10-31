@@ -337,50 +337,13 @@ export default function InstitutionsPage() {
       `}</style>
       
       <main>
-        {/* Hero Section */}
-        <section className="hero">
+        {/* Cut the back-and-forth Section */}
+        <section className="section" style={{ backgroundColor: '#f3e8ff' }}>
           <div className="container">
-            <h1>Cut the back-and-forth before intake</h1>
-            <p className="subheadline">
-              FAIRy runs locally to produce clear validation reports and manifests your curators can trust—local-first, no telemetry.
-            </p>
-            <div style={{
-              background: '#ffffff',
-              border: '2px solid #e9d5ff',
-              borderRadius: '0.75rem',
-              padding: '1.25rem 1.5rem',
-              maxWidth: '800px',
-              margin: '0 auto 1.5rem',
-              textAlign: 'left'
-            }}>
-              <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
-                FAIRy is currently in pilot with early institutional partners.
-              </p>
-              <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
-                We're co-developing small "preflight rulepacks" that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
-              </p>
-              <p style={{ color: '#4c1d95', marginBottom: '0.75rem' }}>
-                FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
-                <span style={{ color: '#6b46c1', fontWeight: 600 }}>Interested in being a pilot site?</span>
-                <a 
-                  href="#pilot" 
-                  className="btn-secondary"
-                  onClick={() => trackCTA('institution_pilot_note', 'jump_to_survey')}
-                >
-                  Jump to institution survey
-                </a>
-              </div>
-            </div>
-            
-            <div className="cta-buttons"></div>
-            
-            {/* Security Callout */}
-            <div className="security-callout">
-              <h3>🔒 Local-first · No telemetry by default</h3>
-              <p>
-                CLI for pipelines + optional Streamlit UI · Works on shared Linux hosts/WSL/Mac; Docker image available
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+              <h2 className="section-title">Cut the back-and-forth before intake</h2>
+              <p style={{ fontSize: '1.25rem', color: '#6b46c1', marginBottom: '2rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                FAIRy runs locally to produce clear validation reports and manifests your curators can trust—local-first, no telemetry.
               </p>
             </div>
           </div>
@@ -609,10 +572,66 @@ export default function InstitutionsPage() {
           </div>
         </section>
 
-        {/* Pilot Kit Section */}
+        {/* Rollout Playbook */}
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">Rollout playbook</h2>
+            
+            <div className="feature-grid">
+              <div className="feature-card">
+                <h4>Who runs what</h4>
+                <p>Core staff run CLI pipelines; labs can run locally for immediate feedback.</p>
+              </div>
+              
+              <div className="feature-card">
+                <h4>Recommended workflow</h4>
+                <p>Lab runs FAIRy → shares report PDF → curator reviews → deposit.</p>
+              </div>
+              
+              <div className="feature-card">
+                <h4>Support rule</h4>
+                <p>"If FAIRy says green, curator fast-tracks metadata review."</p>
+              </div>
+            </div>
+            <p style={{ color: '#6b46c1', fontSize: '0.95rem', textAlign: 'center', marginTop: '0.5rem' }}>
+              We're validating this workflow now with early partners so we can confirm where it saves curator time.
+            </p>
+            
+          </div>
+        </section>
+
+        {/* Institution Pilot Kit Section */}
         <section id="institution-kit" className="section" style={{ backgroundColor: '#f3e8ff' }}>
           <div className="container">
-            <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '0.75rem',
+                padding: '1.25rem 1.5rem',
+                maxWidth: '800px',
+                margin: '0 auto 2rem',
+                textAlign: 'left'
+              }}>
+                <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  FAIRy is currently in pilot with early institutional partners.
+                </p>
+                <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  We're co-developing small "preflight rulepacks" that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
+                </p>
+                <p style={{ color: '#4c1d95', marginBottom: '0.75rem' }}>
+                  FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
+                </p>
+              </div>
+              
+              {/* Security Callout */}
+              <div className="security-callout" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+                <h3>🔒 Local-first · No telemetry by default</h3>
+                <p>
+                  CLI for pipelines + optional Streamlit UI · Works on shared Linux hosts/WSL/Mac; Docker image available
+                </p>
+              </div>
+              
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
                 Institution Pilot Kit
               </h2>
@@ -696,34 +715,6 @@ export default function InstitutionsPage() {
                 </p>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Rollout Playbook */}
-        <section className="section">
-          <div className="container">
-            <h2 className="section-title">Rollout playbook</h2>
-            
-            <div className="feature-grid">
-              <div className="feature-card">
-                <h4>Who runs what</h4>
-                <p>Core staff run CLI pipelines; labs can run locally for immediate feedback.</p>
-              </div>
-              
-              <div className="feature-card">
-                <h4>Recommended workflow</h4>
-                <p>Lab runs FAIRy → shares report PDF → curator reviews → deposit.</p>
-              </div>
-              
-              <div className="feature-card">
-                <h4>Support rule</h4>
-                <p>"If FAIRy says green, curator fast-tracks metadata review."</p>
-              </div>
-            </div>
-            <p style={{ color: '#6b46c1', fontSize: '0.95rem', textAlign: 'center', marginTop: '0.5rem' }}>
-              We’re validating this workflow now with early partners so we can confirm where it saves curator time.
-            </p>
-            
           </div>
         </section>
 

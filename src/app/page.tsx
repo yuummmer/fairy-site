@@ -382,20 +382,18 @@ export default function Page() {
             </p>
             <div className="cta-buttons">
               <a 
-                href="/sample-report" 
+                href="#solo-tier" 
                 className="btn-primary"
-                onClick={() => trackCTA('hero_cta_click', 'see_sample_report')}
+                onClick={() => trackCTA('hero_cta_click', 'individual_researcher')}
               >
-                See sample report
+                For individual researchers
               </a>
               <a 
-                href="https://forms.gle/mALqVs2Y26SS5wRr8" 
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/institutions" 
                 className="btn-primary"
-                onClick={() => trackCTA('hero_cta_click', 'request_pilot')}
+                onClick={() => trackCTA('hero_cta_click', 'learn_more')}
               >
-                Request pilot
+                For institutions
               </a>
             </div>
             
@@ -468,19 +466,19 @@ export default function Page() {
                 Request pilot
               </a>
               <a 
-                href="/sample-report" 
-                className="btn-secondary" 
-                style={{ marginRight: '1rem' }}
-                onClick={() => trackCTA('institution_preview_cta', 'view_sample_report')}
-              >
-                See example report
-              </a>
-              <a 
                 href="/institutions" 
                 className="btn-secondary"
+                style={{ marginRight: '1rem' }}
                 onClick={() => trackCTA('institution_preview_cta', 'for_data_managers_curators')}
               >
                 Learn more
+              </a>
+              <a 
+                href="/sample-report" 
+                className="btn-secondary" 
+                onClick={() => trackCTA('institution_preview_cta', 'view_sample_report')}
+              >
+                See example report
               </a>
             </div>
           </div>
