@@ -595,7 +595,7 @@ export default function InstitutionsPage() {
               </div>
               
               <a 
-                href="/samples/export-pack/evidence_kit_v0.json" 
+                href="/samples/export-pack/FAIRy_attestation_example.json" 
                 className="btn-secondary"
                 download
                 onClick={() => trackCTA('attestation_sample_download', 'evidence_kit_sample')}
@@ -614,10 +614,10 @@ export default function InstitutionsPage() {
           <div className="container">
             <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Pilot kit
+                Institution Pilot Kit
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '2rem' }}>
-                What you’ll get as part of an institutional pilot
+                Everything you need to evaluate a FAIRy pilot at your institution (and get quick internal approval)
               </p>
               
               <div style={{ background: 'white', padding: '2rem', borderRadius: '1rem', border: '2px solid #e9d5ff', marginBottom: '2rem' }}>
@@ -625,11 +625,11 @@ export default function InstitutionsPage() {
                   Download includes:
                 </h3>
                 <ul style={{ textAlign: 'left', color: '#6b46c1', fontSize: '0.875rem' }}>
-                  <li>One-pager overview</li>
+                  <li>What a FAIRy pilot actually is (90-minute scope + test run, not a full deployment)</li>
+                  <li>Exactly what you get out of it (rulepack, readiness report, attestation receipt)</li>
+                  <li>Step-by-step pilot timeline you can forward internally</li>
                   <li>Data handling & local-only model (no data leaves your institution)</li>
-                  <li>We’ll walk you through local run options (pip/conda/Docker) during pilot</li>
-                  <li>Data handling & privacy policy</li>
-                  <li>You’ll have direct contact with us during pilot for tweaks and questions</li>
+                  <li>How we support you during the pilot and who to contact</li>
                 </ul>
               </div>
               
