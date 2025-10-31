@@ -5,6 +5,7 @@ export const metadata = {
 
 import AnalyticsBindings from "../components/AnalyticsBindings";
 import AnnouncementBar from "../components/AnnouncementBar";
+import Navigation from "../components/Navigation";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,11 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <AnalyticsBindings />
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-          <nav className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-            <a href="/" className="font-semibold tracking-tight">FAIRy</a>
-          </nav>
-        </header>
+        <Navigation />
 
         <AnnouncementBar />
 
