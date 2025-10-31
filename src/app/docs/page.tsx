@@ -496,7 +496,7 @@ export default function Documentation() {
                 You can download a sample attestation file to see what it looks like:
               </p>
               <p>
-                <a href="/samples/export-pack/evidence_kit_v0.json" download style={{ color: '#7c3aed', textDecoration: 'underline' }}>Download sample attestation file (evidence_kit_v0.json)</a>
+                <a href="/samples/export-pack/FAIRy_attestation_example.json" download style={{ color: '#7c3aed', textDecoration: 'underline' }}>Download sample attestation file (FAIRy_attestation_example.json)</a>
               </p>
               <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '12px' }}>
                 Learn more about how attestation helps with compliance and due diligence in our <a href="/institutions#attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>institutions documentation</a>.

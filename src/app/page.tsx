@@ -376,51 +376,172 @@ export default function Page() {
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
-            <h1>Make data fair not frustrating.</h1>
+            <h1>Stop chasing missing fields. FAIRy tells the lab exactly what to fix.</h1>
             <p className="subheadline">
-              A local-first validator, fixer and packager for research datasets to cut down bounced submissions and back-and-forth
+              FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix it — so curators don't have to chase missing fields and bad filenames. No raw data leaves your environment.
             </p>
             <div className="cta-buttons">
               <a 
-                href="#solo-tier" 
+                href="/sample-report" 
                 className="btn-primary"
-                onClick={() => trackCTA('hero_cta_click', 'individual_researcher')}
+                onClick={() => trackCTA('hero_cta_click', 'see_sample_report')}
               >
-                Individual researcher
+                See sample report
               </a>
               <a 
-                href="/institutions" 
-                className="btn-secondary"
-                onClick={() => trackCTA('hero_cta_click', 'for_institutions')}
+                href="https://forms.gle/mALqVs2Y26SS5wRr8" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                onClick={() => trackCTA('hero_cta_click', 'request_pilot')}
               >
-                For institutions
+                Request pilot
               </a>
             </div>
             
           </div>
         </section>
 
-        {/* Solo Tier Section */}
+        {/* Institution Preview Section */}
+        <section id="institution-preview" className="demo-section" style={{ backgroundColor: '#f8fafc' }}>
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                Stop spending hours chasing missing fields and renaming files
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '1rem' }}>
+                People hand you garbage and you spend hours chasing missing fields and renaming files. You need proof you did QC before you archive, publish, send to a journal, or report to a grant panel.
+              </p>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '2rem' }}>
+                FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
+              </p>
+              
+              {/* Security Callout */}
+              <div style={{ 
+                background: '#f3e8ff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '0.75rem', 
+                padding: '1rem', 
+                marginBottom: '2rem',
+                maxWidth: '600px',
+                margin: '0 auto 2rem'
+              }}>
+                <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
+                  🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
+                </p>
+              </div>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+              <div className="step-card">
+                <div className="step-number" style={{ backgroundColor: '#059669' }}>📏</div>
+                <h3 className="step-title">Consistent intake rules</h3>
+                <p className="step-description">
+                  Turn your "we can't accept this without X" policies (sample IDs, contact email, ISO dates, file naming, permit/embargo flags) into a reusable preflight check. Everyone gets held to the same standard.
+                </p>
+              </div>
+              <div className="step-card">
+                <div className="step-number" style={{ backgroundColor: '#059669' }}>📝</div>
+                <h3 className="step-title">One-page readiness sheet</h3>
+                <p className="step-description">
+                  FAIRy produces a PASS / WARN / FAIL summary with plain-language "how to fix" instructions. You can send it back to the lab / PI instead of rewriting the same email.
+                </p>
+              </div>
+              <div className="step-card">
+                <div className="step-number" style={{ backgroundColor: '#059669' }}>🔒</div>
+                <h3 className="step-title">Local-only by design</h3>
+                <p className="step-description">
+                  FAIRy runs inside your environment. No raw data, filenames, locations, or metadata are uploaded. No accounts, no credentials, no cloud.
+                </p>
+              </div>
+            </div>
+            
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+              <a 
+                href="https://forms.gle/mALqVs2Y26SS5wRr8" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary" 
+                style={{ marginRight: '1rem' }}
+                onClick={() => trackCTA('institution_preview_cta', 'request_pilot')}
+              >
+                Request pilot
+              </a>
+              <a 
+                href="/sample-report" 
+                className="btn-secondary" 
+                style={{ marginRight: '1rem' }}
+                onClick={() => trackCTA('institution_preview_cta', 'view_sample_report')}
+              >
+                See example report
+              </a>
+              <a 
+                href="/institutions" 
+                className="btn-secondary"
+                onClick={() => trackCTA('institution_preview_cta', 'for_data_managers_curators')}
+              >
+                Learn more
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Individual Researcher Banner */}
+        <section style={{ padding: '3rem 0', backgroundColor: '#f3e8ff', borderTop: '2px solid #e9d5ff', borderBottom: '2px solid #e9d5ff' }}>
+          <div className="container">
+            <div style={{ 
+              background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)', 
+              borderRadius: '1rem', 
+              padding: '2.5rem', 
+              textAlign: 'center',
+              boxShadow: '0 10px 25px -3px rgba(139, 92, 246, 0.2)'
+            }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: 'white', marginBottom: '1rem' }}>
+                Are you submitting data to a repository yourself?
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#f3e8ff', marginBottom: '1.5rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+                Don't get your dataset bounced. FAIRy tells you exactly what's missing so you don't get yelled at.
+              </p>
+              <a 
+                href="#solo-tier" 
+                className="btn-primary"
+                style={{ 
+                  backgroundColor: 'white', 
+                  color: '#7c3aed',
+                  fontSize: '1.125rem',
+                  padding: '1rem 2.5rem'
+                }}
+                onClick={() => trackCTA('individual_researcher_link', 'banner_cta')}
+              >
+                See how FAIRy helps individual researchers →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Solo Tier Section - Individual Researchers */}
         <section id="solo-tier" className="demo-section">
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Stop chasing missing fields. FAIRy tells the lab exactly what to fix.
+                Don't get your dataset bounced by GEO, Zenodo, or your core facility
               </h2>
-              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
-                FAIRy runs locally on your dataset and generates a one-page readiness sheet — PASS / WARN / FAIL, why it matters, and how to fix — so curators don’t have to chase missing fields and bad filenames.
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '1rem' }}>
+                Tired of being told "fix your metadata" with no specifics? FAIRy runs locally and tells you exactly what's missing so you don't get yelled at.
+              </p>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
+                Get a checklist before you submit — PASS / WARN / FAIL, why it matters, and how to fix it. This is what your curator is going to ask for.
               </p>
               <div className="cta-buttons" style={{ marginBottom: '0' }}>
-                <a href="/sample-report" className="btn-primary">
-                  See sample report
+                <a href="#waitlist" className="btn-primary" onClick={() => trackCTA('solo_tier_cta', 'get_fairy')}>
+                  Get FAIRy
                 </a>
-                <a href="/institutions#pilot" className="btn-secondary">
-                  Partner with us (pilot)
+                <a href="/sample-report" className="btn-secondary" onClick={() => trackCTA('solo_tier_cta', 'see_example_report')}>
+                  See example report
                 </a>
               </div>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
-                For data stewards / data managers / core facilities →{' '}
-                <a href="/survey" style={{ color: '#6b7280', textDecoration: 'underline' }}>Take the 1-minute pilot intake</a>
+                For individual researchers, labs, grad students, and PIs
               </p>
             </div>
             
@@ -438,24 +559,24 @@ export default function Page() {
               }}
             >
               <div className="demo-badge">Demo / sample data</div>
-              <h3 className="demo-title">Preflight readiness sheet</h3>
+              <h3 className="demo-title">This is what your curator is going to ask for</h3>
               <div className="check-item">
                 <div className="check-dot check-pass"></div>
-                <span className="check-label">Metadata completeness ✓</span>
+                <span className="check-label">✅ Metadata completeness ✓</span>
               </div>
               <div className="check-item">
                 <div className="check-dot check-warning"></div>
-                <span className="check-label">File naming convention ⚠</span>
+                <span className="check-label">⚠ File naming convention</span>
               </div>
               <div className="check-item">
                 <div className="check-dot check-fail"></div>
-                <span className="check-label">Required fields missing ✗</span>
+                <span className="check-label">✗ Required fields missing</span>
               </div>
               <p style={{ marginTop: '12px', color: '#6b46c1' }}>
-                What your curator / data manager gets back from FAIRy: PASS / WARN / FAIL plus how to fix it, no raw data included.
+                FAIRy runs locally and tells you exactly what's missing and how to fix it — no vague "fix your metadata" messages. Get a checklist before you submit so you don't get bounced.
               </p>
               <p style={{ marginTop: '20px', color: '#64748b', fontSize: '0.875rem' }}>
-                View sample report →
+                View the full sample report →
               </p>
             </div>
             
@@ -466,45 +587,37 @@ export default function Page() {
               borderRadius: '1rem', 
               padding: '2rem', 
               marginTop: '2rem',
-              textAlign: 'center'
+              textAlign: 'left'
             }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1.5rem', textAlign: 'center' }}>
                 How FAIRy runs in your environment
               </h3>
               
-              {/* CLI Option - Pilot */}
+              <p style={{ fontSize: '1rem', color: '#4c1d95', marginBottom: '1.5rem', textAlign: 'center', fontStyle: 'italic' }}>
+                Here's exactly how this would work on your machine if you said yes.
+              </p>
+              
+              {/* Section 1: Run it locally */}
               <div style={{ 
-                background: '#ffffff', 
-                border: '2px solid #7c3aed', 
-                borderRadius: '1rem', 
-                padding: '1.5rem', 
-                marginBottom: '1.5rem',
-                textAlign: 'left',
-                boxShadow: '0 4px 6px -1px rgba(124, 58, 237, 0.1)'
+                marginBottom: '2rem'
               }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  marginBottom: '1rem' 
-                }}>
-                  <div style={{ 
-                    background: '#7c3aed', 
-                    color: 'white', 
-                    padding: '0.25rem 0.75rem', 
-                    borderRadius: '1.25rem', 
-                    fontSize: '0.75rem', 
-                    fontWeight: '500' 
-                  }}>
-                    PILOT
-                  </div>
-                  <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', margin: '0' }}>
-                    Pilot workflow · Command line run
-                  </h4>
-                </div>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
-                  During pilot, you run FAIRy locally on a folder or metadata sheet. It generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) and a structured JSON summary.
+                <h4 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  1. Run it locally on your machine
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0.75rem' }}>
+                  During the pilot, you run FAIRy on a folder or metadata sheet.
                 </p>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0.75rem' }}>
+                  FAIRy checks the dataset against your required fields and naming rules, and generates:
+                </p>
+                <ul style={{ fontSize: '0.875rem', color: '#6b46c1', marginLeft: '1.5rem', marginBottom: '0.75rem', listStyleType: 'disc' }}>
+                  <li style={{ marginBottom: '0.5rem' }}>
+                    a one-page Submission Readiness Report (PASS / WARN / FAIL + how to fix), and
+                  </li>
+                  <li>
+                    a machine-readable Attestation file (timestamp, rulepack version, file hashes).
+                  </li>
+                </ul>
                 <div style={{ 
                   background: '#f3e8ff', 
                   border: '1px solid #e9d5ff', 
@@ -514,52 +627,27 @@ export default function Page() {
                   fontSize: '0.875rem',
                   marginBottom: '0.75rem'
                 }}>
-                  <div style={{ color: '#6b46c1', marginBottom: '0.5rem', fontWeight: 600 }}>Example invocation (local run):</div>
                   <pre style={{ margin: 0, color: '#6b46c1', whiteSpace: 'pre-wrap' }}><code>fairy validate /path/to/dataset --out out/</code></pre>
                 </div>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
-                  All processing happens on your own machine. No uploads, no accounts.
+                  Nothing is uploaded.
+                  <br />
+                  No accounts, no cloud, no external transfer. All processing happens on your machine / inside your network.
                 </p>
               </div>
               
-              {/* UI Option - Optional */}
+              {/* Section 2: Optional browser */}
               <div style={{ 
-                background: '#ffffff', 
-                border: '2px solid #c4b5fd', 
-                borderRadius: '1rem', 
-                padding: '1.5rem', 
-                marginBottom: '1rem',
-                textAlign: 'left',
-                boxShadow: '0 4px 6px -1px rgba(196, 181, 253, 0.1)'
+                marginBottom: '2rem'
               }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem', 
-                  marginBottom: '1rem' 
-                }}>
-                  <div style={{ 
-                    background: '#6b46c1', 
-                    color: 'white', 
-                    padding: '0.25rem 0.75rem', 
-                    borderRadius: '1.25rem', 
-                    fontSize: '0.75rem', 
-                    fontWeight: '500' 
-                  }}>
-                    OPTIONAL
-                  </div>
-                  <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', margin: '0' }}>
-                    Optional visual review
-                  </h4>
-                </div>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
-                  For teams that don’t want command line, FAIRy can render an interactive report in a local browser window.
-                </p>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0 0 0.75rem' }}>
-                  Same checks, same PASS / WARN / FAIL guidance — just click-to-view instead of terminal.
+                <h4 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  2. (Optional) Open it in a browser instead of reading the terminal
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0.75rem' }}>
+                  If you don't want to look at terminal output, FAIRy can render the same report in a local browser window so you can click through issues instead of scrolling logs.
                 </p>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
-                  Still runs locally. Still no data leaves.
+                  Same checks. Same PASS / WARN / FAIL guidance. Still runs locally.
                 </p>
               </div>
               
@@ -575,12 +663,14 @@ export default function Page() {
                 </p>
               </div>
               
-              <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }}>
-                Join pilot
-              </a>
-              <a href="/sample-report" className="btn-secondary">
-                View sample report
-              </a>
+              <div style={{ textAlign: 'center' }}>
+                <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }} onClick={() => trackCTA('quick_install_cta', 'get_fairy')}>
+                  Get FAIRy
+                </a>
+                <a href="/sample-report" className="btn-secondary" onClick={() => trackCTA('quick_install_cta', 'see_example_report')}>
+                  See example report
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -623,105 +713,29 @@ export default function Page() {
             </div>
             
             <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-              <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }}>
-                Join pilot
+              <a href="#waitlist" className="btn-primary" style={{ marginRight: '1rem' }} onClick={() => trackCTA('how_it_works_cta', 'get_fairy')}>
+                Get FAIRy
               </a>
-              <a href="/sample-report" className="btn-secondary">
-                View sample report
+              <a href="/sample-report" className="btn-secondary" onClick={() => trackCTA('how_it_works_cta', 'see_example_report')}>
+                View example report
               </a>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
-                For data stewards / data managers / core facilities → <a href="/survey" style={{ color: '#6b7280', textDecoration: 'underline' }}>1-minute pilot intake</a>
+                For individual researchers → <a href="#institution-preview" style={{ color: '#6b7280', textDecoration: 'underline' }}>For institutions / data stewards</a>
               </p>
             </div>
           </div>
         </section>
 
-        {/* Institution Preview Section */}
-        <section id="institution-preview" className="demo-section" style={{ backgroundColor: '#f8fafc' }}>
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Get cleaner submissions the first time
-              </h2>
-              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '2rem' }}>
-                FAIRy runs locally and flags missing metadata, filename problems, and other issues that block submission — before your curator or data manager ever touches the dataset.
-              </p>
-              
-              {/* Security Callout */}
-              <div style={{ 
-                background: '#f3e8ff', 
-                border: '2px solid #e9d5ff', 
-                borderRadius: '0.75rem', 
-                padding: '1rem', 
-                marginBottom: '2rem',
-                maxWidth: '600px',
-                margin: '0 auto 2rem'
-              }}>
-                <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
-                  🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
-                </p>
-              </div>
-            </div>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
-              <div className="step-card">
-                <div className="step-number" style={{ backgroundColor: '#059669' }}>📏</div>
-                <h3 className="step-title">Consistent intake rules</h3>
-                <p className="step-description">
-                  Turn your “we can’t accept this without X” policies (sample IDs, contact email, ISO dates, file naming, permit/embargo flags) into a reusable preflight check. Everyone gets held to the same standard.
-                </p>
-              </div>
-              <div className="step-card">
-                <div className="step-number" style={{ backgroundColor: '#059669' }}>📝</div>
-                <h3 className="step-title">One-page readiness sheet</h3>
-                <p className="step-description">
-                  FAIRy produces a PASS / WARN / FAIL summary with plain-language “how to fix” instructions. You can send it back to the lab / PI instead of rewriting the same email.
-                </p>
-              </div>
-              <div className="step-card">
-                <div className="step-number" style={{ backgroundColor: '#059669' }}>🔒</div>
-                <h3 className="step-title">Local-only by design</h3>
-                <p className="step-description">
-                  FAIRy runs inside your environment. No raw data, filenames, locations, or metadata are uploaded. No accounts, no credentials, no cloud.
-                </p>
-              </div>
-            </div>
-            
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <a 
-                href="/sample-report" 
-                className="btn-secondary" 
-                style={{ marginRight: '1rem' }}
-                onClick={() => trackCTA('institution_preview_cta', 'view_sample_report')}
-              >
-                View sample report
-              </a>
-              <a 
-                href="/institutions#pilot" 
-                className="btn-primary" 
-                style={{ marginRight: '1rem' }}
-                onClick={() => trackCTA('institution_preview_cta', 'join_pilot')}
-              >
-                Join pilot
-              </a>
-              <a 
-                href="/institutions" 
-                className="btn-secondary"
-                onClick={() => trackCTA('institution_preview_cta', 'for_data_managers_curators')}
-              >
-                For data managers / curators
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Waitlist Form */}
+        {/* Waitlist Form - For Individual Researchers */}
         <section id="waitlist" className="waitlist-section">
           <div className="container">
             <div className="waitlist-form">
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#0f172a', marginBottom: '24px', textAlign: 'center' }}>
-                Get started with FAIRy
+              <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#0f172a', marginBottom: '16px', textAlign: 'center' }}>
+                Get FAIRy
               </h3>
+              <p style={{ fontSize: '1rem', color: '#64748b', marginBottom: '24px', textAlign: 'center' }}>
+                Join the waitlist for early access or download FAIRy when available. Run it locally and get a checklist so you don't get rejected.
+              </p>
               <FeedbackForm formType="waitlist" />
             </div>
           </div>
