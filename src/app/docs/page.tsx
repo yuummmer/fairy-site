@@ -274,6 +274,61 @@ export default function Documentation() {
           color: #7c3aed;
         }
         
+        .mapping-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 24px 0;
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mapping-table th {
+          background: #f3e8ff;
+          padding: 1rem;
+          text-align: left;
+          font-weight: 600;
+          color: #4c1d95;
+          border-bottom: 1px solid #e9d5ff;
+          font-size: 0.875rem;
+        }
+        
+        .mapping-table td {
+          padding: 1rem;
+          border-bottom: 1px solid #f3e8ff;
+          color: #6b46c1;
+          font-size: 0.875rem;
+        }
+        
+        .mapping-table tr:last-child td {
+          border-bottom: none;
+        }
+        
+        .mapping-table a {
+          color: #7c3aed;
+          text-decoration: underline;
+        }
+        
+        .mapping-table a:hover {
+          color: #6d28d9;
+        }
+        
+        .mapping-table .pass {
+          color: #059669;
+          font-weight: 600;
+        }
+        
+        .mapping-table .warning {
+          color: #d97706;
+          font-weight: 600;
+        }
+        
+        .mapping-table .fail {
+          color: #dc2626;
+          font-weight: 600;
+        }
+        
         @media (max-width: 900px) {
           .docs-layout { grid-template-columns: 1fr; }
           .sidebar { position: relative; top: 0; border: none; }
@@ -287,6 +342,18 @@ export default function Documentation() {
           
           .feature-grid {
             grid-template-columns: 1fr;
+          }
+          
+          .mapping-table {
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          .mapping-table th,
+          .mapping-table td {
+            padding: 0.75rem 0.5rem;
+            font-size: 0.8125rem;
           }
         }
       `}</style>
@@ -352,6 +419,48 @@ export default function Documentation() {
                 <li><strong>Reuse signals:</strong> license clarity, contact information, and basic attribution info so a curator (or future user) knows who to reach and how it can be shared</li>
               </ul>
             </div>
+            
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginTop: '32px', marginBottom: '16px' }}>Repository-style expectations</h3>
+            <p style={{ color: '#6b46c1', marginBottom: '16px' }}>
+              These checks are modeled on common reject reasons from public repositories like GEO and Zenodo (missing required fields, bad filenames, nonstandard dates). This is not an official submission approval.
+            </p>
+            
+            <table className="mapping-table">
+              <thead>
+                <tr>
+                  <th>FAIRy check</th>
+                  <th>GEO-style requirement</th>
+                  <th>Zenodo-style requirement</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Metadata completeness</td>
+                  <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO submission guide</a></td>
+                  <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo metadata guide</a></td>
+                  <td className="pass">✓ Passed</td>
+                </tr>
+                <tr>
+                  <td>File naming convention</td>
+                  <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/seq.html" target="_blank" rel="noopener">GEO file naming</a></td>
+                  <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo file naming</a></td>
+                  <td className="warning">⚠ Warning</td>
+                </tr>
+                <tr>
+                  <td>Date format standardization</td>
+                  <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO date format</a></td>
+                  <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo date format</a></td>
+                  <td className="warning">⚠ Warning</td>
+                </tr>
+                <tr>
+                  <td>Required fields</td>
+                  <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO required fields</a></td>
+                  <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo required fields</a></td>
+                  <td className="fail">✗ Failed</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
             </section>
             

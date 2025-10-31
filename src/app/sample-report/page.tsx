@@ -9,6 +9,91 @@ export default function SampleReportPage() {
     const now = new Date();
     setGeneratedTimestamp(`${now.toLocaleDateString()} at ${now.toLocaleTimeString()}`);
   }, []);
+
+  const downloadReport = () => {
+    const now = new Date();
+    const utcTime = now.toISOString();
+    const dateStr = utcTime.split('T')[0];
+    const timeStr = utcTime.split('T')[1].split('.')[0];
+    
+    const reportContent = `This report was generated locally by FAIRy.
+You can send it back to the person who prepared the dataset and say:
+"Please fix the FAIL items before I can accept or submit this."
+No raw data is included — just what's missing, why it matters, and how to fix it.
+
+# FAIRy Submission Readiness Report
+
+- **Rulepack:** GEO-SEQ-BULK@0.1.0
+- **FAIRy version:** 0.1.0
+- **Run at (UTC):** ${utcTime}
+- **submission_ready:** \`False\` (This means a curator would still bounce this.)
+
+## Summary
+
+- FAIL findings: 2 ['CORE.ID.UNMATCHED_SAMPLE', 'GEO.REQUIRED.MISSING_FIELD']
+- WARN findings: 1 ['CORE.DATE.INVALID_ISO8601']
+
+If \`submission_ready\` is \`True\`, FAIRy believes this dataset is ready to submit.
+If it's \`False\`, a curator would still bounce this and ask for changes.
+
+---
+
+## Input provenance (what FAIRy actually checked)
+
+These hashes and dimensions identify the exact files that FAIRy validated.
+You can hand this block to a curator or PI as evidence of what was checked.
+
+### metadata.tsv
+
+- path: 'metadata.tsv'
+- sha256: 'a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2'
+- rows: '3'
+- cols: '8'
+
+### samples.tsv
+
+- path: 'samples.tsv'
+- sha256: 'f965407ccaac8ee80953c634b7ad47a4c7441945dfebb8b5dabdb6657ed37165'
+- rows: '2'
+- cols: '10'
+
+### files.tsv
+
+- path: 'files.tsv'
+- sha256: '8ec6eaeb72ce5d853b76876da578dc251d392176a9384544a8eaf6433964d9fe'
+- rows: '3'
+- cols: '3'
+
+---
+
+## Findings (all current issues)
+
+Severity \`FAIL\` means "must fix before submission."
+Severity \`WARN\` means "soft violation / likely curator feedback."
+
+| Severity | Code | Location | Why it matters | How to fix |
+|----------|------|----------|----------------|------------|
+| FAIL | CORE.ID.UNMATCHED_SAMPLE | samples.tsv → sample_id (row 2 mismatch) | Every file must map to a described sample and vice versa. | Align sample_id across tables. |
+| FAIL | GEO.REQUIRED.MISSING_FIELD | metadata.tsv → platform_type (missing) | The repository requires platform_type to process your submission; missing this will delay acceptance. | Add platform_type column with values like 'Illumina HiSeq 2000' or 'Affymetrix Human Genome U133 Plus 2.0 Array'. |
+| WARN | CORE.DATE.INVALID_ISO8601 | row 0, column 'collection_date' | Ambiguous dates hurt reuse; a curator will probably ask you to fix this before accepting. | Use ISO8601 (YYYY-MM-DD). |
+
+---
+
+## Resolved since last run
+
+_In first run: no previously-reported issues to clear._
+`;
+
+    const blob = new Blob([reportContent], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `fairy_preflight_report_${dateStr}_${timeStr.replace(/:/g, '-')}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
   return (
     <>
       <style jsx global>{`
@@ -22,8 +107,8 @@ export default function SampleReportPage() {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
           font-size: 16px;
           line-height: 1.6;
-          color: #1f2937;
-          background-color: #ffffff;
+          color: #4c1d95;
+          background-color: #faf5ff;
         }
         
         .container {
@@ -36,46 +121,102 @@ export default function SampleReportPage() {
           text-align: center;
           margin-bottom: 3rem;
           padding-bottom: 2rem;
-          border-bottom: 2px solid #e5e7eb;
+          border-bottom: 2px solid #e9d5ff;
         }
         
         .header h1 {
           font-size: 2.5rem;
           font-weight: 700;
-          color: #1f2937;
+          color: #4c1d95;
           margin-bottom: 1rem;
         }
         
         .header .subtitle {
           font-size: 1.125rem;
-          color: #6b7280;
+          color: #6b46c1;
           margin-bottom: 2rem;
         }
         
+        .intro-section {
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto 3rem;
+          color: #4c1d95;
+        }
+        
+        .intro-section p {
+          font-size: 1.125rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+        }
+        
+        .intro-section .intro-highlight {
+          font-weight: 600;
+          color: #6b46c1;
+        }
+        
         .summary-banner {
-          display: flex;
-          justify-content: space-around;
-          background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-          border: 2px solid #0ea5e9;
+          text-align: center;
+          background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+          border: 2px solid #c4b5fd;
           border-radius: 1rem;
           padding: 2rem;
           margin-bottom: 3rem;
         }
         
-        .summary-item {
-          text-align: center;
+        .summary-label {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #4c1d95;
+          margin-bottom: 1rem;
         }
         
-        .summary-number {
-          font-size: 2.5rem;
+        .summary-meta {
+          font-size: 0.875rem;
+          color: #6b46c1;
+          margin-bottom: 1rem;
+          line-height: 1.8;
+        }
+        
+        .summary-status {
+          font-size: 2rem;
           font-weight: 700;
           margin-bottom: 0.5rem;
         }
         
-        .summary-label {
-          font-size: 0.875rem;
-          color: #6b7280;
-          font-weight: 500;
+        .summary-description {
+          font-size: 1rem;
+          color: #6b46c1;
+          margin-bottom: 1.5rem;
+        }
+        
+        .summary-provenance {
+          margin-top: 1.5rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid #c4b5fd;
+          text-align: left;
+          font-size: 0.8125rem;
+          color: #6b46c1;
+          line-height: 1.6;
+        }
+        
+        .summary-provenance p {
+          margin-bottom: 0.75rem;
+        }
+        
+        .summary-provenance strong {
+          color: #4c1d95;
+        }
+        
+        .summary-provenance .manifest {
+          background: rgba(255, 255, 255, 0.6);
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          margin-top: 0.5rem;
+          font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+          font-size: 0.75rem;
+          word-break: break-all;
+          color: #6b46c1;
         }
         
         .pass { color: #059669; }
@@ -89,10 +230,10 @@ export default function SampleReportPage() {
         .section-title {
           font-size: 1.5rem;
           font-weight: 600;
-          color: #1f2937;
+          color: #4c1d95;
           margin-bottom: 1.5rem;
           padding-bottom: 0.5rem;
-          border-bottom: 1px solid #e5e7eb;
+          border-bottom: 1px solid #e9d5ff;
         }
         
         .check-item {
@@ -140,6 +281,93 @@ export default function SampleReportPage() {
           color: #0369a1;
         }
         
+        .issues-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 2rem;
+          background: white;
+          border-radius: 0.75rem;
+          overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .issues-table th {
+          background: #f3e8ff;
+          padding: 1rem;
+          text-align: left;
+          font-weight: 600;
+          color: #4c1d95;
+          border-bottom: 1px solid #e9d5ff;
+          font-size: 0.875rem;
+        }
+        
+        .issues-table td {
+          padding: 1rem;
+          border-bottom: 1px solid #f3e8ff;
+          color: #4c1d95;
+          font-size: 0.875rem;
+          vertical-align: top;
+        }
+        
+        .issues-table tr:last-child td {
+          border-bottom: none;
+        }
+        
+        .issues-table tr:hover {
+          background: #faf5ff;
+        }
+        
+        .severity-badge {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.375rem;
+          font-weight: 600;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+        }
+        
+        .severity-badge.fail {
+          background: #fee2e2;
+          color: #dc2626;
+        }
+        
+        .severity-badge.warning {
+          background: #fef3c7;
+          color: #d97706;
+        }
+        
+        .severity-badge.pass {
+          background: #d1fae5;
+          color: #059669;
+        }
+        
+        .code-cell {
+          font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+          font-size: 0.8125rem;
+          color: #6b46c1;
+        }
+        
+        .where-cell {
+          font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+          font-size: 0.8125rem;
+          color: #6b7280;
+        }
+        
+        .report-note {
+          margin-top: 2rem;
+          padding: 1.5rem;
+          background: #f3e8ff;
+          border: 1px solid #c4b5fd;
+          border-radius: 0.75rem;
+          color: #4c1d95;
+          font-size: 0.9375rem;
+          line-height: 1.6;
+        }
+        
+        .report-note strong {
+          color: #6b46c1;
+        }
+        
         .mapping-table {
           width: 100%;
           border-collapse: collapse;
@@ -151,42 +379,24 @@ export default function SampleReportPage() {
         }
         
         .mapping-table th {
-          background: #f3f4f6;
+          background: #f3e8ff;
           padding: 1rem;
           text-align: left;
           font-weight: 600;
-          color: #374151;
-          border-bottom: 1px solid #e5e7eb;
+          color: #4c1d95;
+          border-bottom: 1px solid #e9d5ff;
         }
         
         .mapping-table td {
           padding: 1rem;
-          border-bottom: 1px solid #f3f4f6;
-          color: #6b7280;
+          border-bottom: 1px solid #f3e8ff;
+          color: #6b46c1;
         }
         
         .mapping-table tr:last-child td {
           border-bottom: none;
         }
         
-        .footer {
-          margin-top: 4rem;
-          padding-top: 2rem;
-          border-top: 2px solid #e5e7eb;
-          text-align: center;
-          color: #6b7280;
-          font-size: 0.875rem;
-        }
-        
-        .footer .manifest {
-          background: #f9fafb;
-          padding: 1rem;
-          border-radius: 0.5rem;
-          margin-top: 1rem;
-          font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
-          font-size: 0.75rem;
-          word-break: break-all;
-        }
         
         .cta-buttons {
           display: flex;
@@ -243,9 +453,20 @@ export default function SampleReportPage() {
         }
         
         @media (max-width: 768px) {
-          .summary-banner {
-            flex-direction: column;
-            gap: 1rem;
+          .summary-status {
+            font-size: 1.5rem;
+          }
+          
+          .issues-table {
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          .issues-table th,
+          .issues-table td {
+            padding: 0.75rem 0.5rem;
+            font-size: 0.8125rem;
           }
           
           .cta-buttons {
@@ -262,160 +483,107 @@ export default function SampleReportPage() {
       
       <div className="container">
         <div className="header">
-          <h1>FAIRy validation report</h1>
-          <p className="subtitle">Dataset: GSM123456_sample_dataset</p>
-          <p className="subtitle" suppressHydrationWarning>Generated: {generatedTimestamp}</p>
-          
-          <div className="cta-buttons">
-            <button 
-              className="btn btn-primary"
-              onClick={() => window.print()}
-            >
-              Download as PDF
-            </button>
-            <a href="/institutions" className="btn btn-secondary">
-              For institutions
-            </a>
-          </div>
+          <h1>Example FAIRy Submission Readiness Report</h1>
         </div>
-        
-        <div style={{ textAlign: 'center', color: '#6b7280', marginBottom: '1.5rem' }}>
-          This report flags missing or inconsistent metadata before repository submission. You can send it back to the lab / PI as a “please fix these before we can accept this” note — no raw data included.
+
+        <div className="intro-section">
+          <p>
+            <span className="intro-highlight">Don't wait for the repository to reject your submission.</span> Run FAIRy before you upload, and you'll see exactly what needs to be fixed — missing fields, formatting issues, inconsistent IDs — all with clear instructions on how to resolve them.
+          </p>
+          <p>
+            The report below shows what FAIRy generates. Fix the issues it flags, and you can <span className="intro-highlight">submit with confidence — once, not four times.</span>
+          </p>
+        </div>
+
+        <div className="cta-buttons">
+          <button 
+            className="btn btn-primary"
+            onClick={downloadReport}
+          >
+            Download example FAIRy Submission Readiness Report (PDF)
+          </button>
         </div>
 
         <div className="summary-banner">
-          <div className="summary-item">
-            <div className="summary-number pass">12</div>
-            <div className="summary-label">Checks passed</div>
-          </div>
-          <div className="summary-item">
-            <div className="summary-number warning">3</div>
-            <div className="summary-label">Warnings</div>
-          </div>
-          <div className="summary-item">
-            <div className="summary-number fail">1</div>
-            <div className="summary-label">Critical issue to fix before submission</div>
-          </div>
-        </div>
-        
-        <div className="checks-section">
-          <h2 className="section-title">Validation results</h2>
+          <div className="summary-label">Submission Readiness Summary</div>
           
-          <div className="check-item pass">
-            <div className="check-icon">✓</div>
-            <div className="check-content">
-              <div className="check-title">Metadata completeness</div>
-              <div className="check-description">All required metadata fields are present and properly formatted.</div>
-            </div>
+          <div className="summary-meta">
+            <div><strong>Dataset:</strong> GSM123456_sample_dataset</div>
+            <div suppressHydrationWarning><strong>Generated locally:</strong> {generatedTimestamp}</div>
+          </div>
+          <div className="summary-status">
+            <span className="fail">2 FAIL</span> / <span className="warning">1 WARN</span>
+          </div>
+          <div className="summary-description">
+            Issues found that need attention before submission
           </div>
           
-          <div className="check-item pass">
-            <div className="check-icon">✓</div>
-            <div className="check-content">
-              <div className="check-title">File integrity</div>
-              <div className="check-description">All files are readable and contain expected data formats.</div>
-            </div>
-          </div>
-          
-          <div className="check-item warning">
-            <div className="check-icon">⚠</div>
-            <div className="check-content">
-              <div className="check-title">File naming convention</div>
-              <div className="check-description">Some files don't follow GEO naming conventions.</div>
-              <div className="check-fix">
-                <strong>How to fix:</strong> Rename "sample_1.fastq" to "GSM123456_sample_1.fastq" to include the GEO accession number.
-              </div>
-            </div>
-          </div>
-          
-          <div className="check-item warning">
-            <div className="check-icon">⚠</div>
-            <div className="check-content">
-              <div className="check-title">Date format standardization</div>
-              <div className="check-description">Dates should be in ISO 8601 format for better compatibility.</div>
-              <div className="check-fix">
-                <strong>How to fix:</strong> Change "12/15/2023" to "2023-12-15" in the metadata file.
-              </div>
-            </div>
-          </div>
-          
-          <div className="check-item warning">
-            <div className="check-icon">⚠</div>
-            <div className="check-content">
-              <div className="check-title">Controlled vocabulary</div>
-              <div className="check-description">Some terms don't match standard ontologies.</div>
-              <div className="check-fix">
-                <strong>How to fix:</strong> Use "Homo sapiens" instead of "human" in the organism field.
-              </div>
-            </div>
-          </div>
-          
-          <div className="check-item fail">
-            <div className="check-icon">✗</div>
-            <div className="check-content">
-              <div className="check-title">Required fields missing (blocks submission)</div>
-              <div className="check-description">These required fields are missing and will cause a repository to reject or delay your dataset.</div>
-              <div className="check-fix">
-                <strong>How to fix:</strong> Add the following fields to your metadata: contact_name, contact_email, platform_type.
-              </div>
+          <div className="summary-provenance">
+            <p><strong>Provenance:</strong> FAIRy pilot build (local run; pre-release)</p>
+            <p><strong>Command used (local run on 2025-10-14):</strong><br/>fairy validate /path/to/dataset --out out/ --format html</p>
+            <p>File hash digest (so you can prove which exact files were checked):</p>
+            <div className="manifest">
+              <strong>SHA256 manifest:</strong><br/>
+              dataset_metadata.json: a1b2c3d4e5f6...<br/>
+              sample_1.fastq: f6e5d4c3b2a1...<br/>
+              sample_2.fastq: 1a2b3c4d5e6f...
             </div>
           </div>
         </div>
         
         <div className="checks-section">
-          <h2 className="section-title">Repository-style expectations</h2>
-          <p style={{ color: '#6b7280', marginTop: '0.5rem', marginBottom: '1rem' }}>
-            These checks are modeled on common reject reasons from public repositories like GEO and Zenodo (missing required fields, bad filenames, nonstandard dates). This is not an official submission approval.
-          </p>
+          <h2 className="section-title">What needs to be fixed</h2>
           
-          <table className="mapping-table">
+          <table className="issues-table">
             <thead>
               <tr>
-                <th>FAIRy check</th>
-                <th>GEO-style requirement</th>
-                <th>Zenodo-style requirement</th>
-                <th>Status</th>
+                <th>Severity</th>
+                <th>Code</th>
+                <th>Where it failed</th>
+                <th>Why it matters</th>
+                <th>How to fix</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Metadata completeness</td>
-                <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO submission guide</a></td>
-                <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo metadata guide</a></td>
-                <td className="pass">✓ Passed</td>
+                <td>
+                  <span className="severity-badge fail">FAIL</span>
+                </td>
+                <td className="code-cell">CORE.ID.UNMATCHED_SAMPLE</td>
+                <td className="where-cell">samples.tsv → sample_id (row 2 mismatch)</td>
+                <td>Every file must map to a described sample and vice versa.</td>
+                <td>Align sample_id across tables.</td>
               </tr>
               <tr>
-                <td>File naming convention</td>
-                <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/seq.html" target="_blank" rel="noopener">GEO file naming</a></td>
-                <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo file naming</a></td>
-                <td className="warning">⚠ Warning</td>
+                <td>
+                  <span className="severity-badge fail">FAIL</span>
+                </td>
+                <td className="code-cell">GEO.REQUIRED.MISSING_FIELD</td>
+                <td className="where-cell">metadata.tsv → platform_type (missing)</td>
+                <td>The repository requires platform_type to process your submission; missing this will delay acceptance.</td>
+                <td>Add platform_type column with values like 'Illumina HiSeq 2000' or 'Affymetrix Human Genome U133 Plus 2.0 Array'.</td>
               </tr>
               <tr>
-                <td>Date format standardization</td>
-                <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO date format</a></td>
-                <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo date format</a></td>
-                <td className="warning">⚠ Warning</td>
-              </tr>
-              <tr>
-                <td>Required fields</td>
-                <td><a href="https://www.ncbi.nlm.nih.gov/geo/info/submission.html" target="_blank" rel="noopener">GEO required fields</a></td>
-                <td><a href="https://help.zenodo.org/features/deposit-form/" target="_blank" rel="noopener">Zenodo required fields</a></td>
-                <td className="fail">✗ Failed</td>
+                <td>
+                  <span className="severity-badge warning">WARN</span>
+                </td>
+                <td className="code-cell">CORE.DATE.INVALID_ISO8601</td>
+                <td className="where-cell">row 0, column 'collection_date'</td>
+                <td>Ambiguous dates hurt reuse; a curator will probably ask you to fix this before accepting.</td>
+                <td>Use ISO8601 (YYYY-MM-DD).</td>
               </tr>
             </tbody>
           </table>
+          
+          <div className="report-note">
+            <strong>FAIRy runs locally.</strong> You can forward this report as-is to a collaborator, student, or PI and say, "Please fix these before I can accept this dataset." No raw data is included — just the problems and how to resolve them.
+          </div>
         </div>
         
-        <div className="footer">
-          <p><strong>Provenance:</strong> This report was generated using a FAIRy pilot build (pre-release).</p>
-          <p><strong>Command used (local run on 2025-10-14):</strong><br/>fairy validate /path/to/dataset --out out/ --format html</p>
-          <p>File hash digest (for provenance / reproducibility):</p>
-          <div className="manifest">
-            <strong>SHA256 manifest:</strong><br/>
-            dataset_metadata.json: a1b2c3d4e5f6...<br/>
-            sample_1.fastq: f6e5d4c3b2a1...<br/>
-            sample_2.fastq: 1a2b3c4d5e6f...
-          </div>
+        <div className="checks-section" style={{ textAlign: 'center', paddingTop: '2rem' }}>
+          <p style={{ color: '#6b46c1', fontSize: '1rem' }}>
+            See how FAIRy's rulepacks map to real repository requirements <a href="/docs" style={{ color: '#7c3aed', textDecoration: 'underline' }}>in our documentation</a>.
+          </p>
         </div>
       </div>
     </>
