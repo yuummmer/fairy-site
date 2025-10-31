@@ -357,7 +357,7 @@ export default function InstitutionsPage() {
                 FAIRy is currently in pilot with early institutional partners.
               </p>
               <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
-                We’re co-developing small “preflight rulepacks” that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
+                We're co-developing small "preflight rulepacks" that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
               </p>
               <p style={{ color: '#4c1d95', marginBottom: '0.75rem' }}>
                 FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
@@ -419,13 +419,13 @@ export default function InstitutionsPage() {
                     <p>Pre-check before handoff to PIs</p>
                     <p>Run FAIRy locally on a sample sheet / metadata sheet before you return results to a lab or PI.</p>
                     <p>It flags missing required fields, broken IDs, filename issues, permit / embargo gaps, etc. — the stuff that will get them bounced later.</p>
-                    <p>Result: you stop writing the same “please fix these 5 things” email for every project.</p>
+                    <p>Result: you stop writing the same "please fix these 5 things" email for every project.</p>
                   </div>
                   
                   <div className="feature-card">
                     <h4>Your policy, enforced consistently</h4>
                     <p>Reusable intake rules</p>
-                    <p>We encode your “we don’t accept this without X” policy (stable sample IDs, ISO dates, site / instrument info, contact email, file naming conventions) into a rulepack.</p>
+                    <p>We encode your "we don't accept this without X" policy (stable sample IDs, ISO dates, site / instrument info, contact email, file naming conventions) into a rulepack.</p>
                     <p>Everyone gets checked against the same rules instead of whoever yells loudest.</p>
                     <p>FAIRy produces a one-page readiness sheet (PASS / WARN / FAIL + how to fix) you can hand back to the lab.</p>
                   </div>
@@ -473,13 +473,139 @@ export default function InstitutionsPage() {
                   <div className="feature-card">
                     <h4>Exportable reports</h4>
                     <p>FAIRy produces a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that you can save, print, or attach to a ticket/request.</p>
-                    <p>We’re working on lightweight provenance details — like including the command used and file hashes — so you can show when/what was checked.</p>
+                    <p>We're working on lightweight provenance details — like including the command used and file hashes — so you can show when/what was checked.</p>
+                  </div>
+                  
+                  <div className="feature-card">
+                    <h4>Attestation for compliance</h4>
+                    <p>FAIRy generates an attestation file documenting that validation was performed using a specific rulepack and version at a given timestamp.</p>
+                    <p>This provides a record for institutions ("we have records"), journals ("we did our due diligence"), and grant panels ("we're reducing friction for data publication").</p>
+                    <p>Attach the attestation to submissions to demonstrate that your datasets have been pre-validated and meet repository requirements.</p>
                   </div>
                 </div>
               </div>
             )}
             
             
+          </div>
+        </section>
+
+        {/* Attestation Section */}
+        <section id="attestation" className="section" style={{ backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <h2 className="section-title">Attestation: Show your due diligence</h2>
+            
+            <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '2rem' }}>
+                FAIRy generates an attestation file that documents your validation process—making it easy to demonstrate compliance and reduce friction with stakeholders.
+              </p>
+              
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+                gap: '1.5rem',
+                marginBottom: '2rem'
+              }}>
+                <div style={{ 
+                  background: '#f8fafc', 
+                  border: '1px solid #e9d5ff', 
+                  borderRadius: '0.75rem', 
+                  padding: '1.5rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.75rem' }}>
+                    For institutions
+                  </h3>
+                  <p style={{ color: '#6b46c1', fontSize: '0.875rem' }}>
+                    "We have records." Provide documented proof that datasets were validated before submission, reducing administrative back-and-forth.
+                  </p>
+                </div>
+                
+                <div style={{ 
+                  background: '#f8fafc', 
+                  border: '1px solid #e9d5ff', 
+                  borderRadius: '0.75rem', 
+                  padding: '1.5rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.75rem' }}>
+                    For journals
+                  </h3>
+                  <p style={{ color: '#6b46c1', fontSize: '0.875rem' }}>
+                    "We did our due diligence." Show that data quality checks were performed using standardized validation rules and versioned rulepacks.
+                  </p>
+                </div>
+                
+                <div style={{ 
+                  background: '#f8fafc', 
+                  border: '1px solid #e9d5ff', 
+                  borderRadius: '0.75rem', 
+                  padding: '1.5rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.75rem' }}>
+                    For grant panels
+                  </h3>
+                  <p style={{ color: '#6b46c1', fontSize: '0.875rem' }}>
+                    "We're reducing friction for data publication." Demonstrate that your institution has processes in place to streamline data deposition and compliance.
+                  </p>
+                </div>
+              </div>
+              
+              <p style={{ fontSize: '1rem', color: '#6b46c1', marginBottom: '1.5rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                You can attach this file to the dataset bundle when you hand it to a curator, a journal, or a program officer. It's your "we actually checked this" receipt.
+              </p>
+              
+              <div style={{ 
+                background: '#f3e8ff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '0.75rem', 
+                padding: '1.5rem',
+                marginBottom: '2rem'
+              }}>
+                <p style={{ color: '#4c1d95', marginBottom: '1rem', fontWeight: '500' }}>
+                  The attestation file includes:
+                </p>
+                <ul style={{ 
+                  textAlign: 'left', 
+                  color: '#6b46c1', 
+                  fontSize: '0.875rem',
+                  listStyle: 'none',
+                  padding: 0,
+                  maxWidth: '500px',
+                  margin: '0 auto'
+                }}>
+                  <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>•</span>
+                    FAIRy version and rulepack used
+                  </li>
+                  <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>•</span>
+                    Validation timestamp
+                  </li>
+                  <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>•</span>
+                    Summary of checks performed (dates normalized, IDs validated, etc.)
+                  </li>
+                  <li style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0 }}>•</span>
+                    File hashes and manifest information
+                  </li>
+                </ul>
+              </div>
+              
+              <a 
+                href="/samples/export-pack/evidence_kit_v0.json" 
+                className="btn-secondary"
+                download
+                onClick={() => trackCTA('attestation_sample_download', 'evidence_kit_sample')}
+              >
+                Download sample attestation file
+              </a>
+              <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '1.5rem' }}>
+                Learn more about the attestation file format and structure in our <a href="/docs#checks-attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>documentation</a>.
+              </p>
+            </div>
           </div>
         </section>
 

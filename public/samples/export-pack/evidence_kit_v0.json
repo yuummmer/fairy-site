@@ -1,0 +1,30 @@
+{
+  "rulepack": "GEO-BULK-RNASEQ@0.1.0",
+  "fairy_version": "0.2.3",
+  "checked_at": "2025-10-31T21:57:13Z",
+  "submission_ready": false,
+  "fail_count": 2,
+  "warn_count": 1,
+
+  "checks_summarized": [
+    "IDs aligned across tables: FAIL",
+    "Required fields present: FAIL (platform_type missing)",
+    "Date format normalized (YYYY-MM-DD): WARN"
+  ],
+
+  "file_manifest": [
+    {
+      "path": "samples.tsv",
+      "sha256": "a1b2c34de5f6..."
+    },
+    {
+      "path": "metadata.tsv",
+      "sha256": "f6e54c43b2a1..."
+    },
+    {
+      "path": "sample_1_fastq",
+      "sha256": "1a2b3c4d5e6f..."
+    }
+  ]
+}
+

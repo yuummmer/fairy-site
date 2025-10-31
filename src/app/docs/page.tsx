@@ -6,7 +6,7 @@ export default function Documentation() {
   const [activeId, setActiveId] = useState<string>("checks");
 
   useEffect(() => {
-    const sectionIds = ["checks", "coming-next", "data-handling", "contact"];
+    const sectionIds = ["checks", "data-handling", "coming-next", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -373,8 +373,8 @@ export default function Documentation() {
             <div className="sidebar-title">On this page</div>
             <nav className="sidebar-nav">
               <a href="#checks" className={`sidebar-link ${activeId === 'checks' ? 'active' : ''}`}>What FAIRy checks</a>
-              <a href="#coming-next" className={`sidebar-link ${activeId === 'coming-next' ? 'active' : ''}`}>What&apos;s coming next</a>
               <a href="#data-handling" className={`sidebar-link ${activeId === 'data-handling' ? 'active' : ''}`}>Data handling</a>
+              <a href="#coming-next" className={`sidebar-link ${activeId === 'coming-next' ? 'active' : ''}`}>What&apos;s coming next</a>
               <a href="#contact" className={`sidebar-link ${activeId === 'contact' ? 'active' : ''}`}>Contact</a>
             </nav>
           </aside>
@@ -382,8 +382,8 @@ export default function Documentation() {
           <div>
             <nav className="nav-links" aria-label="On this page (mobile)">
               <a href="#checks" className="nav-link">What FAIRy checks</a>
-              <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
               <a href="#data-handling" className="nav-link">Data handling</a>
+              <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
               <a href="#contact" className="nav-link">Contact</a>
             </nav>
 
@@ -461,7 +461,87 @@ export default function Documentation() {
                 </tr>
               </tbody>
             </table>
+            
+            <h3 id="checks-attestation" style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginTop: '48px', marginBottom: '24px', paddingTop: '20px' }}>What&apos;s the attestation file?</h3>
+            <p style={{ color: '#6b46c1', marginBottom: '16px' }}>
+              FAIRy generates an attestation file that documents your validation process. You can attach this file to the dataset bundle when you hand it to a curator, a journal, or a program officer. It&apos;s your "we actually checked this" receipt.
+            </p>
+            
+            <div className="highlight-box">
+              <h3>Why attestation matters</h3>
+              <p>
+                The attestation file provides documented proof that validation was performed, which is valuable for:
+              </p>
+              <ul>
+                <li><strong>Institutions:</strong> Demonstrate that you have records of validation performed before submission, reducing administrative back-and-forth.</li>
+                <li><strong>Journals:</strong> Show that data quality checks were performed using standardized validation rules and versioned rulepacks—demonstrating due diligence.</li>
+                <li><strong>Grant panels:</strong> Prove that your institution has processes in place to streamline data deposition and reduce friction for data publication.</li>
+              </ul>
+            </div>
+            
+            <div className="highlight-box">
+              <h3>What the attestation file includes</h3>
+              <ul>
+                <li><strong>FAIRy version and rulepack used:</strong> Documents which validation rules were applied and in which version.</li>
+                <li><strong>Validation timestamp:</strong> Records when the validation was performed.</li>
+                <li><strong>Summary of checks performed:</strong> Lists what was validated (e.g., dates normalized to ISO 8601, IDs validated, units standardized, ORCIDs present and well-formed).</li>
+                <li><strong>File hashes and manifest information:</strong> Provides SHA-256 checksums for data files to verify integrity.</li>
+                <li><strong>Repository dry-run results:</strong> Shows whether the dataset passed preflight checks for specific repositories (e.g., GEO, Zenodo).</li>
+              </ul>
+            </div>
+            
+            <div className="highlight-box">
+              <h3>Sample attestation file</h3>
+              <p>
+                You can download a sample attestation file to see what it looks like:
+              </p>
+              <p>
+                <a href="/samples/export-pack/evidence_kit_v0.json" download style={{ color: '#7c3aed', textDecoration: 'underline' }}>Download sample attestation file (evidence_kit_v0.json)</a>
+              </p>
+              <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '12px' }}>
+                Learn more about how attestation helps with compliance and due diligence in our <a href="/institutions#attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>institutions documentation</a>.
+              </p>
+              <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '12px', fontStyle: 'italic' }}>
+                Note: This is illustrative; production attestation files include a signed JSON format for institutional deployments.
+              </p>
+            </div>
           </div>
+            </section>
+            
+            <section id="data-handling" className="section">
+          <h2 className="section-title">Data handling</h2>
+          <div className="section-content">
+            <p>FAIRy is designed to respect institutional boundaries, sensitive data, and curator workload.</p>
+
+            <div className="highlight-box">
+              <h3>Local-only processing</h3>
+              <p>All validation runs inside your environment (laptop, lab machine, core facility server, HPC cluster, etc.).</p>
+              <p>FAIRy does not send your raw data, filenames, sample IDs, coordinates, or metadata to us.</p>
+            </div>
+
+            <div className="highlight-box">
+              <h3>Institution control</h3>
+              <p>You decide where reports are written and who sees them. FAIRy produces:</p>
+              <ul>
+                <li>a human-readable readiness sheet (PASS / WARN / FAIL, why it matters, how to fix), and</li>
+                <li>a machine-readable summary.</li>
+              </ul>
+              <p>You can share those internally without sharing the underlying data.</p>
+            </div>
+
+            <div className="highlight-box">
+              <h3>No phoning home</h3>
+              <p>FAIRy does not collect usage analytics or send telemetry.</p>
+              <p>We don't phone home with filenames, metadata, run logs, or error details.</p>
+              <p>The only information we receive is what you explicitly choose to send us (for example, if you fill out a pilot interest form).</p>
+            </div>
+
+            <div className="highlight-box">
+              <h3>Data use</h3>
+              <p>We do not use your datasets or metadata to train models or build products.</p>
+              <p>FAIRy is designed to be run locally so your data stays under your control.</p>
+            </div>
+              </div>
             </section>
             
             <section id="coming-next" className="section">
@@ -512,44 +592,9 @@ export default function Documentation() {
                 <ul>
                   <li><code>readiness-report.html</code> — what to fix, in plain English</li>
                   <li><code>validation-summary.json</code> — machine-readable summary</li>
+                  <li><code>attestation file</code> — documented proof that validation was performed (see <a href="#checks-attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>What&apos;s the attestation file?</a>)</li>
                 </ul>
               </div>
-            </div>
-              </div>
-            </section>
-            
-            <section id="data-handling" className="section">
-          <h2 className="section-title">Data handling</h2>
-          <div className="section-content">
-            <p>FAIRy is designed to respect institutional boundaries, sensitive data, and curator workload.</p>
-
-            <div className="highlight-box">
-              <h3>Local-only processing</h3>
-              <p>All validation runs inside your environment (laptop, lab machine, core facility server, HPC cluster, etc.).</p>
-              <p>FAIRy does not send your raw data, filenames, sample IDs, coordinates, or metadata to us.</p>
-            </div>
-
-            <div className="highlight-box">
-              <h3>Institution control</h3>
-              <p>You decide where reports are written and who sees them. FAIRy produces:</p>
-              <ul>
-                <li>a human-readable readiness sheet (PASS / WARN / FAIL, why it matters, how to fix), and</li>
-                <li>a machine-readable summary.</li>
-              </ul>
-              <p>You can share those internally without sharing the underlying data.</p>
-            </div>
-
-            <div className="highlight-box">
-              <h3>No phoning home</h3>
-              <p>FAIRy does not collect usage analytics or send telemetry.</p>
-              <p>We don’t phone home with filenames, metadata, run logs, or error details.</p>
-              <p>The only information we receive is what you explicitly choose to send us (for example, if you fill out a pilot interest form).</p>
-            </div>
-
-            <div className="highlight-box">
-              <h3>Data use</h3>
-              <p>We do not use your datasets or metadata to train models or build products.</p>
-              <p>FAIRy is designed to be run locally so your data stays under your control.</p>
             </div>
               </div>
             </section>
