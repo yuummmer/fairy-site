@@ -428,6 +428,22 @@ export default function Page() {
                   🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
                 </p>
               </div>
+              
+              {/* Key Benefit Statement */}
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #a78bfa', 
+                borderRadius: '0.75rem', 
+                padding: '1.5rem', 
+                marginBottom: '2rem',
+                maxWidth: '700px',
+                margin: '0 auto 2rem',
+                boxShadow: '0 4px 6px -1px rgba(124, 58, 237, 0.1)'
+              }}>
+                <p style={{ fontSize: '1rem', color: '#4c1d95', margin: '0', lineHeight: '1.6' }}>
+                  FAIRy gives institutions a repeatable pre-intake check — with both a human-readable fix list and a machine-readable attestation — so their data can confidently join larger integrated networks without weeks of one-off curator triage.
+                </p>
+              </div>
             </div>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
