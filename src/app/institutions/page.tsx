@@ -597,6 +597,130 @@ export default function InstitutionsPage() {
               We're validating this workflow now with early partners so we can confirm where it saves curator time.
             </p>
             
+            <div style={{
+              background: '#ffffff',
+              border: '2px solid #e9d5ff',
+              borderRadius: '0.75rem',
+              padding: '1.25rem 1.5rem',
+              maxWidth: '800px',
+              margin: '3rem auto 0',
+              textAlign: 'left'
+            }}>
+              <p style={{ color: '#4c1d95', marginBottom: '0.5rem', lineHeight: '1.8' }}>
+                FAIRy is currently in pilot with early institutional partners.
+              </p>
+              <p style={{ color: '#4c1d95', marginBottom: '0.5rem', lineHeight: '1.8' }}>
+                We're co-developing small "preflight rulepacks" that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
+              </p>
+              <p style={{ color: '#4c1d95', marginBottom: '0.75rem', lineHeight: '1.8' }}>
+                FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
+              </p>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* How Pilots Work Section */}
+        <section className="section" style={{ backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <h2 className="section-title">How pilots work</h2>
+            
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '2rem', textAlign: 'center' }}>
+                If you're an institution considering a pilot, here's what actually happens:
+              </p>
+              
+              <div style={{
+                background: '#f3e8ff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '12px',
+                padding: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Step 1: 30-minute scoping call
+                </h3>
+                <p style={{ color: '#4c1d95', lineHeight: '1.8', marginBottom: 0 }}>
+                  We define 5–7 required fields that always trip people up, your file naming rules, and where data normally ends up. You tell me what always goes wrong—I encode it into a rulepack.
+                </p>
+              </div>
+              
+              <div style={{
+                background: '#f3e8ff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '12px',
+                padding: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Step 2: First test run
+                </h3>
+                <p style={{ color: '#4c1d95', lineHeight: '1.8', marginBottom: 0 }}>
+                  You run FAIRy on a tiny test bundle (or send me a few redacted rows + sample filenames), and I generate your first Submission Readiness Report.
+                </p>
+              </div>
+              
+              <div style={{
+                background: '#f3e8ff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '12px',
+                padding: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Step 3: What you get
+                </h3>
+                <ul style={{ 
+                  listStyle: 'none', 
+                  paddingLeft: 0, 
+                  color: '#4c1d95', 
+                  lineHeight: '1.8' 
+                }}>
+                  <li style={{ marginBottom: '1rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    A Submission Readiness Report (human-readable "fix these" sheet) you can forward to labs
+                  </li>
+                  <li style={{ marginBottom: '1rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    An Attestation file (machine-readable proof of what was checked and when)
+                  </li>
+                  <li style={{ marginBottom: '1rem', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Language you can require: "Please include the FAIRy readiness report in your submission to us."
+                  </li>
+                </ul>
+              </div>
+              
+              <div style={{
+                background: '#f3e8ff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '12px',
+                padding: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Step 4: You tell me if it works
+                </h3>
+                <p style={{ color: '#4c1d95', lineHeight: '1.8', marginBottom: 0 }}>
+                  Does the report read in your voice? Can you forward it without embarrassment? We'll adjust wording until it matches how you actually communicate with submitters.
+                </p>
+              </div>
+              
+              <div style={{
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '12px',
+                padding: '1.5rem',
+                marginBottom: '1.5rem'
+              }}>
+                <p style={{ color: '#4c1d95', lineHeight: '1.8', marginBottom: '1rem' }}>
+                  <strong>Data handling:</strong> FAIRy runs locally. Nothing leaves your institution. The reports don't include raw data—just flags (like "row 2 missing specimen_id") and file hashes for provenance.
+                </p>
+                <p style={{ color: '#4c1d95', lineHeight: '1.8', marginBottom: 0 }}>
+                  During the pilot, you have direct contact with me. We'll adjust the rulepack wording so you don't have to manually rewrite "please fix X" emails. We'll help you decide whether labs run FAIRy themselves or you run it and send out reports.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -604,26 +728,6 @@ export default function InstitutionsPage() {
         <section id="institution-kit" className="section" style={{ backgroundColor: '#f3e8ff' }}>
           <div className="container">
             <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              <div style={{
-                background: '#ffffff',
-                border: '2px solid #e9d5ff',
-                borderRadius: '0.75rem',
-                padding: '1.25rem 1.5rem',
-                maxWidth: '800px',
-                margin: '0 auto 2rem',
-                textAlign: 'left'
-              }}>
-                <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
-                  FAIRy is currently in pilot with early institutional partners.
-                </p>
-                <p style={{ color: '#4c1d95', marginBottom: '0.5rem' }}>
-                  We're co-developing small "preflight rulepacks" that enforce the 5–7 must-have fields your curators already chase (stable IDs, ISO dates, site info, contact, file naming, permit/embargo flags).
-                </p>
-                <p style={{ color: '#4c1d95', marginBottom: '0.75rem' }}>
-                  FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
-                </p>
-              </div>
-              
               {/* Security Callout */}
               <div className="security-callout" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
                 <h3>🔒 Local-first · No telemetry by default</h3>

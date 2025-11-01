@@ -57,10 +57,9 @@ export default function Navigation() {
         <div className="toc-container">
           <nav className="toc-links">
             <a href="/" className="toc-link">FAIRy</a>
-            <a href="/vision" className="toc-link">Vision</a>
             <a href="/institutions" className="toc-link">For institutions</a>
             <a href="/docs" className="toc-link">Documentation</a>
-            <a href="/privacy" className="toc-link">Privacy</a>
+            <a href="/about" className="toc-link">About</a>
           </nav>
         </div>
       </div>
