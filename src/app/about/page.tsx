@@ -132,6 +132,68 @@ export default function AboutPage() {
           text-decoration: underline;
         }
         
+        .contact-icon {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 0.5rem;
+          fill: currentColor;
+        }
+        
+        .contact-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #7c3aed;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        
+        .contact-link:hover {
+          color: #6d28d9;
+          text-decoration: underline;
+        }
+        
+        .btn-primary {
+          background-color: #7c3aed;
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+          background-color: #6d28d9;
+          transform: translateY(-1px);
+        }
+        
+        .btn-primary:focus {
+          outline: 2px solid #7c3aed;
+          outline-offset: 0.125rem;
+        }
+        
+        .section-content .btn-primary,
+        .highlight-box .btn-primary {
+          color: white !important;
+          text-decoration: none !important;
+          background-color: #7c3aed !important;
+        }
+        
+        .section-content .btn-primary:hover,
+        .highlight-box .btn-primary:hover {
+          background-color: #6d28d9 !important;
+          color: white !important;
+        }
+        
         .btn-contact {
           background-color: #7c3aed;
           color: white;
@@ -261,7 +323,61 @@ export default function AboutPage() {
         </section>
 
         <section className="section">
-          <h2 className="section-title">Contact</h2>
+          <h2 className="section-title">How we work with institutions</h2>
+          <div className="section-content">
+            <p>
+              We support institutions in two ways:
+            </p>
+            
+            <div className="highlight-box" style={{ marginTop: '2rem' }}>
+              <h3>FAIRy Core (no-cost tooling for researchers and labs)</h3>
+              <p>
+                FAIRy Core is the local validator that runs on your own machine. It checks required metadata fields, filename rules, and ID consistency, and produces a Submission Readiness Report (what to fix) — without uploading data anywhere.
+              </p>
+              <p style={{ marginBottom: '0' }}>
+                The goal is to let researchers catch problems themselves before handoff.
+              </p>
+            </div>
+            
+            <div className="highlight-box" style={{ marginTop: '2rem' }}>
+              <h3>Institutional pilots (scoped engagement)</h3>
+              <p>
+                For data stewards, collections, and core facilities, we run a short pilot where we:
+              </p>
+              <ul>
+                <li>capture your intake requirements (the "must not be blank / must match / must follow this pattern" rules),</li>
+                <li>encode them into a rulepack,</li>
+                <li>generate a readiness report in language you can forward internally, and</li>
+                <li>produce an attestation file that documents what was checked, when, and under which rules.</li>
+              </ul>
+              <p>
+                You keep that rulepack. You can continue running FAIRy internally with it, and you can add or refine rules over time as your policies change.
+              </p>
+              <p>
+                Some groups are comfortable maintaining their own rulepack after the pilot. Others ask us to maintain and update it for them and keep generating reports. Both paths are supported.
+              </p>
+              <p>
+                Pilots are structured, budgetable work.
+              </p>
+              <p style={{ marginBottom: '0' }}>
+                If you manage or review incoming datasets and want to scope a pilot, you can request one here:
+              </p>
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <a 
+                  href="https://forms.gle/mALqVs2Y26SS5wRr8" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Request pilot
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <h2 className="section-title">Get in touch with FAIRy</h2>
           <div className="section-content">
             <p>
               Get in touch about pilots, collaboration, or questions.
@@ -271,14 +387,23 @@ export default function AboutPage() {
 
         <div className="contact-section">
           <div style={{ marginBottom: '1.5rem', lineHeight: '1.8' }}>
-            <p style={{ marginBottom: '0.5rem' }}>
-              <strong>Email:</strong> <a href="mailto:hello@datadabra.com">hello@datadabra.com</a>
+            <p style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <strong>Email:</strong> <a href="mailto:hello@datadabra.com" className="contact-link">hello@datadabra.com</a>
             </p>
-            <p style={{ marginBottom: '0.5rem' }}>
-              <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jenniferslotnick/" target="_blank" rel="noopener noreferrer">jenniferslotnick</a>
+            <p style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jenniferslotnick/" target="_blank" rel="noopener noreferrer" className="contact-link">jenniferslotnick</a>
             </p>
-            <p style={{ marginBottom: '0.5rem' }}>
-              <strong>GitHub:</strong> <a href="https://github.com/yuummmer" target="_blank" rel="noopener noreferrer">yuummmer</a>
+            <p style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <svg className="contact-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <strong>GitHub:</strong> <a href="https://github.com/yuummmer" target="_blank" rel="noopener noreferrer" className="contact-link">yuummmer</a>
             </p>
           </div>
           <a href="mailto:hello@datadabra.com" className="btn-contact">

@@ -484,6 +484,72 @@ export default function Page() {
           </div>
         </section>
 
+        {/* How we work with institutions */}
+        <section className="demo-section" style={{ backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '2rem', textAlign: 'center' }}>
+                How we work with institutions
+              </h2>
+              <div style={{ color: '#4c1d95', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '1.5rem' }}>
+                  We support institutions in two ways:
+                </p>
+                
+                <div style={{ marginBottom: '2rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    FAIRy Core (no-cost tooling for researchers and labs)
+                  </h3>
+                  <p style={{ marginBottom: '1rem' }}>
+                    FAIRy Core is the local validator that runs on your own machine. It checks required metadata fields, filename rules, and ID consistency, and produces a Submission Readiness Report (what to fix) — without uploading data anywhere.
+                  </p>
+                  <p>
+                    The goal is to let researchers catch problems themselves before handoff.
+                  </p>
+                </div>
+                
+                <div style={{ marginBottom: '2rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Institutional pilots (scoped engagement)
+                  </h3>
+                  <p style={{ marginBottom: '1rem' }}>
+                    For data stewards, collections, and core facilities, we run a short pilot where we:
+                  </p>
+                  <ul style={{ marginLeft: '1.5rem', marginBottom: '1rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}>capture your intake requirements (the "must not be blank / must match / must follow this pattern" rules),</li>
+                    <li style={{ marginBottom: '0.5rem' }}>encode them into a rulepack,</li>
+                    <li style={{ marginBottom: '0.5rem' }}>generate a readiness report in language you can forward internally, and</li>
+                    <li style={{ marginBottom: '0.5rem' }}>produce an attestation file that documents what was checked, when, and under which rules.</li>
+                  </ul>
+                  <p style={{ marginBottom: '1rem' }}>
+                    You keep that rulepack. You can continue running FAIRy internally with it, and you can add or refine rules over time as your policies change.
+                  </p>
+                  <p style={{ marginBottom: '1rem' }}>
+                    Some groups are comfortable maintaining their own rulepack after the pilot. Others ask us to maintain and update it for them and keep generating reports. Both paths are supported.
+                  </p>
+                  <p style={{ marginBottom: '1rem' }}>
+                    Pilots are structured, budgetable work.
+                  </p>
+                  <p>
+                    If you manage or review incoming datasets and want to scope a pilot, you can request one here:
+                  </p>
+                  <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                    <a 
+                      href="https://forms.gle/mALqVs2Y26SS5wRr8" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                      onClick={() => trackCTA('institution_engagement_cta', 'request_pilot')}
+                    >
+                      Request pilot
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Individual Researcher Banner */}
         <section style={{ padding: '3rem 0', backgroundColor: '#f3e8ff', borderTop: '2px solid #e9d5ff', borderBottom: '2px solid #e9d5ff' }}>
           <div className="container">
