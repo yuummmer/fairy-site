@@ -13,7 +13,12 @@ export async function POST(request: NextRequest) {
         { success: false, error: 'Name, title, email, and institution are required for demo requests' },
         { status: 400 }
       );
-    } else if (body.form_type !== 'demo' && body.form_type !== 'biofair_pilot_interest' && !body.email) {
+    } else if (body.form_type === 'preflight_mapping' && (!body.email || !body.name || !body.institution)) {
+      return NextResponse.json(
+        { success: false, error: 'Name, email, and organization are required' },
+        { status: 400 }
+      );
+    } else if (body.form_type !== 'demo' && body.form_type !== 'biofair_pilot_interest' && body.form_type !== 'preflight_mapping' && !body.email) {
       return NextResponse.json(
         { success: false, error: 'Email is required' },
         { status: 400 }

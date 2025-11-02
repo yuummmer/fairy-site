@@ -1,6 +1,6 @@
 "use client";
 
-export default function OfferingsPage() {
+export default function InstitutionsPage() {
   return (
     <>
       <style jsx global>{`
@@ -173,17 +173,17 @@ export default function OfferingsPage() {
         }
         
         .section {
-          padding: 3.5rem 0;
+          padding: 5rem 0;
           background-color: #faf5ff;
         }
         
         .section-alt {
-          padding: 3.5rem 0;
+          padding: 5rem 0;
           background-color: #f3e8ff;
         }
         
         .section-white {
-          padding: 3.5rem 0;
+          padding: 5rem 0;
           background-color: #ffffff;
         }
         
@@ -204,7 +204,7 @@ export default function OfferingsPage() {
           font-weight: 700;
           color: #4c1d95;
           text-align: center;
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
         }
         
         .content-box {
@@ -212,95 +212,27 @@ export default function OfferingsPage() {
           margin: 0 auto;
         }
         
-        .item-list {
-          list-style: none;
-          padding: 0;
-        }
-        
-        .item-list li {
-          padding: 1.5rem;
-          margin-bottom: 1rem;
-          background: #ffffff;
-          border: 1px solid #e9d5ff;
-          border-radius: 0.75rem;
-          color: #4c1d95;
-          line-height: 1.8;
-        }
-        
-        .item-list li strong {
-          color: #4c1d95;
-          font-weight: 600;
-        }
-        
-        .product-cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
-          margin-top: 1.5rem;
-        }
-        
-        .product-card {
-          background: #ffffff;
-          border: 2px solid #e9d5ff;
-          border-radius: 1.25rem;
-          padding: 1.5rem;
-          transition: all 0.2s ease;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .product-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(90deg, #f3e8ff 0%, #e9d5ff 100%);
-        }
-        
-        .product-card:hover {
-          transform: translateY(-2px);
-          border-color: #c4b5fd;
-        }
-        
-        .product-card h4 {
-          font-size: 1.375rem;
-          font-weight: 700;
-          color: #4c1d95;
-          margin-bottom: 0.875rem;
-          margin-top: 0;
-          line-height: 1.3;
-        }
-        
-        .product-card p {
-          color: #6b46c1;
-          line-height: 1.7;
-          margin: 0;
-          font-size: 1rem;
-        }
-        
         .section-tagline {
           font-size: 1.125rem;
           color: #6b46c1;
           text-align: center;
           max-width: 800px;
-          margin: -1.5rem auto 2rem;
+          margin: -2rem auto 3rem;
           line-height: 1.7;
         }
         
         .who-for-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-          margin-top: 1.5rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+          margin-top: 2rem;
         }
         
         .who-for-card {
           background: #ffffff;
           border: 2px solid #e9d5ff;
           border-radius: 1.25rem;
-          padding: 1.5rem;
+          padding: 2rem;
           position: relative;
           overflow: hidden;
         }
@@ -319,7 +251,7 @@ export default function OfferingsPage() {
           font-size: 1.25rem;
           font-weight: 600;
           color: #4c1d95;
-          margin-bottom: 0.75rem;
+          margin-bottom: 1rem;
         }
         
         .who-for-card p {
@@ -327,216 +259,6 @@ export default function OfferingsPage() {
           line-height: 1.7;
           margin: 0;
           font-size: 1rem;
-        }
-        
-        .product-cards {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-          margin-top: 1.5rem;
-        }
-        
-        .product-card {
-          background: #ffffff;
-          border: 2px solid #e9d5ff;
-          border-radius: 1.25rem;
-          padding: 1.5rem;
-          transition: all 0.2s ease;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .product-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(90deg, #f3e8ff 0%, #e9d5ff 100%);
-        }
-        
-        .product-card:hover {
-          transform: translateY(-2px);
-          border-color: #c4b5fd;
-        }
-        
-        .product-card h4 {
-          font-size: 1.375rem;
-          font-weight: 700;
-          color: #4c1d95;
-          margin-bottom: 0.875rem;
-          margin-top: 0;
-          line-height: 1.3;
-        }
-        
-        .product-card p {
-          color: #6b46c1;
-          line-height: 1.7;
-          margin: 0;
-          font-size: 1rem;
-        }
-        
-        .attestation-section {
-          padding: 3.5rem 0;
-          background-color: #f8fafc;
-          position: relative;
-        }
-        
-        .attestation-icon {
-          width: 60px;
-          height: 60px;
-          margin: 0 auto 1.5rem;
-          background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 100%);
-          border-radius: 0.75rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-        }
-        
-        .attestation-content {
-          max-width: 900px;
-          margin: 0 auto;
-        }
-        
-        .attestation-content h2 {
-          font-size: 2.5rem;
-          font-weight: 700;
-          color: #4c1d95;
-          text-align: center;
-          margin-bottom: 1.5rem;
-        }
-        
-        .attestation-content > p {
-          font-size: 1.25rem;
-          color: #4c1d95;
-          text-align: center;
-          margin-bottom: 2rem;
-          font-weight: 600;
-          line-height: 1.6;
-        }
-        
-        .attestation-bundle-list {
-          background: #ffffff;
-          border: 2px solid #e9d5ff;
-          border-radius: 1.25rem;
-          padding: 1.5rem;
-          margin-bottom: 2rem;
-        }
-        
-        .attestation-bundle-list h3 {
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: #4c1d95;
-          margin-bottom: 0.75rem;
-        }
-        
-        .attestation-bundle-list ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .attestation-bundle-list li {
-          padding: 0.375rem 0;
-          color: #6b46c1;
-          line-height: 1.6;
-          padding-left: 1.5rem;
-          position: relative;
-        }
-        
-        .attestation-bundle-list li::before {
-          content: '•';
-          position: absolute;
-          left: 0;
-          color: #7c3aed;
-          font-weight: 700;
-        }
-        
-        .attestation-benefits {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.25rem;
-          margin-bottom: 2rem;
-        }
-        
-        .attestation-benefit {
-          background: #ffffff;
-          border: 1px solid #e9d5ff;
-          border-radius: 0.75rem;
-          padding: 1.25rem;
-        }
-        
-        .attestation-benefit h4 {
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: #4c1d95;
-          margin-bottom: 0.5rem;
-        }
-        
-        .attestation-benefit p {
-          color: #6b46c1;
-          line-height: 1.7;
-          margin: 0;
-          font-size: 0.9375rem;
-        }
-        
-        .attestation-closing {
-          text-align: center;
-          font-size: 1.125rem;
-          color: #4c1d95;
-          font-weight: 600;
-          font-style: italic;
-          max-width: 700px;
-          margin: 0 auto;
-          line-height: 1.7;
-        }
-        
-        .pull-quote-band {
-          padding: 2rem 0;
-          background-color: #f8fafc;
-          border-top: 1px solid #e9d5ff;
-          border-bottom: 1px solid #e9d5ff;
-        }
-        
-        .pull-quote-content {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 2rem;
-          align-items: center;
-        }
-        
-        .pull-quote-text {
-          font-size: 1.125rem;
-          color: #4c1d95;
-          font-style: italic;
-          line-height: 1.6;
-          margin: 0;
-        }
-        
-        .pull-quote-attribution {
-          font-size: 0.75rem;
-          color: #6b46c1;
-          text-align: right;
-          margin: 0;
-          white-space: nowrap;
-        }
-        
-        .highlight-box {
-          background: #f3e8ff;
-          border: 2px solid #e9d5ff;
-          border-radius: 0.75rem;
-          padding: 2rem;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        
-        .highlight-box p {
-          font-size: 1.125rem;
-          color: #4c1d95;
-          line-height: 1.8;
-          margin: 0;
         }
         
         @media (max-width: 968px) {
@@ -552,6 +274,10 @@ export default function OfferingsPage() {
           .screenshot-card {
             max-width: 600px;
             margin: 0 auto;
+          }
+          
+          .who-for-grid {
+            grid-template-columns: 1fr;
           }
         }
         
@@ -581,62 +307,8 @@ export default function OfferingsPage() {
             font-size: 2rem;
           }
           
-          .item-list li {
-            padding: 1.25rem;
-          }
-          
-          .product-cards {
-            grid-template-columns: 1fr;
-          }
-          
-          .product-card {
-            padding: 1.5rem;
-          }
-          
-          .who-for-grid {
-            grid-template-columns: 1fr;
-          }
-          
           .who-for-card {
             padding: 1.5rem;
-          }
-          
-          .product-cards {
-            grid-template-columns: 1fr;
-          }
-          
-          .product-card {
-            padding: 1.5rem;
-          }
-          
-          .attestation-content h2 {
-            font-size: 2rem;
-          }
-          
-          .attestation-benefits {
-            grid-template-columns: 1fr;
-          }
-          
-          .attestation-bundle-list {
-            padding: 1.5rem;
-          }
-          
-          .pull-quote-content {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-          }
-          
-          .pull-quote-attribution {
-            text-align: left;
-            white-space: normal;
-          }
-          
-          .highlight-box {
-            padding: 1.5rem;
-          }
-          
-          .highlight-box p {
-            font-size: 1rem;
           }
         }
       `}</style>
@@ -651,7 +323,7 @@ export default function OfferingsPage() {
                   FAIRy checks incoming datasets against your rules before they get submitted and gives contributors a one-page "here's what to fix" report. Local-first. No uploads.
                 </p>
                 <div className="hero-cta">
-                  <a href="/preflight-mapping" className="btn-primary">
+                  <a href="#" className="btn-primary">
                     Get a Preflight Mapping Session →
                   </a>
                 </div>
@@ -705,20 +377,6 @@ export default function OfferingsPage() {
           </div>
         </section>
         
-        <section className="pull-quote-band">
-          <div className="container">
-            <div className="pull-quote-content">
-              <p className="pull-quote-text">
-                "The FAIR Guiding Principles aim to improve the Findability, Accessibility, Interoperability, and Reuse of digital assets, with an emphasis on machine-actionability."
-              </p>
-              <p className="pull-quote-attribution">
-                Wilkinson et al. 2016, Scientific Data<br/>
-                (go-fair.org)
-              </p>
-            </div>
-          </div>
-        </section>
-        
         <section className="section">
           <div className="container">
             <h2 className="section-title">FAIRy Submission Readiness Package</h2>
@@ -759,98 +417,32 @@ export default function OfferingsPage() {
           </div>
         </section>
         
-        <section className="attestation-section">
+        <section className="section-alt">
           <div className="container">
-            <div className="attestation-content">
-              <div className="attestation-icon">📋</div>
-              <h2>Why attestation matters</h2>
-              <p>
-                When you accept a dataset, you're not just saying "looks fine." You're taking responsibility.
-              </p>
-              
-              <div className="attestation-bundle-list">
-                <h3>FAIRy generates an attestation bundle every time you run a check:</h3>
-                <ul>
-                  <li>timestamp of the run</li>
-                  <li>which files were checked</li>
-                  <li>cryptographic hashes of those files</li>
-                  <li>which rulepack version was used</li>
-                  <li>PASS / WARN / FAIL results</li>
-                </ul>
-              </div>
-              
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1.5rem', textAlign: 'center' }}>
-                What that gives you:
-              </h3>
-              
-              <div className="attestation-benefits">
-                <div className="attestation-benefit">
-                  <h4>Proof of review</h4>
-                  <p>
-                    You can show "We ran this on Oct 28 at 14:21 with our intake rules. It passed." That protects you when someone asks "who approved this?" six months later.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Defensible decisions</h4>
-                  <p>
-                    If something is wrong later, you can point to the attestation and say "this field was marked WARN and we requested a fix; here's the record." You're no longer relying on someone's inbox.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Policy memory</h4>
-                  <p>
-                    When your intake rules change ("we now require ISO8601 dates," "we renamed this column," "we no longer accept free-text species names"), the attestation shows exactly which policy version was enforced at submission time. That's huge for audits and reproducibility.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Funder/compliance reporting</h4>
-                  <p>
-                    Some groups have to prove they're applying consistent QC before deposit. FAIRy gives you a machine-readable record you can attach to the submission, archive internally, or share with leadership.
-                  </p>
-                </div>
-              </div>
-              
-              <p className="attestation-closing">
-                This isn't just "your data looks clean." It's "we can prove what we checked, when we checked it, and what we asked to fix"
-              </p>
-            </div>
-          </div>
-        </section>
-        
-        <section className="section">
-          <div className="container">
-            <div className="content-box">
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem', textAlign: 'center' }}>
-                You get
-              </h3>
-              <p style={{ fontSize: '1rem', color: '#6b46c1', textAlign: 'center', marginBottom: '2rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-                You walk away with these artifacts after the pilot. They're yours.
-              </p>
-              <div className="product-cards">
-                <div className="product-card">
-                  <h4>Your rulepack, encoded</h4>
-                  <p>
-                    Your required fields, formats, and naming rules are encoded into a FAIRy rulepack that runs locally. You keep it.
-                  </p>
-                </div>
-                <div className="product-card">
-                  <h4>One-page readiness report</h4>
-                  <p>
-                    For each dataset, FAIRy produces a human-readable PASS / WARN / FAIL sheet with "how to fix" text you can send back to contributors.
-                  </p>
-                </div>
-                <div className="product-card">
-                  <h4>Language your people will actually listen to</h4>
-                  <p>
-                    We adapt wording to match how you already tell labs/collectors what's wrong, so you don't get 'what does this even mean?' emails.
-                  </p>
-                </div>
-                <div className="product-card">
-                  <h4>Attestation bundle</h4>
-                  <p>
-                    FAIRy also generates a machine-readable record (timestamp, file hashes, rulepack version) so you can prove what was checked and when.
-                  </p>
-                </div>
+            <div className="content-box" style={{ maxWidth: '800px' }}>
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2.5rem',
+                textAlign: 'center'
+              }}>
+                <p style={{ 
+                  fontSize: '1.25rem', 
+                  color: '#4c1d95', 
+                  fontStyle: 'italic', 
+                  lineHeight: '1.8', 
+                  marginBottom: '1.5rem' 
+                }}>
+                  "Quote from data steward or collection manager"
+                </p>
+                <p style={{ 
+                  fontSize: '0.875rem', 
+                  color: '#6b46c1', 
+                  margin: 0 
+                }}>
+                  Name, Title, Institution
+                </p>
               </div>
             </div>
           </div>
@@ -862,7 +454,7 @@ export default function OfferingsPage() {
               <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#4c1d95', marginBottom: '1.5rem' }}>
                 Ready to streamline your data intake?
               </h2>
-              <a href="/preflight-mapping" className="btn-primary" style={{ marginBottom: '1rem' }}>
+              <a href="#" className="btn-primary" style={{ marginBottom: '1rem' }}>
                 Start with a Preflight Mapping Session →
               </a>
             </div>
@@ -936,4 +528,3 @@ export default function OfferingsPage() {
     </>
   );
 }
-
