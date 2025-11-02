@@ -493,34 +493,147 @@ export default function OfferingsPage() {
           line-height: 1.7;
         }
         
-        .pull-quote-band {
-          padding: 2rem 0;
+        .empathy-band {
+          padding: 2.5rem 0;
           background-color: #f8fafc;
           border-top: 1px solid #e9d5ff;
           border-bottom: 1px solid #e9d5ff;
         }
         
-        .pull-quote-content {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 2rem;
-          align-items: center;
-        }
-        
-        .pull-quote-text {
-          font-size: 1.125rem;
+        .empathy-text {
+          font-size: 1.25rem;
           color: #4c1d95;
+          text-align: center;
           font-style: italic;
           line-height: 1.6;
           margin: 0;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
         }
         
-        .pull-quote-attribution {
-          font-size: 0.75rem;
-          color: #6b46c1;
-          text-align: right;
+        .qualification-bullets {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+        
+        .qualification-bullets ul {
+          list-style: none;
+          padding: 0;
           margin: 0;
-          white-space: nowrap;
+        }
+        
+        .qualification-bullets li {
+          padding: 0.875rem 0;
+          padding-left: 1.5rem;
+          color: #4c1d95;
+          line-height: 1.7;
+          position: relative;
+          font-size: 1rem;
+        }
+        
+        .qualification-bullets li::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: #7c3aed;
+          font-weight: 700;
+          font-size: 1.25rem;
+        }
+        
+        .attestation-audience-cards {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+          margin-top: 2rem;
+        }
+        
+        .attestation-audience-card {
+          background: #ffffff;
+          border: 2px solid #e9d5ff;
+          border-radius: 1.25rem;
+          padding: 1.5rem;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .attestation-audience-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #f3e8ff 0%, #e9d5ff 100%);
+        }
+        
+        .attestation-audience-card h4 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #4c1d95;
+          margin-bottom: 0.875rem;
+          margin-top: 0;
+        }
+        
+        .attestation-audience-card p {
+          color: #6b46c1;
+          line-height: 1.7;
+          margin: 0;
+          font-size: 1rem;
+        }
+        
+        .cta-card {
+          background: #ffffff;
+          border: 2px solid #e9d5ff;
+          border-radius: 1.25rem;
+          padding: 3rem 2rem;
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .cta-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #f3e8ff 0%, #e9d5ff 100%);
+        }
+        
+        .btn-secondary {
+          background-color: #ffffff;
+          color: #7c3aed;
+          padding: 0.875rem 1.75rem;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.2s ease;
+          border: 2px solid #7c3aed;
+          cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+          background-color: #faf5ff;
+          transform: translateY(-1px);
+        }
+        
+        .btn-link {
+          color: #7c3aed;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          transition: all 0.2s ease;
+        }
+        
+        .btn-link:hover {
+          color: #6d28d9;
+          text-decoration: underline;
         }
         
         .highlight-box {
@@ -617,18 +730,29 @@ export default function OfferingsPage() {
             grid-template-columns: 1fr;
           }
           
-          .attestation-bundle-list {
-            padding: 1.5rem;
-          }
-          
-          .pull-quote-content {
+          .attestation-audience-cards {
             grid-template-columns: 1fr;
-            gap: 0.75rem;
           }
           
-          .pull-quote-attribution {
-            text-align: left;
-            white-space: normal;
+          .empathy-text {
+            font-size: 1.125rem;
+            padding: 0 1rem;
+          }
+          
+          .cta-card {
+            padding: 2rem 1.5rem;
+          }
+          
+          .btn-secondary {
+            width: 100%;
+            margin-bottom: 0.75rem;
+            margin-right: 0;
+            justify-content: center;
+          }
+          
+          .btn-link {
+            display: block;
+            text-align: center;
           }
           
           .highlight-box {
@@ -705,17 +829,11 @@ export default function OfferingsPage() {
           </div>
         </section>
         
-        <section className="pull-quote-band">
+        <section className="empathy-band">
           <div className="container">
-            <div className="pull-quote-content">
-              <p className="pull-quote-text">
-                "The FAIR Guiding Principles aim to improve the Findability, Accessibility, Interoperability, and Reuse of digital assets, with an emphasis on machine-actionability."
-              </p>
-              <p className="pull-quote-attribution">
-                Wilkinson et al. 2016, Scientific Data<br/>
-                (go-fair.org)
-              </p>
-            </div>
+            <p className="empathy-text">
+              You're the one who has to tell a PI their dataset isn't ready… FAIRy exists to make that not miserable.
+            </p>
           </div>
         </section>
         
@@ -725,106 +843,13 @@ export default function OfferingsPage() {
             <p className="section-tagline">
               Your intake rules, encoded into a local rulepack plus a one-page readiness report for contributors and an attestation bundle you can attach to deposits.
             </p>
-          </div>
-        </section>
-        
-        <section className="section-alt">
-          <div className="container">
-            <h2 className="section-title">Who this is for</h2>
-            <div className="content-box">
-              <p style={{ fontSize: '1.125rem', color: '#6b46c1', textAlign: 'center', marginBottom: '2rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
-                FAIRy runs locally to produce clear validation reports and manifests your curators can trust. Local-first, no telemetry.
-              </p>
-              <div className="who-for-grid">
-                <div className="who-for-card">
-                  <h4>Core facility staff and bioinformatics teams</h4>
-                  <p>
-                    Run FAIRy locally on sample sheets and metadata before returning results to labs or PIs. Flag missing fields, broken IDs, filename issues, and permit gaps before they cause problems downstream. Stop writing the same "please fix these 5 things" email for every project.
-                  </p>
-                </div>
-                <div className="who-for-card">
-                  <h4>Data stewards and RDM teams</h4>
-                  <p>
-                    Repository-style preflight checks that catch what GEO, Zenodo, and other repositories reject at submission time. Generate one-page readiness sheets with "how to fix" guidance that you can send directly to contributors or attach to submission packets.
-                  </p>
-                </div>
-                <div className="who-for-card">
-                  <h4>Collections managers</h4>
-                  <p>
-                    Supporting data stewards and collections managers responsible for hundreds of datasets across core facilities, herbaria, and museum archives. Encode your intake policies into consistent, enforceable rules.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        <section className="attestation-section">
-          <div className="container">
-            <div className="attestation-content">
-              <div className="attestation-icon">📋</div>
-              <h2>Why attestation matters</h2>
-              <p>
-                When you accept a dataset, you're not just saying "looks fine." You're taking responsibility.
-              </p>
-              
-              <div className="attestation-bundle-list">
-                <h3>FAIRy generates an attestation bundle every time you run a check:</h3>
-                <ul>
-                  <li>timestamp of the run</li>
-                  <li>which files were checked</li>
-                  <li>cryptographic hashes of those files</li>
-                  <li>which rulepack version was used</li>
-                  <li>PASS / WARN / FAIL results</li>
-                </ul>
-              </div>
-              
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1.5rem', textAlign: 'center' }}>
-                What that gives you:
-              </h3>
-              
-              <div className="attestation-benefits">
-                <div className="attestation-benefit">
-                  <h4>Proof of review</h4>
-                  <p>
-                    You can show "We ran this on Oct 28 at 14:21 with our intake rules. It passed." That protects you when someone asks "who approved this?" six months later.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Defensible decisions</h4>
-                  <p>
-                    If something is wrong later, you can point to the attestation and say "this field was marked WARN and we requested a fix; here's the record." You're no longer relying on someone's inbox.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Policy memory</h4>
-                  <p>
-                    When your intake rules change ("we now require ISO8601 dates," "we renamed this column," "we no longer accept free-text species names"), the attestation shows exactly which policy version was enforced at submission time. That's huge for audits and reproducibility.
-                  </p>
-                </div>
-                <div className="attestation-benefit">
-                  <h4>Funder/compliance reporting</h4>
-                  <p>
-                    Some groups have to prove they're applying consistent QC before deposit. FAIRy gives you a machine-readable record you can attach to the submission, archive internally, or share with leadership.
-                  </p>
-                </div>
-              </div>
-              
-              <p className="attestation-closing">
-                This isn't just "your data looks clean." It's "we can prove what we checked, when we checked it, and what we asked to fix"
-              </p>
-            </div>
-          </div>
-        </section>
-        
-        <section className="section">
-          <div className="container">
-            <div className="content-box">
+            
+            <div className="content-box" style={{ marginTop: '3rem' }}>
               <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem', textAlign: 'center' }}>
                 You get
               </h3>
               <p style={{ fontSize: '1rem', color: '#6b46c1', textAlign: 'center', marginBottom: '2rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-                You walk away with these artifacts after the pilot. They're yours.
+                You walk away with these after the pilot. They're yours.
               </p>
               <div className="product-cards">
                 <div className="product-card">
@@ -856,15 +881,81 @@ export default function OfferingsPage() {
           </div>
         </section>
         
+        <section className="section-alt">
+          <div className="container">
+            <h2 className="section-title">Who this is for / Not a fit</h2>
+            <div className="content-box">
+              <div className="qualification-bullets">
+                <ul>
+                  <li>Core facility staff and bioinformatics teams who run QC before returning results to labs</li>
+                  <li>Data stewards and RDM teams who need repository-style preflight checks</li>
+                  <li>Collections managers handling hundreds of datasets across facilities, herbaria, and archives</li>
+                  <li>Groups that need to prove consistent QC before deposit for funder/compliance reporting</li>
+                </ul>
+                <p style={{ fontSize: '0.9375rem', color: '#6b46c1', textAlign: 'center', marginTop: '1.5rem', fontStyle: 'italic' }}>
+                  Not a fit: Individual researchers submitting their own datasets (check out the solo tier instead).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section className="attestation-section">
+          <div className="container">
+            <div className="attestation-content">
+              <div className="attestation-icon">📋</div>
+              <h2>Attestation: Show your due diligence</h2>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', textAlign: 'center', marginBottom: '2.5rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                It's your "we actually checked this" receipt.
+              </p>
+              
+              <div className="attestation-audience-cards">
+                <div className="attestation-audience-card">
+                  <h4>Institutions</h4>
+                  <p>
+                    When a PI asks "who approved this?" six months later, you can point to the attestation: timestamp, file hashes, rulepack version, PASS/WARN/FAIL results. That protects you.
+                  </p>
+                </div>
+                <div className="attestation-audience-card">
+                  <h4>Journals</h4>
+                  <p>
+                    Some journals require proof of data validation before acceptance. FAIRy's attestation bundle is machine-readable and can be attached to your submission packet.
+                  </p>
+                </div>
+                <div className="attestation-audience-card">
+                  <h4>Grant panels</h4>
+                  <p>
+                    Funders increasingly ask for evidence of consistent QC practices. Attestation bundles provide a verifiable record you can share with leadership or include in compliance reports.
+                  </p>
+                </div>
+              </div>
+              
+              <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+                <a href="/samples/export-pack/FAIRy_attestation_example.json" download className="btn-secondary" style={{ marginRight: '1rem' }}>
+                  Download sample attestation file
+                </a>
+                <a href="/docs" className="btn-link">
+                  View documentation →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="section">
-          <div className="container" style={{ textAlign: 'center' }}>
-            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#4c1d95', marginBottom: '1.5rem' }}>
-                Ready to streamline your data intake?
+          <div className="container">
+            <div className="cta-card">
+              <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#4c1d95', marginBottom: '1rem', textAlign: 'center' }}>
+                Start with a Preflight Mapping Session
               </h2>
-              <a href="/preflight-mapping" className="btn-primary" style={{ marginBottom: '1rem' }}>
-                Start with a Preflight Mapping Session →
-              </a>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', textAlign: 'center', marginBottom: '1.5rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+                We'll map your 5–7 "don't publish without this" rules and show you what your readiness report would look like.
+              </p>
+              <div style={{ textAlign: 'center' }}>
+                <a href="/preflight-mapping" className="btn-primary">
+                  Get a Preflight Mapping Session →
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -927,6 +1018,76 @@ export default function OfferingsPage() {
                 </h3>
                 <p style={{ color: '#6b46c1', lineHeight: '1.7', margin: 0 }}>
                   FAIRy can run from the command line for power users, but the output is a clean one-page readiness report (PASS / WARN / FAIL with "how to fix") that you can just send around. Most contributors only ever see that report.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>
+              Resources for evaluation / deployment
+            </h2>
+            <div className="content-box">
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2rem',
+                marginBottom: '1.5rem'
+              }}>
+                <h3 style={{ fontSize: '1.375rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Institution Kit (PDF)
+                </h3>
+                <p style={{ color: '#6b46c1', lineHeight: '1.7', marginBottom: '1.25rem' }}>
+                  Everything you need for security review and deployment planning:
+                </p>
+                <ul style={{ color: '#6b46c1', lineHeight: '1.8', marginBottom: '1.25rem', marginLeft: '1.5rem' }}>
+                  <li>Security summary and architecture overview</li>
+                  <li>Software Bill of Materials (SBOM)</li>
+                  <li>Deployment options and requirements</li>
+                  <li>Data handling and privacy policy</li>
+                  <li>Support expectations and SLAs</li>
+                </ul>
+                <a 
+                  href="/institution-kit.pdf" 
+                  download 
+                  className="btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center' }}
+                >
+                  Download Institution Kit (PDF) →
+                </a>
+              </div>
+              
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.375rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                  Rollout playbook
+                </h3>
+                <p style={{ color: '#6b46c1', lineHeight: '1.7', marginBottom: '1.25rem' }}>
+                  Recommended workflow for integrating FAIRy into your intake process:
+                </p>
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '1px solid #e9d5ff', 
+                  borderRadius: '0.75rem', 
+                  padding: '1.5rem',
+                  marginBottom: '1.25rem'
+                }}>
+                  <p style={{ color: '#4c1d95', lineHeight: '1.8', margin: 0, fontWeight: '500' }}>
+                    <strong>Lab runs FAIRy</strong> → <strong>Curator reviews</strong> → <strong>Deposit</strong>
+                  </p>
+                  <p style={{ color: '#6b46c1', lineHeight: '1.7', marginTop: '0.75rem', margin: 0, fontStyle: 'italic' }}>
+                    "If FAIRy says green, curator fast-tracks metadata review."
+                  </p>
+                </div>
+                <p style={{ color: '#6b46c1', lineHeight: '1.7', margin: 0 }}>
+                  This workflow lets labs self-check before submission while giving curators confidence to fast-track datasets that pass FAIRy's validation. The readiness report becomes part of the submission packet, and the attestation bundle provides audit trail.
                 </p>
               </div>
             </div>

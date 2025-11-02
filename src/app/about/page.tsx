@@ -364,12 +364,10 @@ export default function AboutPage() {
               </p>
               <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
                 <a 
-                  href="https://forms.gle/mALqVs2Y26SS5wRr8" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/preflight-mapping" 
                   className="btn-primary"
                 >
-                  Request pilot
+                  Start with a Preflight Mapping Session →
                 </a>
               </div>
             </div>

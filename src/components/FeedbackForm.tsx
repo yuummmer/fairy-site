@@ -622,7 +622,7 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
       >
         {isSubmitting ? 'Saving...' : 
          formType === 'waitlist' ? 'Get early access' :
-         formType === 'pilot' ? 'Request pilot program' :
+         formType === 'pilot' ? 'Start with a Preflight Mapping Session →' :
          formType === 'survey' ? 'Submit survey' :
          formType === 'demo' ? 'Request demo' :
          'Submit'}
