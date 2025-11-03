@@ -255,7 +255,7 @@ export default function ResearchersPage() {
             <h2 className="section-title">Pricing</h2>
             <div className="pricing-grid">
               <div className="pricing-card">
-                <span className="pricing-badge">Community (free)</span>
+                <span className="pricing-badge">Free</span>
                 <h3>FAIRy-core</h3>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
                   For individual researchers and DIY labs.
@@ -273,7 +273,7 @@ export default function ResearchersPage() {
                 </a>
               </div>
               <div className="pricing-card">
-                <span className="pricing-badge">Pilot (paid)</span>
+                <span className="pricing-badge">Pilot</span>
                 <h3>Encode your rules</h3>
                 <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
                   For labs & cores that need their intake codified.
@@ -287,26 +287,18 @@ export default function ResearchersPage() {
                   Typical turnaround: 1–2 weeks; fixed-price scope.
                 </p>
                 <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
-                  Request a pilot scope →
-                </a>
-              </div>
-              <div className="pricing-card">
-                <span className="pricing-badge">Institution (annual)</span>
-                <h3>Full support</h3>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  For institutions with multi-lab throughput & oversight needs.
-                </p>
-                <ul>
-                  <li>Rulepack maintenance & governance (change control)</li>
-                  <li>Provenance & attestations at scale</li>
-                  <li>Dashboards & automation hooks (CI/ELN/LIMS)</li>
-                  <li>SLAs + <a href="/institution-kit.pdf" style={{ color: '#7c3aed', textDecoration: 'underline' }}>security/SBOM documentation</a></li>
-                </ul>
-                <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '1rem' }}>
-                  Request a pilot scope →
+                  Request a Pilot Scope →
                 </a>
               </div>
             </div>
+            <p style={{ 
+              textAlign: 'center', 
+              marginTop: '1.5rem', 
+              fontSize: '0.875rem', 
+              color: '#6b46c1'
+            }}>
+              Looking for maintenance, dashboards, SLAs? <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '500' }}>Talk to us.</a>
+            </p>
             
             {/* Comparison Table */}
             <div style={{ 

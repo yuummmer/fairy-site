@@ -990,7 +990,7 @@ export default function OfferingsPage() {
                   fontWeight: '500',
                   marginBottom: '1rem'
                 }}>
-                  Community (free)
+                  Free
                 </span>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
                   FAIRy-core
@@ -1036,7 +1036,7 @@ export default function OfferingsPage() {
                   fontWeight: '500',
                   marginBottom: '1rem'
                 }}>
-                  Pilot (paid)
+                  Pilot
                 </span>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
                   Encode your rules
@@ -1062,57 +1062,18 @@ export default function OfferingsPage() {
                   Typical turnaround: 1–2 weeks; fixed-price scope.
                 </p>
                 <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
-                  Request a pilot scope →
-                </a>
-              </div>
-              <div style={{ 
-                background: '#ffffff', 
-                border: '2px solid #e9d5ff', 
-                borderRadius: '1.25rem', 
-                padding: '2rem',
-                textAlign: 'center'
-              }}>
-                <span style={{ 
-                  display: 'inline-block',
-                  background: '#f3e8ff',
-                  color: '#6b46c1',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '1.25rem',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  marginBottom: '1rem'
-                }}>
-                  Institution (annual)
-                </span>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
-                  Full support
-                </h3>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                  For institutions with multi-lab throughput & oversight needs.
-                </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '1.5rem 0', textAlign: 'left' }}>
-                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
-                    Rulepack maintenance & governance (change control)
-                  </li>
-                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
-                    Provenance & attestations at scale
-                  </li>
-                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
-                    Dashboards & automation hooks (CI/ELN/LIMS)
-                  </li>
-                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
-                    SLAs + <a href="/institution-kit.pdf" style={{ color: '#7c3aed', textDecoration: 'underline' }}>security/SBOM documentation</a>
-                  </li>
-                </ul>
-                <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '1rem' }}>
-                  Request a pilot scope →
+                  Request a Pilot Scope →
                 </a>
               </div>
             </div>
+            <p style={{ 
+              textAlign: 'center', 
+              marginTop: '1.5rem', 
+              fontSize: '0.875rem', 
+              color: '#6b46c1'
+            }}>
+              Looking for maintenance, dashboards, SLAs? <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '500' }}>Talk to us.</a>
+            </p>
             
             {/* Comparison Table */}
             <div style={{ 

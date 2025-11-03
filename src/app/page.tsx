@@ -422,7 +422,7 @@ export default function Page() {
               maxWidth: '700px',
               margin: '0 auto 2rem'
             }}>
-              Piloting with university cores & collections teams to cut bounced submissions and standardize intake.
+              Piloting with university cores & collections teams.
             </p>
             <div className="cta-buttons">
               <a 
@@ -626,7 +626,7 @@ export default function Page() {
                   Free templates + FAIRy-core to self-check datasets.
                 </p>
                 <a href="/researchers" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'researchers' })}>
-                  Download →
+                  Download FAIRy-core →
                 </a>
               </div>
             </div>
