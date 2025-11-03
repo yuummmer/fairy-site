@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from '../../lib/analytics';
+import FeedbackForm from '../../components/FeedbackForm';
 
 export default function ResearchersPage() {
   return (
@@ -199,6 +200,109 @@ export default function ResearchersPage() {
           font-size: 1.25rem;
         }
         
+        /* Survey form styling */
+        .survey-form-wrapper :global(.form-group) {
+          margin-bottom: 1.75rem;
+        }
+        
+        .survey-form-wrapper :global(.form-label) {
+          display: block;
+          font-weight: 600;
+          color: #4c1d95;
+          margin-bottom: 0.75rem;
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        
+        .survey-form-wrapper :global(.form-input) {
+          width: 100%;
+          padding: 0.875rem 1rem;
+          border: 2px solid #c4b5fd;
+          border-radius: 0.75rem;
+          font-size: 16px;
+          transition: all 0.2s ease;
+          background-color: white;
+          color: #4c1d95;
+          font-family: inherit;
+        }
+        
+        .survey-form-wrapper :global(.form-input:focus) {
+          outline: none;
+          border-color: #7c3aed;
+          box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        
+        .survey-form-wrapper :global(.form-input::placeholder) {
+          color: #9ca3af;
+        }
+        
+        .survey-form-wrapper :global(.btn-primary) {
+          background-color: #7c3aed;
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 0.75rem;
+          border: none;
+          font-weight: 600;
+          font-size: 18px;
+          min-height: 44px;
+          width: 100%;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          margin-top: 0.5rem;
+        }
+        
+        .survey-form-wrapper :global(.btn-primary:hover) {
+          background-color: #6d28d9;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        .survey-form-wrapper :global(.btn-primary:disabled) {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
+        
+        .survey-form-wrapper :global(.privacy-note) {
+          font-size: 0.875rem;
+          color: #6b7280;
+          margin-top: 0.5rem;
+          font-style: italic;
+        }
+        
+        /* Hide honeypot field (bot protection) */
+        .survey-form-wrapper :global(.honeypot) {
+          position: absolute;
+          left: -9999px;
+          opacity: 0;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        }
+        
+        /* Checkbox styling */
+        .survey-form-wrapper :global(input[type="checkbox"]) {
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+          accent-color: #7c3aed;
+          flex-shrink: 0;
+        }
+        
+        .survey-form-wrapper :global(label) {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          transition: background-color 0.2s ease;
+        }
+        
+        .survey-form-wrapper :global(label:hover) {
+          background-color: #faf5ff;
+        }
+        
         @media (max-width: 768px) {
           .hero h1 {
             font-size: 2rem;
@@ -211,6 +315,10 @@ export default function ResearchersPage() {
           .content-box {
             padding: 2rem 1.5rem;
           }
+          
+          .survey-form-wrapper {
+            padding: 2rem 1.5rem !important;
+          }
         }
       `}</style>
       
@@ -220,7 +328,7 @@ export default function ResearchersPage() {
           <div className="container">
             <h1>Researchers (Community)</h1>
             <p className="subheadline">
-              Working solo? Start free with FAIRy-core: rigid spreadsheet templates, rulepacks, and a one-command validator. When your work expands across labs or you need repository-specific checks and attestations, we're here.
+              Working solo? Start free with FAIRy-core: rigid spreadsheet templates, rulepacks, and a one-command validator.
             </p>
             <div style={{ marginTop: '2rem' }}>
               <a 
@@ -242,107 +350,45 @@ export default function ResearchersPage() {
               <p>
                 FAIRy-core is the free, open-source validator for individual researchers. Use rigid spreadsheet templates, rulepacks, and a one-command validator to self-check your data before submission.
               </p>
-              <p>
-                When your work expands across labs or you need repository-specific checks and attestations, we're here to help with institutional solutions.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Pricing Signals */}
+        {/* Help us shape v1.0 */}
         <section className="section-alt">
           <div className="container">
-            <h2 className="section-title">Pricing</h2>
-            <div className="pricing-grid">
-              <div className="pricing-card">
-                <span className="pricing-badge">Free</span>
-                <h3>FAIRy-core</h3>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  For individual researchers and DIY labs.
-                </p>
-                <ul>
-                  <li>Open-source validator (local-first)</li>
-                  <li>Starter templates & common rulepacks</li>
-                  <li>Readiness report (human + JSON)</li>
-                </ul>
-                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '1rem', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  Includes common, non-custom rulepacks. Custom rulepacks are part of Pilot/Institution.
-                </p>
-                <a href="/docs" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
-                  Download FAIRy-core →
-                </a>
-              </div>
-              <div className="pricing-card">
-                <span className="pricing-badge">Pilot</span>
-                <h3>Encode your rules</h3>
-                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  For labs & cores that need their intake codified.
-                </p>
-                <ul>
-                  <li>Translate your intake policy into a custom rulepack</li>
-                  <li>One guided run + readiness report you can forward internally</li>
-                  <li>Attestation file (what was checked, when, and by which rules)</li>
-                </ul>
-                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '1rem', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  Typical turnaround: 1–2 weeks; fixed-price scope.
-                </p>
-                <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
-                  Request a Pilot Scope →
-                </a>
-              </div>
-            </div>
-            <p style={{ 
-              textAlign: 'center', 
-              marginTop: '1.5rem', 
-              fontSize: '0.875rem', 
-              color: '#6b46c1'
-            }}>
-              Looking for maintenance, dashboards, SLAs? <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '500' }}>Talk to us.</a>
-            </p>
-            
-            {/* Comparison Table */}
             <div style={{ 
-              marginTop: '3rem',
-              maxWidth: '800px',
-              margin: '3rem auto 0',
-              background: '#ffffff',
-              border: '2px solid #e9d5ff',
-              borderRadius: '1.25rem',
-              padding: '2rem'
+              maxWidth: '800px', 
+              margin: '0 auto',
+              textAlign: 'center'
             }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
-                <thead>
-                  <tr>
-                    <th style={{ textAlign: 'left', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Feature</th>
-                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Community</th>
-                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Pilot</th>
-                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Institution</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Custom rulepack</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Maintenance</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '0.75rem', color: '#4c1d95' }}>SLAs</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✖︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✖︎</td>
-                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✔︎</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h2 className="section-title" style={{ marginBottom: '1rem' }}>Help us shape v1.0</h2>
+              <p style={{ 
+                fontSize: '1.125rem', 
+                color: '#6b46c1', 
+                marginBottom: '3rem',
+                lineHeight: '1.7',
+                maxWidth: '600px',
+                marginLeft: 'auto',
+                marginRight: 'auto'
+              }}>
+                Share your biggest data submission pain points in our quick survey. Your feedback directly shapes our first release.
+              </p>
+              <div className="survey-form-wrapper" style={{ 
+                maxWidth: '700px', 
+                margin: '0 auto',
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '1.25rem',
+                padding: '3rem',
+                boxShadow: '0 4px 12px rgba(124, 58, 237, 0.1)'
+              }}>
+                <FeedbackForm formType="survey" />
+              </div>
             </div>
           </div>
         </section>
+
       </main>
     </>
   );

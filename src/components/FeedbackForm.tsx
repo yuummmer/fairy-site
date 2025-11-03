@@ -18,12 +18,12 @@ interface FormData {
   website?: string; // honeypot
   // Survey-specific fields
   current_pain_points?: string;
-  repository_preference?: string;
+  repository_preference?: string | string[];
   technical_comfort?: string;
   submission_frequency?: string;
   compliance_requirements?: string;
-  current_workflow?: string;
-  biggest_challenge?: string;
+  current_workflow?: string | string[];
+  biggest_challenge?: string | string[];
 }
 
 interface FeedbackFormProps {
@@ -69,23 +69,87 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
     }));
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, checked } = e.target;
+    setFormData(prev => {
+      const currentValues = Array.isArray(prev[name as keyof FormData]) 
+        ? (prev[name as keyof FormData] as string[])
+        : prev[name as keyof FormData] 
+          ? [prev[name as keyof FormData] as string]
+          : [];
+      
+      const newValues = checked
+        ? [...currentValues, value]
+        : currentValues.filter(v => v !== value);
+      
+      return {
+        ...prev,
+        [name]: newValues.length > 0 ? newValues : ''
+      };
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
 
+    // Validate required checkbox fields
+    if (formType === 'survey') {
+      const biggestChallenge = Array.isArray(formData.biggest_challenge) 
+        ? formData.biggest_challenge 
+        : formData.biggest_challenge ? [formData.biggest_challenge] : [];
+      const repositoryPreference = Array.isArray(formData.repository_preference) 
+        ? formData.repository_preference 
+        : formData.repository_preference ? [formData.repository_preference] : [];
+      const currentWorkflow = Array.isArray(formData.current_workflow) 
+        ? formData.current_workflow 
+        : formData.current_workflow ? [formData.current_workflow] : [];
+
+      if (biggestChallenge.length === 0) {
+        setSubmitStatus('error');
+        setErrorMessage('Please select at least one challenge.');
+        setIsSubmitting(false);
+        return;
+      }
+      if (repositoryPreference.length === 0) {
+        setSubmitStatus('error');
+        setErrorMessage('Please select at least one repository.');
+        setIsSubmitting(false);
+        return;
+      }
+      if (currentWorkflow.length === 0) {
+        setSubmitStatus('error');
+        setErrorMessage('Please select at least one workflow option.');
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
     try {
+      // Convert arrays to comma-separated strings for API compatibility
+      const submissionData = {
+        ...formData,
+        biggest_challenge: Array.isArray(formData.biggest_challenge) 
+          ? formData.biggest_challenge.join(', ') 
+          : formData.biggest_challenge,
+        repository_preference: Array.isArray(formData.repository_preference) 
+          ? formData.repository_preference.join(', ') 
+          : formData.repository_preference,
+        current_workflow: Array.isArray(formData.current_workflow) 
+          ? formData.current_workflow.join(', ') 
+          : formData.current_workflow,
+        form_type: formType,
+        utm_source: 'website'
+      };
+
       const response = await fetch('/api/feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          form_type: formType,
-          utm_source: 'website'
-        }),
+        body: JSON.stringify(submissionData),
       });
 
       const result = await response.json();
@@ -359,45 +423,60 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
       </div>
 
       <div className="form-group">
-        <label htmlFor="biggest-challenge" className="form-label">What's your biggest data submission challenge?</label>
-        <select
-          id="biggest-challenge"
-          name="biggest_challenge"
-          className="form-input"
-          required
-          value={formData.biggest_challenge}
-          onChange={handleInputChange}
-        >
-          <option value="">Select your main challenge</option>
-          <option value="metadata-errors">Metadata errors and missing fields</option>
-          <option value="file-formatting">File naming and formatting issues</option>
-          <option value="compliance-checking">Compliance checking and validation</option>
-          <option value="time-consuming">Too time-consuming to prepare submissions</option>
-          <option value="bounced-submissions">Submissions get bounced/rejected</option>
-          <option value="manual-processes">Too many manual processes</option>
-          <option value="other">Other</option>
-        </select>
+        <label className="form-label">What are your biggest data submission challenges? (select all that apply)</label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+          {[
+            { value: 'metadata-errors', label: 'Metadata errors and missing fields' },
+            { value: 'file-formatting', label: 'File naming and formatting issues' },
+            { value: 'compliance-checking', label: 'Compliance checking and validation' },
+            { value: 'time-consuming', label: 'Too time-consuming to prepare submissions' },
+            { value: 'bounced-submissions', label: 'Submissions get bounced/rejected' },
+            { value: 'manual-processes', label: 'Too many manual processes' },
+            { value: 'other', label: 'Other' }
+          ].map(option => (
+            <label key={option.value} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                name="biggest_challenge"
+                value={option.value}
+                checked={Array.isArray(formData.biggest_challenge) 
+                  ? formData.biggest_challenge.includes(option.value)
+                  : formData.biggest_challenge === option.value}
+                onChange={handleCheckboxChange}
+                style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+              />
+              <span style={{ color: '#4c1d95', fontSize: '1rem' }}>{option.label}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       <div className="form-group">
-        <label htmlFor="repository-preference" className="form-label">Which repositories do you submit to most often?</label>
-        <select
-          id="repository-preference"
-          name="repository_preference"
-          className="form-input"
-          required
-          value={formData.repository_preference}
-          onChange={handleInputChange}
-        >
-          <option value="">Select primary repository</option>
-          <option value="geo">GEO (Gene Expression Omnibus)</option>
-          <option value="zenodo">Zenodo</option>
-          <option value="dryad">Dryad</option>
-          <option value="figshare">Figshare</option>
-          <option value="institutional">Institutional repository</option>
-          <option value="multiple">Multiple repositories</option>
-          <option value="other">Other</option>
-        </select>
+        <label className="form-label">Which repositories do you submit to? (select all that apply)</label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+          {[
+            { value: 'geo', label: 'GEO (Gene Expression Omnibus)' },
+            { value: 'zenodo', label: 'Zenodo' },
+            { value: 'dryad', label: 'Dryad' },
+            { value: 'figshare', label: 'Figshare' },
+            { value: 'institutional', label: 'Institutional repository' },
+            { value: 'other', label: 'Other' }
+          ].map(option => (
+            <label key={option.value} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                name="repository_preference"
+                value={option.value}
+                checked={Array.isArray(formData.repository_preference) 
+                  ? formData.repository_preference.includes(option.value)
+                  : formData.repository_preference === option.value}
+                onChange={handleCheckboxChange}
+                style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+              />
+              <span style={{ color: '#4c1d95', fontSize: '1rem' }}>{option.label}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       <div className="form-group">
@@ -438,23 +517,31 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
       </div>
 
       <div className="form-group">
-        <label htmlFor="current-workflow" className="form-label">What's your current data preparation workflow?</label>
-        <select
-          id="current-workflow"
-          name="current_workflow"
-          className="form-input"
-          required
-          value={formData.current_workflow}
-          onChange={handleInputChange}
-        >
-          <option value="">Select your workflow</option>
-          <option value="manual-spreadsheet">Manual spreadsheet checking</option>
-          <option value="custom-scripts">Custom scripts and tools</option>
-          <option value="repository-tools">Repository-specific tools</option>
-          <option value="consultation">Consult with data librarians</option>
-          <option value="trial-error">Trial and error approach</option>
-          <option value="other">Other</option>
-        </select>
+        <label className="form-label">What's your current data preparation workflow? (select all that apply)</label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+          {[
+            { value: 'manual-spreadsheet', label: 'Manual spreadsheet checking' },
+            { value: 'custom-scripts', label: 'Custom scripts and tools' },
+            { value: 'repository-tools', label: 'Repository-specific tools' },
+            { value: 'consultation', label: 'Consult with data librarians' },
+            { value: 'trial-error', label: 'Trial and error approach' },
+            { value: 'other', label: 'Other' }
+          ].map(option => (
+            <label key={option.value} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                name="current_workflow"
+                value={option.value}
+                checked={Array.isArray(formData.current_workflow) 
+                  ? formData.current_workflow.includes(option.value)
+                  : formData.current_workflow === option.value}
+                onChange={handleCheckboxChange}
+                style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+              />
+              <span style={{ color: '#4c1d95', fontSize: '1rem' }}>{option.label}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       <div className="form-group">

@@ -43,7 +43,6 @@ fairy-site/
 │   │   ├── demo/               # Demo pages
 │   │   ├── docs/               # Documentation
 │   │   ├── institutions/       # Institutional offerings
-│   │   ├── labs-cores/         # Labs & cores landing
 │   │   ├── offerings/          # Product offerings
 │   │   ├── preflight-mapping/  # Preflight mapping page
 │   │   ├── privacy/             # Privacy policy
@@ -129,7 +128,6 @@ The app uses Next.js App Router with file-based routing:
 - `/about` - About page with company information
 - `/docs` - Documentation
 - `/institutions` - Institutional offerings
-- `/labs-cores` - Labs and cores landing page
 - `/researchers` - Community/researcher resources
 - `/repositories` - Repository partner information
 - `/sample-report` - Sample readiness report showcase

@@ -335,17 +335,28 @@ export default function Page() {
         }
         
           @media (max-width: 768px) {
+          .container {
+            padding: 0 1rem;
+          }
+          
+          .hero {
+            padding: 3rem 0;
+          }
+          
           .hero h1 {
             font-size: 2rem;
+            margin-bottom: 1rem;
           }
           
           .hero .subheadline {
             font-size: 1.125rem;
+            margin-bottom: 1.5rem;
           }
           
           .cta-buttons {
             flex-direction: column;
             align-items: center;
+            margin-bottom: 2rem;
           }
           
           .btn-primary,
@@ -353,6 +364,34 @@ export default function Page() {
             width: 100%;
             max-width: 300px;
             justify-content: center;
+            padding: 0.875rem 1.5rem;
+            font-size: 16px;
+          }
+          
+          .demo-section {
+            padding: 3rem 0;
+          }
+          
+          .demo-card {
+            padding: 1.5rem;
+          }
+          
+          .how-it-works {
+            padding: 3rem 0;
+          }
+          
+          .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+          }
+          
+          .steps-grid {
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+          }
+          
+          .step-card {
+            padding: 1.5rem;
           }
           
           .logos-grid {
@@ -366,6 +405,64 @@ export default function Page() {
           
           .audience-tiles-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.5rem;
+          }
+          
+          .waitlist-section {
+            padding: 3rem 0;
+          }
+          
+          .waitlist-form {
+            padding: 1.5rem;
+          }
+          
+          .survey-section {
+            padding: 2.5rem 0;
+          }
+          
+          /* Responsive table for readiness report */
+          table {
+            font-size: 0.75rem;
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          table th,
+          table td {
+            padding: 0.5rem;
+            min-width: 80px;
+          }
+          
+          /* Section padding adjustments */
+          .readiness-report-section {
+            padding: 2rem 0 !important;
+          }
+          
+          section[style*="padding: '4rem 0'"],
+          section[style*='padding: "4rem 0"'] {
+            padding: 2rem 0 !important;
+          }
+          
+          section[style*="padding: '3rem 0'"],
+          section[style*='padding: "3rem 0"'] {
+            padding: 2rem 0 !important;
+          }
+          
+          section[style*="padding: '2rem 0'"],
+          section[style*='padding: "2rem 0"'] {
+            padding: 1.5rem 0 !important;
+          }
+          
+          /* Reduce margins in text-heavy sections */
+          div[style*="marginBottom: '3rem'"],
+          div[style*='marginBottom: "3rem"'] {
+            margin-bottom: 2rem !important;
+          }
+          
+          div[style*="marginBottom: '2rem'"],
+          div[style*='marginBottom: "2rem"'] {
+            margin-bottom: 1.5rem !important;
           }
         }
         
@@ -424,21 +521,11 @@ export default function Page() {
             }}>
               Piloting with university cores & collections teams.
             </p>
-            <div className="cta-buttons">
-              <a 
-                href="/preflight-mapping" 
-                className="btn-primary"
-                onClick={() => track('hero_request_pilot_clicked')}
-              >
-                Request a Pilot →
-              </a>
-            </div>
-            
           </div>
         </section>
         
         {/* Readiness Report Screenshot */}
-        <section style={{ padding: '3rem 0', backgroundColor: '#faf5ff' }}>
+        <section className="readiness-report-section" style={{ padding: '3rem 0', backgroundColor: '#faf5ff' }}>
           <div className="container">
             <div style={{ 
               maxWidth: '750px', 
@@ -579,6 +666,32 @@ export default function Page() {
               }}>
                 One-click pre-flight: human report + machine JSON + attestation.
               </p>
+              
+              {/* Privacy & Security Callout */}
+              <div style={{ 
+                background: 'linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)', 
+                border: '2px solid #c4b5fd', 
+                borderRadius: '1rem', 
+                padding: '1.5rem 2rem', 
+                marginTop: '2rem',
+                textAlign: 'center',
+                boxShadow: '0 4px 12px rgba(124, 58, 237, 0.1)'
+              }}>
+                <p style={{ 
+                  fontSize: '1.125rem', 
+                  color: '#4c1d95', 
+                  margin: '0', 
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.75rem',
+                  flexWrap: 'wrap'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🔒</span>
+                  <span>Local-first privacy: No data leaves your environment. All processing happens on your machines. No accounts, no cloud, no external transfer.</span>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -586,6 +699,15 @@ export default function Page() {
         {/* Audience Tiles Section */}
         <section className="demo-section" style={{ padding: '4rem 0', backgroundColor: '#ffffff' }}>
           <div className="container">
+            <h2 style={{ 
+              fontSize: '2rem', 
+              fontWeight: '600', 
+              color: '#4c1d95', 
+              textAlign: 'center',
+              marginBottom: '2rem'
+            }}>
+              Who it's for
+            </h2>
             <div className="audience-tiles-grid" style={{ 
               display: 'grid', 
               gridTemplateColumns: 'repeat(2, 1fr)', 
@@ -631,14 +753,14 @@ export default function Page() {
               </div>
             </div>
             {/* Features Strip */}
-            <div style={{ 
+              <div style={{ 
               textAlign: 'center', 
               marginTop: '3rem',
               padding: '1rem 0',
               fontSize: '0.875rem',
               color: '#6b46c1'
             }}>
-              Local-first (no data leaves your machine) • Attestation & provenance • Rulepack governance
+              Attestation & provenance • Rulepack governance • One-page readiness reports
             </div>
           </div>
         </section>
@@ -656,21 +778,6 @@ export default function Page() {
               <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto 2rem' }}>
                 FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
               </p>
-              
-              {/* Security Callout */}
-              <div style={{ 
-                background: '#f3e8ff', 
-                border: '2px solid #e9d5ff', 
-                borderRadius: '0.75rem', 
-                padding: '1rem', 
-                marginBottom: '2rem',
-                maxWidth: '600px',
-                margin: '0 auto 2rem'
-              }}>
-                <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
-                  🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
-                </p>
-              </div>
               
               {/* Key Benefit Statement */}
               <div style={{ 
@@ -715,7 +822,7 @@ export default function Page() {
             
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <a 
-                href="/labs-cores" 
+                href="/institutions" 
                 className="btn-primary" 
                 style={{ marginRight: '1rem' }}
               >
@@ -882,9 +989,7 @@ export default function Page() {
                       <pre style={{ margin: 0, color: '#6b46c1', whiteSpace: 'pre-wrap' }}><code>fairy validate /path/to/dataset --out out/</code></pre>
                     </div>
                     <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
-                      Nothing is uploaded.
-                      <br />
-                      No accounts, no cloud, no external transfer. All processing happens on your machine / inside your network.
+                      All processing happens on your machine / inside your network.
                     </p>
                   </div>
                   
@@ -898,18 +1003,6 @@ export default function Page() {
                     </p>
                     <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0' }}>
                       Same checks. Same PASS / WARN / FAIL guidance. Still runs locally.
-                    </p>
-                  </div>
-                  
-                  <div style={{ 
-                    background: '#f3e8ff', 
-                    border: '1px solid #e9d5ff', 
-                    borderRadius: '0.75rem', 
-                    padding: '1rem', 
-                    marginBottom: '1.5rem'
-                  }}>
-                    <p style={{ fontSize: '0.875rem', color: '#4c1d95', margin: '0', fontWeight: '500' }}>
-                      🔒 Local-first privacy: No data leaves your environment. All processing happens on your machines.
                     </p>
                   </div>
                   
@@ -933,7 +1026,7 @@ export default function Page() {
                 <div className="step-number">1</div>
                 <h3 className="step-title">Run FAIRy on your dataset</h3>
                 <p className="step-description">
-                  Point FAIRy at a folder or metadata sheet in your environment. It scans filenames and required fields locally — no data leaves your system.
+                  Point FAIRy at a folder or metadata sheet in your environment. It scans filenames and required fields locally.
                 </p>
                 <a href="/docs" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px' }}>
                   Learn more →
