@@ -52,6 +52,7 @@ docs/internal/**
 docs/internal/*.md
 
 # google analytics, google sheets, and survey materials (keep private)
+# Note: setup docs moved to docs/setup/ but kept here for backward compatibility
 GOOGLE_SHEETS_SETUP.md
 INSTITUTION_SURVEY_SETUP.md
 SURVEY_DESIGN.md
@@ -99,8 +100,14 @@ yarn-error.log*
 next-env.d.ts
 
 # slide deck template files (not for version control)
+# Note: files moved to docs/slides/ and scripts/ but keeping root-level ignores for safety
 slide-deck-template.html
 fairy-slide-deck.pdf
 convert_to_pdf.py
 SLIDE_DECK_README.md
 GOOGLE_SLIDES_TEMPLATE_GUIDE.md
+# Also ignore in new locations if needed
+docs/slides/fairy-slide-deck.pdf
+
+# old email signature (replaced by public/brand/signature/)
+email-signature.html
