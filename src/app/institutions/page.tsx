@@ -776,7 +776,7 @@ export default function OfferingsPage() {
                 </p>
                 <div className="hero-cta">
                   <a href="/preflight-mapping" className="btn-primary">
-                    Get a Preflight Mapping Session →
+                    Request a Pilot
                   </a>
                 </div>
                 <p className="hero-description">
@@ -832,7 +832,7 @@ export default function OfferingsPage() {
         <section className="empathy-band">
           <div className="container">
             <p className="empathy-text">
-              You're the one who has to tell a PI their dataset isn't ready… FAIRy exists to make that not miserable.
+              Saying "this won't pass" shouldn't be miserable. FAIRy gives you rule-based checks, a clear report, and an attestation.
             </p>
           </div>
         </section>
@@ -953,9 +953,207 @@ export default function OfferingsPage() {
               </p>
               <div style={{ textAlign: 'center' }}>
                 <a href="/preflight-mapping" className="btn-primary">
-                  Get a Preflight Mapping Session →
+                  Request a Pilot
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Pricing Signals */}
+        <section className="section-white">
+          <div className="container">
+            <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>
+              Pricing
+            </h2>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+              gap: '2rem',
+              maxWidth: '1000px',
+              margin: '0 auto'
+            }}>
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2rem',
+                textAlign: 'center'
+              }}>
+                <span style={{ 
+                  display: 'inline-block',
+                  background: '#f3e8ff',
+                  color: '#6b46c1',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '1.25rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  marginBottom: '1rem'
+                }}>
+                  Community (free)
+                </span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  FAIRy-core
+                </h3>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  For individual researchers and DIY labs.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '1.5rem 0', textAlign: 'left' }}>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Open-source validator (local-first)
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Starter templates & common rulepacks
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Readiness report (human + JSON)
+                  </li>
+                </ul>
+                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '1rem', marginBottom: '1rem', fontStyle: 'italic' }}>
+                  Includes common, non-custom rulepacks. Custom rulepacks are part of Pilot/Institution.
+                </p>
+                <a href="/researchers" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
+                  Download FAIRy-core →
+                </a>
+              </div>
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2rem',
+                textAlign: 'center'
+              }}>
+                <span style={{ 
+                  display: 'inline-block',
+                  background: '#f3e8ff',
+                  color: '#6b46c1',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '1.25rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  marginBottom: '1rem'
+                }}>
+                  Pilot (paid)
+                </span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  Encode your rules
+                </h3>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  For labs & cores that need their intake codified.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '1.5rem 0', textAlign: 'left' }}>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Translate your intake policy into a custom rulepack
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    One guided run + readiness report you can forward internally
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Attestation file (what was checked, when, and by which rules)
+                  </li>
+                </ul>
+                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '1rem', marginBottom: '1rem', fontStyle: 'italic' }}>
+                  Typical turnaround: 1–2 weeks; fixed-price scope.
+                </p>
+                <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
+                  Request a pilot scope →
+                </a>
+              </div>
+              <div style={{ 
+                background: '#ffffff', 
+                border: '2px solid #e9d5ff', 
+                borderRadius: '1.25rem', 
+                padding: '2rem',
+                textAlign: 'center'
+              }}>
+                <span style={{ 
+                  display: 'inline-block',
+                  background: '#f3e8ff',
+                  color: '#6b46c1',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '1.25rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  marginBottom: '1rem'
+                }}>
+                  Institution (annual)
+                </span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  Full support
+                </h3>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                  For institutions with multi-lab throughput & oversight needs.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '1.5rem 0', textAlign: 'left' }}>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Rulepack maintenance & governance (change control)
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Provenance & attestations at scale
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    Dashboards & automation hooks (CI/ELN/LIMS)
+                  </li>
+                  <li style={{ padding: '0.5rem 0', color: '#6b46c1', paddingLeft: '1.5rem', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: '#7c3aed', fontWeight: '700', fontSize: '1.25rem' }}>•</span>
+                    SLAs + <a href="/institution-kit.pdf" style={{ color: '#7c3aed', textDecoration: 'underline' }}>security/SBOM documentation</a>
+                  </li>
+                </ul>
+                <a href="/preflight-mapping" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '1rem' }}>
+                  Request a pilot scope →
+                </a>
+              </div>
+            </div>
+            
+            {/* Comparison Table */}
+            <div style={{ 
+              marginTop: '3rem',
+              maxWidth: '800px',
+              margin: '3rem auto 0',
+              background: '#ffffff',
+              border: '2px solid #e9d5ff',
+              borderRadius: '1.25rem',
+              padding: '2rem'
+            }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Feature</th>
+                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Community</th>
+                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Pilot</th>
+                    <th style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '2px solid #e9d5ff', color: '#4c1d95', fontWeight: '600' }}>Institution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Custom rulepack</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Maintenance</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✖︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>✔︎</td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: '0.75rem', color: '#4c1d95' }}>SLAs</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✖︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✖︎</td>
+                    <td style={{ textAlign: 'center', padding: '0.75rem', color: '#4c1d95' }}>✔︎</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>

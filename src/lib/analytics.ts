@@ -1,6 +1,10 @@
 "use client";
 
 export type AnalyticsEventName =
+  | "hero_request_pilot_clicked"
+  | "hero_talk_to_us_clicked"
+  | "tile_clicked"
+  | "community_download_clicked"
   | "request_pilot"
   | "download_solo"
   | "sample_zip"

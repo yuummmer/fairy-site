@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "FAIRy by Datadabra",
-  description: "Fix your data before you submit—local, open, fast."
+  title: "FAIRy — Pre-flight validation & packaging for research datasets",
+  description: "Validate, fix, and package datasets before handoff. FAIRy helps labs, cores, and institutions prevent bounced submissions with rulepacks, reports, and attestations."
 };
 
 import AnalyticsBindings from "../components/AnalyticsBindings";
@@ -38,12 +38,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
 
-          <div className="border-t mt-10 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <span>© {new Date().getFullYear()} Datadabra. FAIRy is a Datadabra product.</span>
-            <div className="flex gap-4">
-              <a href="/biofair" className="hover:underline">BIOFAIR pilot</a>
-              <a href="#" className="hover:underline">Privacy</a>
-              <a href="#" className="hover:underline">Terms</a>
+          <div className="border-t mt-10 pt-6">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+              <span>© {new Date().getFullYear()} Datadabra. FAIRy is a Datadabra product.</span>
+              <div className="flex gap-4">
+                <a href="/biofair" className="hover:underline">BIOFAIR pilot</a>
+                <a href="#" className="hover:underline">Privacy</a>
+                <a href="#" className="hover:underline">Terms</a>
+              </div>
+            </div>
+            
+            {/* Credibility Footer */}
+            <div className="border-t pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+              <div className="flex flex-wrap items-center gap-4">
+                <span>Open-source core</span>
+                <span>•</span>
+                <span>MIT/AGPL</span>
+                <span>•</span>
+                <a href="/docs" className="hover:underline">Docs</a>
+                <span>•</span>
+                <a href="/institution-kit.pdf" className="hover:underline">Security/SBOM</a>
+                <span>•</span>
+                <a href="mailto:hello@datadabra.com" className="hover:underline">Contact</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href="/about#changelog" className="hover:underline">v0.1</a>
+              </div>
             </div>
           </div>
         </footer>

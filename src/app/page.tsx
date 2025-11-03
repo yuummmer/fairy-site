@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import FeedbackForm from '../components/FeedbackForm';
-import { trackCTA } from '../components/CTATracking';
+import { track } from '../lib/analytics';
 
 export default function Page() {
   const [isQuickInstallOpen, setIsQuickInstallOpen] = useState(false);
@@ -61,7 +61,7 @@ export default function Page() {
         }
         
         .btn-primary {
-          background-color: #7c3aed;
+          background-color: #6d28d9;
           color: white;
           padding: 1rem 2rem;
           border-radius: 0.75rem;
@@ -77,7 +77,7 @@ export default function Page() {
         }
         
         .btn-primary:hover {
-          background-color: #6d28d9;
+          background-color: #5b21b6;
           transform: translateY(-1px);
         }
         
@@ -334,7 +334,7 @@ export default function Page() {
           font-size: 0.75rem;
         }
         
-        @media (max-width: 768px) {
+          @media (max-width: 768px) {
           .hero h1 {
             font-size: 2rem;
           }
@@ -362,6 +362,10 @@ export default function Page() {
           .footer-links {
             flex-direction: column;
             gap: 0.75rem;
+          }
+          
+          .audience-tiles-grid {
+            grid-template-columns: 1fr !important;
           }
         }
         
@@ -407,30 +411,235 @@ export default function Page() {
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
-            <h1>Stop chasing missing fields. FAIRy tells the lab exactly what to fix.</h1>
-            <p style={{ fontSize: '1.5rem', fontWeight: '600', color: '#6b46c1', marginBottom: '1rem', fontStyle: 'italic' }}>
-              Stop guessing what metadata is "good enough."
-            </p>
+            <h1>Make research data submission-ready—before handoff.</h1>
             <p className="subheadline">
-              FAIRy checks incoming dataset metadata against your rules before it gets submitted and gives contributors a one-page "here's what to fix" report. Local-first. No uploads.
+              FAIRy validates and packages datasets for labs, cores, and institutions. Local-first, open, and fast.
+            </p>
+            <p style={{ 
+              fontSize: '1rem', 
+              color: '#6b46c1', 
+              fontStyle: 'italic',
+              maxWidth: '700px',
+              margin: '0 auto 2rem'
+            }}>
+              Piloting with university cores & collections teams to cut bounced submissions and standardize intake.
             </p>
             <div className="cta-buttons">
               <a 
-                href="#solo-tier" 
+                href="/preflight-mapping" 
                 className="btn-primary"
-                onClick={() => trackCTA('hero_cta_click', 'individual_researcher')}
+                onClick={() => track('hero_request_pilot_clicked')}
               >
-                For individual researchers
-              </a>
-              <a 
-                href="/institutions" 
-                className="btn-primary"
-                onClick={() => trackCTA('hero_cta_click', 'learn_more')}
-              >
-                For institutions
+                Request a Pilot →
               </a>
             </div>
             
+          </div>
+        </section>
+        
+        {/* Readiness Report Screenshot */}
+        <section style={{ padding: '3rem 0', backgroundColor: '#faf5ff' }}>
+          <div className="container">
+            <div style={{ 
+              maxWidth: '750px', 
+              margin: '0 auto',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '1.125rem',
+                padding: '1.5rem',
+                boxShadow: '0 4px 12px rgba(124, 58, 237, 0.1)',
+                marginBottom: '1rem'
+              }}>
+                <div style={{ 
+                  fontSize: '0.875rem', 
+                  fontWeight: '600', 
+                  color: '#4c1d95', 
+                  marginBottom: '1rem',
+                  textAlign: 'center'
+                }}>
+                  FAIRy Readiness Report
+                </div>
+                <table style={{ 
+                  width: '100%', 
+                  borderCollapse: 'collapse',
+                  fontSize: '0.875rem'
+                }}>
+                  <thead>
+                    <tr>
+                      <th style={{ 
+                        textAlign: 'left', 
+                        padding: '0.75rem',
+                        borderBottom: '2px solid #e9d5ff',
+                        color: '#4c1d95',
+                        fontWeight: '600'
+                      }}>Check</th>
+                      <th style={{ 
+                        textAlign: 'left', 
+                        padding: '0.75rem',
+                        borderBottom: '2px solid #e9d5ff',
+                        color: '#4c1d95',
+                        fontWeight: '600'
+                      }}>Status</th>
+                      <th style={{ 
+                        textAlign: 'left', 
+                        padding: '0.75rem',
+                        borderBottom: '2px solid #e9d5ff',
+                        color: '#4c1d95',
+                        fontWeight: '600'
+                      }}>Next Step</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Sample IDs present</td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>
+                        <span style={{ 
+                          display: 'inline-block',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontWeight: '600',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#d1fae5',
+                          color: '#065f46'
+                        }}>PASS</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>No action needed</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Dates in ISO format</td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>
+                        <span style={{ 
+                          display: 'inline-block',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontWeight: '600',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#d1fae5',
+                          color: '#065f46'
+                        }}>PASS</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>No action needed</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Contact email valid</td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>
+                        <span style={{ 
+                          display: 'inline-block',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontWeight: '600',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#fef3c7',
+                          color: '#92400e'
+                        }}>WARN</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Verify email format</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>File naming convention</td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>
+                        <span style={{ 
+                          display: 'inline-block',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontWeight: '600',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#fee2e2',
+                          color: '#991b1b'
+                        }}>FAIL</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', borderBottom: '1px solid #f3e8ff', color: '#4c1d95' }}>Rename files per standard</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.75rem', color: '#4c1d95' }}>Required metadata fields</td>
+                      <td style={{ padding: '0.75rem', color: '#4c1d95' }}>
+                        <span style={{ 
+                          display: 'inline-block',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontWeight: '600',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#d1fae5',
+                          color: '#065f46'
+                        }}>PASS</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', color: '#4c1d95' }}>No action needed</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style={{ 
+                fontSize: '0.875rem', 
+                color: '#6b46c1', 
+                fontStyle: 'italic',
+                marginTop: '1rem'
+              }}>
+                One-click pre-flight: human report + machine JSON + attestation.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Audience Tiles Section */}
+        <section className="demo-section" style={{ padding: '4rem 0', backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <div className="audience-tiles-grid" style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(2, 1fr)', 
+              gap: '2rem',
+              maxWidth: '900px',
+              margin: '2rem auto 0'
+            }}>
+              <div className="step-card">
+                <h3 className="step-title">Labs & Cores</h3>
+                <p className="step-description">
+                  Encode intake rules, stop bounced submissions, generate attestations.
+                </p>
+                <a href="/institutions" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'labs_cores' })}>
+                  Get a pilot →
+                </a>
+              </div>
+              <div className="step-card">
+                <h3 className="step-title">Institutions</h3>
+                <p className="step-description">
+                  Rulepack governance, provenance trail, SBOM/security, SLAs.
+                </p>
+                <a href="/institutions" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'institutions' })}>
+                  Talk to us →
+                </a>
+              </div>
+              <div className="step-card">
+                <h3 className="step-title">Repositories</h3>
+                <p className="step-description">
+                  Pre-flight templates + rulepacks for submitters; reduce reject loops.
+                </p>
+                <a href="/institutions" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'repositories' })}>
+                  Partner with us →
+                </a>
+              </div>
+              <div className="step-card">
+                <h3 className="step-title">Researchers (Community)</h3>
+                <p className="step-description">
+                  Free templates + FAIRy-core to self-check datasets.
+                </p>
+                <a href="/researchers" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'researchers' })}>
+                  Download →
+                </a>
+              </div>
+            </div>
+            {/* Features Strip */}
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '3rem',
+              padding: '1rem 0',
+              fontSize: '0.875rem',
+              color: '#6b46c1'
+            }}>
+              Local-first (no data leaves your machine) • Attestation & provenance • Rulepack governance
+            </div>
           </div>
         </section>
 
@@ -441,10 +650,10 @@ export default function Page() {
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
                 Stop spending hours chasing missing fields and renaming files
               </h2>
-              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '1rem' }}>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto 1rem' }}>
                 People hand you garbage and you spend hours chasing missing fields and renaming files. You need proof you did QC before you archive, publish, send to a journal, or report to a grant panel.
               </p>
-              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto', marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '700px', margin: '0 auto 2rem' }}>
                 FAIRy runs locally and generates a one-page readiness sheet (PASS / WARN / FAIL + how to fix) that labs can attach when they hand off a dataset.
               </p>
               
@@ -506,17 +715,15 @@ export default function Page() {
             
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <a 
-                href="/institutions" 
+                href="/labs-cores" 
                 className="btn-primary" 
                 style={{ marginRight: '1rem' }}
-                onClick={() => trackCTA('institution_preview_cta', 'for_data_stewards_cores')}
               >
-                For Data Stewards & Core Facilities →
+                For Labs & Cores →
               </a>
               <a 
                 href="/sample-report" 
                 className="btn-secondary" 
-                onClick={() => trackCTA('institution_preview_cta', 'view_sample_report')}
               >
                 See example report
               </a>
@@ -540,7 +747,6 @@ export default function Page() {
               <a 
                 href="/institutions" 
                 className="btn-primary"
-                onClick={() => trackCTA('institution_engagement_cta', 'learn_more')}
               >
                 Learn more about institutional offerings →
               </a>
@@ -548,62 +754,40 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Individual Researcher Banner */}
-        <section style={{ padding: '3rem 0', backgroundColor: '#f3e8ff', borderTop: '2px solid #e9d5ff', borderBottom: '2px solid #e9d5ff' }}>
+        {/* Community Link Section - Demoted */}
+        <section style={{ padding: '2rem 0', backgroundColor: '#ffffff', borderTop: '1px solid #e9d5ff' }}>
           <div className="container">
-            <div style={{ 
-              background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)', 
-              borderRadius: '1rem', 
-              padding: '2.5rem', 
-              textAlign: 'center',
-              boxShadow: '0 10px 25px -3px rgba(139, 92, 246, 0.2)'
-            }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: 'white', marginBottom: '1rem' }}>
-                Are you submitting data to a repository yourself?
-              </h2>
-              <p style={{ fontSize: '1.125rem', color: '#f3e8ff', marginBottom: '1.5rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-                Don't get your dataset bounced. FAIRy tells you exactly what's missing so you don't get yelled at.
+            <div style={{ textAlign: 'center' }}>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', marginBottom: '1rem' }}>
+                Working solo? <a href="/researchers" style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}>Get started free with FAIRy-core →</a>
               </p>
-              <a 
-                href="#solo-tier" 
-                className="btn-primary"
-                style={{ 
-                  backgroundColor: 'white', 
-                  color: '#7c3aed',
-                  fontSize: '1.125rem',
-                  padding: '1rem 2.5rem'
-                }}
-                onClick={() => trackCTA('individual_researcher_link', 'banner_cta')}
-              >
-                Get FAIRy (researcher preview) →
-              </a>
             </div>
           </div>
         </section>
 
-        {/* Solo Tier Section - Individual Researchers */}
-        <section id="solo-tier" className="demo-section">
+        {/* How It Works Section */}
+        <section id="how-it-works" className="demo-section">
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
                 Don't get your dataset bounced by GEO, Zenodo, or your core facility
               </h2>
-              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '1rem' }}>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto 1rem' }}>
                 Tired of being told "fix your metadata" with no specifics? FAIRy runs locally and tells you exactly what's missing so you don't get yelled at.
               </p>
-              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto 2rem' }}>
                 Get a checklist before you submit — PASS / WARN / FAIL, why it matters, and how to fix it. This is what your curator is going to ask for.
               </p>
               <div className="cta-buttons" style={{ marginBottom: '0' }}>
-                <a href="/sample-report" className="btn-primary" onClick={() => trackCTA('solo_tier_cta', 'see_example_report')}>
+                <a href="/sample-report" className="btn-primary">
                   See example report
                 </a>
-                <a href="/docs" className="btn-secondary" onClick={() => trackCTA('solo_tier_cta', 'view_docs')}>
+                <a href="/docs" className="btn-secondary">
                   View documentation
                 </a>
               </div>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
-                For individual researchers, labs, grad students, and PIs
+                For labs, cores, and institutions
               </p>
             </div>
             
@@ -730,7 +914,7 @@ export default function Page() {
                   </div>
                   
                   <div style={{ textAlign: 'center' }}>
-                    <a href="/sample-report" className="btn-secondary" onClick={() => trackCTA('quick_install_cta', 'see_example_report')}>
+                    <a href="/sample-report" className="btn-secondary">
                       See example report
                     </a>
                   </div>
@@ -778,11 +962,11 @@ export default function Page() {
             </div>
             
             <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-              <a href="/sample-report" className="btn-secondary" onClick={() => trackCTA('how_it_works_cta', 'see_example_report')}>
+              <a href="/sample-report" className="btn-secondary">
                 View example report
               </a>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '1rem' }}>
-                For individual researchers → <a href="#institution-preview" style={{ color: '#6b7280', textDecoration: 'underline' }}>For institutions / data stewards</a>
+                For labs & cores → <a href="/researchers" style={{ color: '#6b7280', textDecoration: 'underline' }}>For researchers (community)</a>
               </p>
             </div>
           </div>

@@ -46,6 +46,7 @@ export default function Navigation() {
           justify-content: center;
           gap: 1.5rem;
           flex-wrap: wrap;
+          align-items: center;
         }
         
         .toc-link {
@@ -55,6 +56,7 @@ export default function Navigation() {
           font-weight: 500;
           padding: 0.5rem 0;
           transition: color 0.2s ease;
+          position: relative;
         }
         
         .toc-link:hover {
@@ -65,6 +67,45 @@ export default function Navigation() {
           outline: 2px solid #7c3aed;
           outline-offset: 0.125rem;
           border-radius: 0.25rem;
+        }
+        
+        .solutions-dropdown {
+          position: relative;
+        }
+        
+        .solutions-dropdown-content {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: white;
+          border: 2px solid #e9d5ff;
+          border-radius: 0.75rem;
+          padding: 0.5rem 0;
+          margin-top: 0.5rem;
+          min-width: 200px;
+          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+          z-index: 50;
+        }
+        
+        .solutions-dropdown:hover .solutions-dropdown-content {
+          display: block;
+        }
+        
+        .solutions-dropdown-link {
+          display: block;
+          color: #6b46c1;
+          text-decoration: none;
+          font-size: 0.9375rem;
+          font-weight: 500;
+          padding: 0.75rem 1.5rem;
+          transition: all 0.2s ease;
+        }
+        
+        .solutions-dropdown-link:hover {
+          background-color: #f3e8ff;
+          color: #7c3aed;
         }
 
         .menu-toggle {
@@ -187,6 +228,13 @@ export default function Navigation() {
             outline: 2px solid #7c3aed;
             outline-offset: 0.125rem;
           }
+          
+          .solutions-dropdown-content {
+            position: static;
+            transform: none;
+            margin-top: 0.5rem;
+            margin-left: 1rem;
+          }
         }
       `}</style>
       <div className="table-of-contents">
@@ -195,8 +243,15 @@ export default function Navigation() {
             <a href="/" className="toc-brand">FAIRy</a>
             <nav className="toc-links">
               <a href="/" className="toc-link">FAIRy</a>
-              <a href="/#solo-tier" className="toc-link">For Researchers</a>
-              <a href="/institutions" className="toc-link">For Data Stewards & Cores</a>
+              <div className="solutions-dropdown">
+                <span className="toc-link" style={{ cursor: 'pointer' }}>Solutions ▼</span>
+                <div className="solutions-dropdown-content">
+                  <a href="/labs-cores" className="solutions-dropdown-link">Labs & Cores</a>
+                  <a href="/institutions" className="solutions-dropdown-link">Institutions</a>
+                  <a href="/repositories" className="solutions-dropdown-link">Repositories</a>
+                  <a href="/researchers" className="solutions-dropdown-link">Researchers (Community)</a>
+                </div>
+              </div>
               <a href="/docs" className="toc-link">Documentation</a>
               <a href="/about" className="toc-link">About</a>
             </nav>
@@ -216,8 +271,10 @@ export default function Navigation() {
           <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
             <nav className="mobile-links">
               <a href="/" className="mobile-link" onClick={closeMenu}>FAIRy</a>
-              <a href="/#solo-tier" className="mobile-link" onClick={closeMenu}>For Researchers</a>
-              <a href="/institutions" className="mobile-link" onClick={closeMenu}>For Data Stewards & Cores</a>
+              <a href="/labs-cores" className="mobile-link" onClick={closeMenu}>Labs & Cores</a>
+              <a href="/institutions" className="mobile-link" onClick={closeMenu}>Institutions</a>
+              <a href="/repositories" className="mobile-link" onClick={closeMenu}>Repositories</a>
+              <a href="/researchers" className="mobile-link" onClick={closeMenu}>Researchers (Community)</a>
               <a href="/docs" className="mobile-link" onClick={closeMenu}>Documentation</a>
               <a href="/about" className="mobile-link" onClick={closeMenu}>About</a>
             </nav>

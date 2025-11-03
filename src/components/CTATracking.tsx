@@ -1,37 +1,30 @@
 "use client";
 
+import { track, type AnalyticsEventName } from '../lib/analytics';
+
 // Simple CTA tracking component
 export function trackCTA(action: string, label: string, value?: string) {
-  // In a real implementation, this would send data to your analytics service
-  // For now, we'll just log to console and could send to Google Analytics, Mixpanel, etc.
+  // Map old action/label format to new event names
+  const eventMap: Record<string, AnalyticsEventName> = {
+    'hero_cta_click_request_pilot': 'hero_request_pilot_clicked',
+    'hero_cta_click_talk_to_us': 'hero_talk_to_us_clicked',
+  };
   
-  console.log('CTA Event:', {
-    action,
-    label,
-    value,
-    timestamp: new Date().toISOString(),
-    url: window.location.href,
-    userAgent: navigator.userAgent
-  });
+  const eventName = eventMap[`${action}_${label}`] as AnalyticsEventName | undefined;
   
-  // Example Google Analytics 4 implementation:
-  // if (typeof gtag !== 'undefined') {
-  //   gtag('event', action, {
-  //     event_category: 'CTA',
-  //     event_label: label,
-  //     value: value
-  //   });
-  // }
-  
-  // Example Mixpanel implementation:
-  // if (typeof mixpanel !== 'undefined') {
-  //   mixpanel.track('CTA Clicked', {
-  //     action,
-  //     label,
-  //     value,
-  //     page: window.location.pathname
-  //   });
-  // }
+  if (eventName) {
+    track(eventName);
+  } else {
+    // Fallback for other tracking
+    console.log('CTA Event:', {
+      action,
+      label,
+      value,
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      userAgent: navigator.userAgent
+    });
+  }
 }
 
 // Hook for tracking CTA clicks
