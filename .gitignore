@@ -47,6 +47,10 @@ docs/analytics/**
 context/Analytics*.md
 docs/*analytics*.md
 
+# private architecture and internal docs
+docs/internal/**
+docs/internal/*.md
+
 # google analytics, google sheets, and survey materials (keep private)
 GOOGLE_SHEETS_SETUP.md
 INSTITUTION_SURVEY_SETUP.md
