@@ -347,9 +347,14 @@ export default function BiofairPage() {
       <div className="container">
         {/* Hero Section */}
         <section className="hero">
-          <h1>Help shape a “BIOFAIR-ready” preflight check</h1>
+          <h1>Help shape a "BIOFAIR-ready" preflight check</h1>
           <p className="subheadline">
             A tiny, local metadata preflight for your domain (wet lab, ecology, environmental sensing, biodiversity collections, etc.) and a feedback loop to the BIOFAIR community.
+          </p>
+          <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#6b46c1' }}>
+            <a href="/talks/biofair-open-mic-2025" style={{ color: '#7c3aed', fontWeight: '600', textDecoration: 'none' }}>
+              Slides: View here →
+            </a>
           </p>
         </section>
 
