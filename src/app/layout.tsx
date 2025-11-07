@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex flex-wrap items-center gap-4">
                 <span>Open-source core</span>
                 <span>•</span>
-                <span>MIT/AGPL</span>
+                <span>AGPL-3.0-only</span>
                 <span>•</span>
                 <a href="/docs" className="hover:underline">Docs</a>
                 <span>•</span>

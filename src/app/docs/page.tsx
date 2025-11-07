@@ -6,7 +6,7 @@ export default function Documentation() {
   const [activeId, setActiveId] = useState<string>("checks");
 
   useEffect(() => {
-    const sectionIds = ["checks", "data-handling", "licensing", "coming-next", "contact"];
+    const sectionIds = ["checks", "data-handling", "licensing", "coming-next", "citation", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -376,6 +376,7 @@ export default function Documentation() {
               <a href="#data-handling" className={`sidebar-link ${activeId === 'data-handling' ? 'active' : ''}`}>Data handling</a>
               <a href="#licensing" className={`sidebar-link ${activeId === 'licensing' ? 'active' : ''}`}>Licensing</a>
               <a href="#coming-next" className={`sidebar-link ${activeId === 'coming-next' ? 'active' : ''}`}>What&apos;s coming next</a>
+              <a href="#citation" className={`sidebar-link ${activeId === 'citation' ? 'active' : ''}`}>How to cite</a>
               <a href="#contact" className={`sidebar-link ${activeId === 'contact' ? 'active' : ''}`}>Contact</a>
             </nav>
           </aside>
@@ -386,6 +387,7 @@ export default function Documentation() {
               <a href="#data-handling" className="nav-link">Data handling</a>
               <a href="#licensing" className="nav-link">Licensing</a>
               <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
+              <a href="#citation" className="nav-link">How to cite</a>
               <a href="#contact" className="nav-link">Contact</a>
             </nav>
 
@@ -643,6 +645,33 @@ export default function Documentation() {
               </div>
             </div>
               </div>
+            </section>
+            
+            <section id="citation" className="section">
+          <h2 className="section-title">How to cite FAIRy</h2>
+          <div className="section-content">
+            <p>
+              If you use FAIRy in your research, please cite:
+            </p>
+            <div className="highlight-box">
+              <h3>APA Style</h3>
+              <p style={{ fontFamily: 'monospace', fontSize: '0.875rem', color: '#4c1d95', lineHeight: '1.8' }}>
+                Slotnick, J. (2025). <em>FAIRy Core</em> (Version 0.1) [Computer software]. Datadabra. <br />
+                https://github.com/yuummmer/fairy-core
+              </p>
+            </div>
+            <div className="highlight-box">
+              <h3>BibTeX</h3>
+              <pre style={{ fontSize: '0.875rem', color: '#4c1d95', lineHeight: '1.8', overflowX: 'auto', backgroundColor: '#ffffff', padding: '1rem', borderRadius: '8px', border: '1px solid #e9d5ff' }}>{`@software{fairy2025,
+  author = {Slotnick, Jennifer},
+  title = {FAIRy Core},
+  year = {2025},
+  version = {0.1},
+  publisher = {Datadabra},
+  url = {https://github.com/yuummmer/fairy-core}
+}`}</pre>
+            </div>
+          </div>
             </section>
             
             <section id="contact" className="section">

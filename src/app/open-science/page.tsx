@@ -158,6 +158,16 @@ export default function OpenSciencePage() {
           text-decoration: underline;
         }
         
+        .btn-primary:hover {
+          background-color: #6d28d9;
+          transform: translateY(-1px);
+        }
+        
+        .btn-secondary:hover {
+          border-color: #7c3aed;
+          color: #7c3aed;
+        }
+        
         @media (max-width: 768px) {
           .header h1 {
             font-size: 2rem;
@@ -201,10 +211,10 @@ export default function OpenSciencePage() {
               FAIRy-core is open source and freely available. We share:
             </p>
             <ul>
-              <li><strong>Public repositories:</strong> The FAIRy-core validator codebase is available on GitHub for researchers and developers to use, modify, and contribute to.</li>
-              <li><strong>Example rulepacks:</strong> Starter rulepacks for common repositories (GEO, Zenodo, ENA) and data types, so you can see how validation rules are structured.</li>
-              <li><strong>Demo datasets:</strong> Sample datasets that demonstrate FAIRy's validation capabilities, including GEO-bulk sequencing examples.</li>
-              <li><strong>Talk slides and notes:</strong> Presentations from community events, workshops, and conferences, including our BIOFAIR Open Mic contributions.</li>
+              <li><strong>Public repositories:</strong> The <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer">FAIRy-core validator codebase</a> is available on GitHub for researchers and developers to use, modify, and contribute to. We welcome community contributions through pull requests, issue reports, and discussions. We maintain shared rulepacks for common repositories (GEO, Zenodo, ENA) and data types, and we're building processes to review and merge community-submitted rulepacks so the library grows with real-world use cases.</li>
+              <li><strong>Example rulepacks:</strong> <a href="https://github.com/yuummmer/fairy-core/tree/main/src/fairy/rulepacks" target="_blank" rel="noopener noreferrer">Starter rulepacks</a> for common repositories (GEO, Zenodo, ENA) and data types, so you can see how validation rules are structured.</li>
+              <li><strong>Demo datasets:</strong> Sample datasets that demonstrate FAIRy's validation capabilities, including GEO-bulk sequencing examples (coming soon).</li>
+              <li><strong>Talk slides and notes:</strong> <a href="/talks/biofair-open-mic-2025">Presentations</a> from community events, workshops, and conferences, including our BIOFAIR Open Mic contributions.</li>
             </ul>
             
             <div className="highlight-box" style={{ marginTop: '2rem' }}>
@@ -229,9 +239,9 @@ export default function OpenSciencePage() {
               We actively participate in open science communities and initiatives:
             </p>
             <ul>
-              <li><strong>BIOFAIR Open Mic:</strong> Regular participation in BIOFAIR community discussions, sharing FAIRy's approach to local-first dataset pre-checking and how it supports the BIOFAIR Data Network roadmap.</li>
-              <li><strong>Pilots and collaborations:</strong> Working with research institutions, core facilities, and data stewards to develop domain-specific rulepacks and validate FAIRy's approach in real-world settings.</li>
-              <li><strong>Talks and events:</strong> Presenting at conferences, workshops, and community gatherings to share learnings and gather feedback.</li>
+              <li><strong><a href="/talks/biofair-open-mic-2025">BIOFAIR Open Mic</a>:</strong> Regular participation in <a href="/talks/biofair-open-mic-2025">BIOFAIR community discussions</a>, sharing FAIRy's approach to local-first dataset pre-checking and how it supports the BIOFAIR Data Network roadmap.</li>
+              <li><strong><a href="/preflight-mapping">Pilots and collaborations</a>:</strong> Working with research institutions, core facilities, and data stewards to develop domain-specific rulepacks and validate FAIRy's approach in real-world settings. <a href="/preflight-mapping">Request a pilot scope →</a></li>
+              <li><strong><a href="/talks">Talks and events</a>:</strong> Presenting at conferences, workshops, and community gatherings to share learnings and gather feedback. <a href="/talks">View our talks →</a></li>
               <li><strong>Working groups:</strong> Engaging with standards bodies and working groups focused on FAIR data, metadata quality, and data submission workflows.</li>
             </ul>
             <p>
@@ -255,6 +265,24 @@ export default function OpenSciencePage() {
               <p>
                 <strong>Attestations with hashes and rulepack versions.</strong> Every validation run produces an attestation file that documents exactly what was checked, when, and under which rulepack version. File hashes ensure you can verify data integrity, and rulepack versioning means you can reproduce validation results even as rules evolve. This supports reproducible research and transparent data quality assessment.
               </p>
+              <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e9d5ff' }}>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0.75rem', fontFamily: 'monospace' }}>
+                  Example attestation snippet:
+                </p>
+                <pre style={{ fontSize: '0.75rem', color: '#4c1d95', overflowX: 'auto', margin: 0, lineHeight: '1.6' }}>{`{
+  "attestation": {
+    "fairy_version": "0.1.0",
+    "rulepack": "GEO-SEQ-BULK/v0_1_0.json",
+    "timestamp": "2025-11-15T10:30:00Z",
+    "submission_ready": false
+  },
+  "file_hashes": {
+    "samples.tsv": "sha256:abc123...",
+    "files.tsv": "sha256:def456..."
+  },
+  "findings": [...]
+}`}</pre>
+              </div>
             </div>
             
             <div className="highlight-box">
@@ -262,6 +290,22 @@ export default function OpenSciencePage() {
               <p>
                 <strong>Pass/warn/fail reports with fix logs.</strong> FAIRy generates clear, human-readable readiness reports that show exactly what needs to be fixed and why. No black boxes — you can see the validation logic, understand the rules, and trace every issue back to a specific requirement. This transparency helps researchers learn FAIR data principles and makes the validation process educational, not just a gate.
               </p>
+              <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e9d5ff' }}>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0.75rem' }}>
+                  Sample readiness report:
+                </p>
+                <div style={{ fontSize: '0.875rem', color: '#4c1d95', lineHeight: '1.8' }}>
+                  <div style={{ padding: '0.5rem', backgroundColor: '#dcfce7', borderRadius: '4px', marginBottom: '0.5rem' }}>
+                    <strong style={{ color: '#059669' }}>✓ PASS:</strong> All required metadata fields present
+                  </div>
+                  <div style={{ padding: '0.5rem', backgroundColor: '#fef3c7', borderRadius: '4px', marginBottom: '0.5rem' }}>
+                    <strong style={{ color: '#d97706' }}>⚠ WARN:</strong> Date format should be ISO 8601 (found: "11/15/2025")
+                  </div>
+                  <div style={{ padding: '0.5rem', backgroundColor: '#fee2e2', borderRadius: '4px' }}>
+                    <strong style={{ color: '#dc2626' }}>✗ FAIL:</strong> Missing required field: "sample_id"
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -314,6 +358,85 @@ export default function OpenSciencePage() {
                 </tr>
               </tbody>
             </table>
+            <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '1rem', fontStyle: 'italic' }}>
+              Last updated: November 2025
+            </p>
+          </div>
+        </section>
+
+        <section className="section">
+          <h2 className="section-title">How to cite FAIRy</h2>
+          <div className="section-content">
+            <p>
+              If you use FAIRy in your research, please cite:
+            </p>
+            <div className="highlight-box">
+              <h3>APA Style</h3>
+              <p style={{ fontFamily: 'monospace', fontSize: '0.875rem', color: '#4c1d95', lineHeight: '1.8' }}>
+                Slotnick, J. (2025). <em>FAIRy Core</em> (Version 0.1) [Computer software]. Datadabra. <br />
+                https://github.com/yuummmer/fairy-core
+              </p>
+            </div>
+            <div className="highlight-box">
+              <h3>BibTeX</h3>
+              <pre style={{ fontSize: '0.875rem', color: '#4c1d95', lineHeight: '1.8', overflowX: 'auto' }}>{`@software{fairy2025,
+  author = {Slotnick, Jennifer},
+  title = {FAIRy Core},
+  year = {2025},
+  version = {0.1},
+  publisher = {Datadabra},
+  url = {https://github.com/yuummmer/fairy-core}
+}`}</pre>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" style={{ textAlign: 'center', paddingTop: '2rem' }}>
+          <div className="highlight-box" style={{ backgroundColor: '#f3e8ff' }}>
+            <h2 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '1.5rem' }}>Get started with FAIRy</h2>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a 
+                href="/researchers" 
+                className="btn-primary"
+                style={{
+                  backgroundColor: '#7c3aed',
+                  color: 'white',
+                  padding: '1rem 2rem',
+                  borderRadius: '0.75rem',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '18px',
+                  minHeight: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  transition: 'all 0.2s ease',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Download FAIRy-core →
+              </a>
+              <a 
+                href="/preflight-mapping" 
+                className="btn-secondary"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#6b46c1',
+                  padding: '1rem 2rem',
+                  border: '2px solid #c4b5fd',
+                  borderRadius: '0.75rem',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '18px',
+                  minHeight: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                Request a Pilot Scope →
+              </a>
+            </div>
           </div>
         </section>
       </div>
