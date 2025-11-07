@@ -22,6 +22,12 @@ Thumbs.db
 *.log
 .idea/
 .vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.iml
+*.ipr
+*.iws
 
 # cursor/editor state
 .cursor/
@@ -46,6 +52,7 @@ context/*Collaboration*.md
 docs/analytics/**
 context/Analytics*.md
 docs/*analytics*.md
+docs/internal/ANALYTICS.md
 
 # private architecture and internal docs
 docs/internal/**
