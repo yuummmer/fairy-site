@@ -311,6 +311,7 @@ export default function Navigation() {
               </div>
               <a href="/docs" className="toc-link">Documentation</a>
               <a href="/talks" className="toc-link">Talks</a>
+              <a href="/open-science" className="toc-link">Open Science</a>
               <a href="/about" className="toc-link">About</a>
             </nav>
             <button
@@ -348,6 +349,7 @@ export default function Navigation() {
               </div>
               <a href="/docs" className="mobile-link" onClick={closeMenu}>Documentation</a>
               <a href="/talks" className="mobile-link" onClick={closeMenu}>Talks</a>
+              <a href="/open-science" className="mobile-link" onClick={closeMenu}>Open Science</a>
               <a href="/about" className="mobile-link" onClick={closeMenu}>About</a>
             </nav>
           </div>

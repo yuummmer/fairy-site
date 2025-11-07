@@ -6,7 +6,7 @@ export default function Documentation() {
   const [activeId, setActiveId] = useState<string>("checks");
 
   useEffect(() => {
-    const sectionIds = ["checks", "data-handling", "coming-next", "contact"];
+    const sectionIds = ["checks", "data-handling", "licensing", "coming-next", "contact"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -374,6 +374,7 @@ export default function Documentation() {
             <nav className="sidebar-nav">
               <a href="#checks" className={`sidebar-link ${activeId === 'checks' ? 'active' : ''}`}>What FAIRy checks</a>
               <a href="#data-handling" className={`sidebar-link ${activeId === 'data-handling' ? 'active' : ''}`}>Data handling</a>
+              <a href="#licensing" className={`sidebar-link ${activeId === 'licensing' ? 'active' : ''}`}>Licensing</a>
               <a href="#coming-next" className={`sidebar-link ${activeId === 'coming-next' ? 'active' : ''}`}>What&apos;s coming next</a>
               <a href="#contact" className={`sidebar-link ${activeId === 'contact' ? 'active' : ''}`}>Contact</a>
             </nav>
@@ -383,6 +384,7 @@ export default function Documentation() {
             <nav className="nav-links" aria-label="On this page (mobile)">
               <a href="#checks" className="nav-link">What FAIRy checks</a>
               <a href="#data-handling" className="nav-link">Data handling</a>
+              <a href="#licensing" className="nav-link">Licensing</a>
               <a href="#coming-next" className="nav-link">What&apos;s coming next</a>
               <a href="#contact" className="nav-link">Contact</a>
             </nav>
@@ -542,6 +544,50 @@ export default function Documentation() {
               <p>FAIRy is designed to be run locally so your data stays under your control.</p>
             </div>
               </div>
+            </section>
+            
+            <section id="licensing" className="section">
+          <h2 className="section-title">Licensing</h2>
+          <div className="section-content">
+            <p>
+              FAIRy uses a dual-license and permissive content model to balance open science goals with sustainable development:
+            </p>
+            
+            <div className="highlight-box">
+              <h3>FAIRy-core (CLI + validators)</h3>
+              <p>
+                Licensed under <strong>AGPL-3.0-only</strong>. This ensures the core validator remains open while allowing commercial licensing options for organizations that require it.
+              </p>
+              <p style={{ marginTop: '12px', fontSize: '0.875rem', color: '#6b46c1' }}>
+                Commercial licensing is available. Contact <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> for details.
+              </p>
+            </div>
+            
+            <div className="highlight-box">
+              <h3>Rulepack schema & example rulepacks</h3>
+              <p>
+                Licensed under <strong>CC0</strong> (or CC BY-4.0). This encourages community rulepack sharing and avoids license contamination concerns.
+              </p>
+            </div>
+            
+            <div className="highlight-box">
+              <h3>Sample datasets</h3>
+              <p>
+                Licensed under <strong>CC BY-4.0</strong>, allowing reuse with attribution.
+              </p>
+            </div>
+            
+            <div className="highlight-box">
+              <h3>Hosted UI / orchestration</h3>
+              <p>
+                Proprietary or source-available (when available).
+              </p>
+            </div>
+            
+            <p style={{ marginTop: '24px', fontSize: '0.875rem', color: '#6b46c1' }}>
+              For more details, see the <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>FAIRy-core repository</a> or visit our <a href="/open-science" style={{ color: '#7c3aed', textDecoration: 'underline' }}>Open Science</a> page.
+            </p>
+          </div>
             </section>
             
             <section id="coming-next" className="section">
