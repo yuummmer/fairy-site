@@ -247,6 +247,62 @@ export default function PreflightMappingPage() {
       
       <section className="form-section">
         <div className="container">
+          <div style={{
+            background: '#fef3c7',
+            border: '2px solid #fbbf24',
+            borderRadius: '1rem',
+            padding: '1.5rem',
+            marginBottom: '2rem',
+            maxWidth: '600px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
+            <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600', marginBottom: '0.5rem' }}>
+              ⚠ Pilot program notice
+            </p>
+            <p style={{ fontSize: '0.875rem', color: '#78350f', margin: '0' }}>
+              The pilot program is not permanent. We're currently accepting a limited number of pilot engagements to refine our approach.
+            </p>
+          </div>
+
+          <div style={{
+            background: '#ffffff',
+            border: '2px solid #e9d5ff',
+            borderRadius: '1rem',
+            padding: '2rem',
+            marginBottom: '2rem',
+            maxWidth: '600px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+              What's included in a pilot
+            </h2>
+            <p style={{ fontSize: '1rem', color: '#6b46c1', marginBottom: '1rem', lineHeight: '1.7' }}>
+              During a pilot engagement, we work with you to:
+            </p>
+            <ul style={{ fontSize: '1rem', color: '#6b46c1', marginLeft: '1.5rem', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              <li>Encode 5-7 of your intake rules into a custom rulepack</li>
+              <li>Generate sample readiness reports using your rulepack</li>
+              <li>Deliver the rulepack to you — <strong>you keep it and can use it freely</strong></li>
+            </ul>
+            
+            <div style={{
+              background: '#f3e8ff',
+              border: '1px solid #e9d5ff',
+              borderRadius: '0.75rem',
+              padding: '1rem',
+              marginTop: '1.5rem'
+            }}>
+              <p style={{ fontSize: '0.9375rem', color: '#4c1d95', marginBottom: '0.75rem', fontWeight: '600' }}>
+                Ongoing support and additional features
+              </p>
+              <p style={{ fontSize: '0.875rem', color: '#6b46c1', margin: '0', lineHeight: '1.6' }}>
+                The pilot delivers a working rulepack that you own. If you want ongoing support, additional rulepack development, dashboards, or other features, we offer various paid engagement options. We'll discuss these options during the pilot if you're interested.
+              </p>
+            </div>
+          </div>
+
           <form onSubmit={handleSubmit} className="form-container">
             <div className="form-group">
               <label htmlFor="name" className="form-label">

@@ -238,10 +238,18 @@ export default function OpenSciencePage() {
               </p>
               <ul style={{ marginTop: '1rem' }}>
                 <li><strong>FAIRy-core (CLI + validators):</strong> Licensed under <strong>AGPL-3.0-only</strong>. This ensures the core validator remains open while allowing commercial licensing options for organizations that require it.</li>
-                <li><strong>Rulepack schema & example rulepacks:</strong> Licensed under <strong>CC0</strong> (or CC BY-4.0). This encourages community rulepack sharing and avoids license contamination concerns.</li>
+                <li><strong>Rulepack schema & example rulepacks:</strong> Licensed under <strong>CC0-1.0</strong> (public domain). This encourages community rulepack sharing and avoids license contamination concerns.</li>
                 <li><strong>Sample datasets:</strong> Licensed under <strong>CC BY-4.0</strong>, allowing reuse with attribution.</li>
                 <li><strong>Hosted UI / orchestration:</strong> Proprietary or source-available (when available).</li>
               </ul>
+              <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e9d5ff' }}>
+                <p style={{ marginBottom: '0.5rem', fontWeight: '600', color: '#4c1d95' }}>
+                  Commercial licensing available
+                </p>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0' }}>
+                  Available for organizations that cannot adopt AGPL. Contact <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> for details.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -261,6 +269,24 @@ export default function OpenSciencePage() {
             <p>
               If you're running a pilot, organizing an event, or part of a working group that could benefit from FAIRy, <a href="mailto:hello@datadabra.com">get in touch</a>.
             </p>
+            
+            <div className="highlight-box" style={{ marginTop: '2rem' }}>
+              <h3>Pilot program</h3>
+              <p style={{ marginBottom: '1rem' }}>
+                <strong>Note:</strong> The pilot program is not permanent. We're currently accepting a limited number of pilot engagements.
+              </p>
+              <p style={{ marginBottom: '1rem' }}>
+                During a pilot, we work with you to encode 5-7 of your intake rules into a custom rulepack. You receive the rulepack and can use it freely. If you want ongoing support, additional rulepack development, dashboards, or other features, we offer various paid engagement options.
+              </p>
+              <p style={{ marginTop: '1rem', marginBottom: '0' }}>
+                <strong>Contact us:</strong>
+              </p>
+              <ul style={{ marginTop: '0.5rem' }}>
+                <li>Email: <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a></li>
+                <li>GitHub: <a href="https://github.com/yuummmer/fairy-core/issues/new?labels=pilot-inquiry" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>Open an issue with label <code>pilot-inquiry</code> →</a></li>
+                <li>Website: <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline' }}>Request a pilot scope →</a></li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -383,6 +409,20 @@ export default function OpenSciencePage() {
             <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '1rem', fontStyle: 'italic' }}>
               Last updated: November 2025
             </p>
+            
+            <div className="highlight-box" style={{ marginTop: '2rem' }}>
+              <h3>Contributing</h3>
+              <p>
+                Contributions welcome! See our <a href="https://github.com/yuummmer/fairy-core/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>contributing guidelines</a> for details on how to submit pull requests, report issues, and contribute rulepacks.
+              </p>
+            </div>
+            
+            <div className="highlight-box" style={{ marginTop: '1.5rem' }}>
+              <h3>Security</h3>
+              <p>
+                Report security issues to <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> (per <a href="https://github.com/yuummmer/fairy-core/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>SECURITY.md</a>). Please do not open public GitHub issues for security vulnerabilities.
+              </p>
+            </div>
           </div>
         </section>
 

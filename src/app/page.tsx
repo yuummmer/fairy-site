@@ -1065,6 +1065,117 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Key Features Section */}
+        <section style={{ padding: '4rem 0', backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                Key features
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '3rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                FAIRy provides comprehensive validation and reporting capabilities for research data.
+              </p>
+              
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+                gap: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Local-first validation
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Data stays on your machine. All validation runs locally—nothing is uploaded to external servers. Perfect for sensitive or pre-publication data.
+                  </p>
+                </div>
+
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Repository-specific rulepacks
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Pre-configured rulepacks for GEO, SRA, Zenodo, and other repositories. Each rulepack encodes the specific requirements and expectations of that repository.
+                  </p>
+                </div>
+
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Dual-format reports
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Machine-readable JSON reports for automation and human-readable Markdown reports for easy review. Both formats included in every validation run.
+                  </p>
+                </div>
+
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    CLI and Python API
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Use FAIRy from the command line or integrate it into your Python workflows. Flexible interfaces for different use cases and automation needs.
+                  </p>
+                </div>
+
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Multi-table validation
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Validate relationships across multiple tables with foreign key checks. Ensures data integrity and referential consistency across your dataset.
+                  </p>
+                </div>
+
+                <div style={{ 
+                  background: '#faf5ff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Attestation files
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
+                    Generate documented proof of validation with timestamps, rulepack versions, and file hashes. Perfect for compliance and due diligence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Get Started Section */}
         <section style={{ padding: '4rem 0', backgroundColor: '#f3e8ff' }}>
           <div className="container">

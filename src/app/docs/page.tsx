@@ -622,9 +622,14 @@ export default function Documentation() {
               <p>
                 Licensed under <strong>AGPL-3.0-only</strong>. This ensures the core validator remains open while allowing commercial licensing options for organizations that require it.
               </p>
-              <p style={{ marginTop: '12px', fontSize: '0.875rem', color: '#6b46c1' }}>
-                Commercial licensing is available. Contact <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> for details.
-              </p>
+              <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e9d5ff' }}>
+                <p style={{ marginBottom: '0.5rem', fontWeight: '600', color: '#4c1d95' }}>
+                  Commercial licensing available
+                </p>
+                <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '0' }}>
+                  Available for organizations that cannot adopt AGPL. Contact <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> for details.
+                </p>
+              </div>
             </div>
             
             <div className="highlight-box">

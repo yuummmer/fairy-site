@@ -100,6 +100,14 @@ export async function POST(request: NextRequest) {
           data_type: submissionData.additional_data.data_type,
           pilot_readiness: submissionData.additional_data.pilot_readiness
         });
+      } else if (submissionData.form_type === 'preflight_mapping') {
+        console.log('preflight_mapping submission', {
+          email: submissionData.email,
+          name: submissionData.additional_data.name,
+          org: submissionData.additional_data.org,
+          institution: submissionData.additional_data.institution,
+          additional_info: submissionData.additional_data.additional_info
+        });
       }
     } catch {}
 
