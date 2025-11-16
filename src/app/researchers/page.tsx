@@ -330,6 +330,21 @@ export default function ResearchersPage() {
             <p className="subheadline">
               Working solo? Start free with FAIRy-core: rigid spreadsheet templates, rulepacks, and a one-command validator.
             </p>
+            <div style={{ 
+              background: '#fef3c7', 
+              border: '2px solid #fbbf24', 
+              borderRadius: '0.75rem', 
+              padding: '0.75rem 1rem', 
+              marginTop: '1.5rem',
+              marginBottom: '1rem',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
+                ⚠ Early alpha: Interfaces may change before v1.0
+              </p>
+            </div>
             <div style={{ marginTop: '2rem' }}>
               <a 
                 href="/docs" 

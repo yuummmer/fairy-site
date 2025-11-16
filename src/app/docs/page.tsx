@@ -391,6 +391,68 @@ export default function Documentation() {
               <a href="#contact" className="nav-link">Contact</a>
             </nav>
 
+            <div className="highlight-box" style={{ marginBottom: '40px', backgroundColor: '#fef3c7', borderColor: '#fbbf24' }}>
+              <p style={{ marginBottom: '12px', fontWeight: '600', color: '#92400e' }}>
+                ⚠ Early alpha: Interfaces may change before v1.0
+              </p>
+              <p style={{ fontSize: '0.875rem', color: '#78350f', marginBottom: '0' }}>
+                FAIRy is in active development. We&apos;re working with early partners to refine features and interfaces. 
+                Please report issues or share feedback via <a href="mailto:hello@datadabra.com" style={{ color: '#7c3aed', textDecoration: 'underline' }}>hello@datadabra.com</a> or 
+                <a href="https://github.com/yuummmer/fairy-core/issues" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}> GitHub issues</a>.
+              </p>
+            </div>
+
+            <div className="highlight-box" style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '16px' }}>Get started</h3>
+              <p style={{ marginBottom: '16px', color: '#6b46c1' }}>
+                Quick links to FAIRy repositories and documentation:
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                <div>
+                  <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', marginBottom: '8px' }}>Repositories</h4>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        FAIRy-core →
+                      </a>
+                      <span style={{ fontSize: '0.875rem', color: '#6b46c1', display: 'block' }}>Core validation engine and CLI</span>
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-lab" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        FAIRy-lab →
+                      </a>
+                      <span style={{ fontSize: '0.875rem', color: '#6b46c1', display: 'block' }}>Streamlit UI with project workspaces</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', marginBottom: '8px' }}>Documentation</h4>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-core/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        Getting started →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-core/blob/main/docs/cli.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        CLI usage →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-core/blob/main/docs/katas/index.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        Kata gallery →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <a href="https://github.com/yuummmer/fairy-core/blob/main/docs/reporting.md" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>
+                        Reporting docs →
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <section id="checks" className="section">
           <h2 className="section-title">What FAIRy checks today</h2>
           <div className="section-content">

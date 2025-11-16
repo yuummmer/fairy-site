@@ -1065,6 +1065,188 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Get Started Section */}
+        <section style={{ padding: '4rem 0', backgroundColor: '#f3e8ff' }}>
+          <div className="container">
+            <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                Get started with FAIRy
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#6b46c1', marginBottom: '2rem', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                FAIRy is open source and available for researchers, labs, and institutions. Choose the path that fits your needs.
+              </p>
+              
+              {/* Status Notice */}
+              <div style={{ 
+                background: '#fef3c7', 
+                border: '2px solid #fbbf24', 
+                borderRadius: '0.75rem', 
+                padding: '1rem 1.5rem', 
+                marginBottom: '2rem',
+                maxWidth: '700px',
+                marginLeft: 'auto',
+                marginRight: 'auto'
+              }}>
+                <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
+                  ⚠ Early alpha: Interfaces may change before v1.0
+                </p>
+              </div>
+
+              {/* Repositories and Links */}
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+                gap: '2rem',
+                marginBottom: '2rem'
+              }}>
+                <div style={{ 
+                  background: '#ffffff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Open source repositories
+                  </h3>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0 0 1.5rem 0' }}>
+                    <li style={{ marginBottom: '1rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-core" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600', display: 'block', marginBottom: '0.25rem' }}
+                      >
+                        FAIRy-core →
+                      </a>
+                      <span style={{ fontSize: '0.875rem', color: '#6b46c1', display: 'block' }}>
+                        Core validation engine and CLI (AGPL-3.0)
+                      </span>
+                    </li>
+                    <li style={{ marginBottom: '1rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-lab" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600', display: 'block', marginBottom: '0.25rem' }}
+                      >
+                        FAIRy-lab →
+                      </a>
+                      <span style={{ fontSize: '0.875rem', color: '#6b46c1', display: 'block' }}>
+                        Streamlit UI with project workspaces and guided fixes
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={{ 
+                  background: '#ffffff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Documentation & resources
+                  </h3>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0 0 1.5rem 0' }}>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="/docs" 
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        Website documentation →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-core/blob/main/docs/getting-started.md" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        Getting started guide →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-core/blob/main/docs/cli.md" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        CLI usage →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-core/blob/main/docs/katas/index.md" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        Kata gallery →
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={{ 
+                  background: '#ffffff', 
+                  border: '2px solid #e9d5ff', 
+                  borderRadius: '1rem', 
+                  padding: '2rem',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                    Commercial & pilots
+                  </h3>
+                  <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginBottom: '1rem', lineHeight: '1.6' }}>
+                    Commercial licensing available for organizations that cannot adopt AGPL. For institutions and labs interested in pilots or dashboards.
+                  </p>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="mailto:hello@datadabra.com" 
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        Contact: hello@datadabra.com →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="/preflight-mapping" 
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        Request a pilot scope →
+                      </a>
+                    </li>
+                    <li style={{ marginBottom: '0.75rem' }}>
+                      <a 
+                        href="https://github.com/yuummmer/fairy-core/issues/new?labels=pilot-inquiry" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#7c3aed', textDecoration: 'underline', fontWeight: '600' }}
+                      >
+                        GitHub issue (pilot-inquiry) →
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href="/researchers" className="btn-primary">
+                  Download FAIRy-core →
+                </a>
+                <a href="/docs" className="btn-secondary">
+                  View documentation →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
     </main>
     </>

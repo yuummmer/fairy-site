@@ -202,6 +202,20 @@ export default function OpenSciencePage() {
           <p className="subheader">
             FAIRy-core is built to support open science and FAIR data sharing. Here's what we share, how we engage with the community, and how FAIRy supports open science principles.
           </p>
+          <div style={{ 
+            background: '#fef3c7', 
+            border: '2px solid #fbbf24', 
+            borderRadius: '0.75rem', 
+            padding: '0.75rem 1rem', 
+            marginTop: '1.5rem',
+            maxWidth: '700px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
+            <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
+              ⚠ Early alpha: Interfaces may change before v1.0
+            </p>
+          </div>
         </div>
 
         <section className="section">
@@ -329,6 +343,14 @@ export default function OpenSciencePage() {
                   <td>
                     <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer">
                       View repository →
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GitHub (FAIRy-lab)</td>
+                  <td>
+                    <a href="https://github.com/yuummmer/fairy-lab" target="_blank" rel="noopener noreferrer">
+                      Streamlit UI with project workspaces →
                     </a>
                   </td>
                 </tr>
