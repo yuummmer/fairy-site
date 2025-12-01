@@ -1016,7 +1016,7 @@ export default function OfferingsPage() {
                   Includes common, non-custom rulepacks. Custom rulepacks are part of Pilot/Institution.
                 </p>
                 <a href="/researchers" className="btn-primary" style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem', marginTop: '0.5rem' }}>
-                  Download FAIRy-core →
+                  Get FAIRy-core on GitHub →
                 </a>
               </div>
               <div style={{ 

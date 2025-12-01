@@ -476,7 +476,7 @@ export default function OpenSciencePage() {
                   cursor: 'pointer'
                 }}
               >
-                Download FAIRy-core →
+                Get FAIRy-core on GitHub →
               </a>
               <a 
                 href="/preflight-mapping" 

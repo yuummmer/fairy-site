@@ -748,7 +748,7 @@ export default function Page() {
                   Free templates + FAIRy-core to self-check datasets.
                 </p>
                 <a href="/researchers" className="btn-secondary" style={{ fontSize: '0.875rem', padding: '8px 16px', marginTop: '1rem', display: 'inline-block' }} onClick={() => track('tile_clicked', { tile: 'researchers' })}>
-                  Download FAIRy-core →
+                  Get FAIRy-core on GitHub →
                 </a>
               </div>
             </div>
@@ -1349,7 +1349,7 @@ export default function Page() {
               {/* CTA Buttons */}
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <a href="/researchers" className="btn-primary">
-                  Download FAIRy-core →
+                  Get FAIRy-core on GitHub →
                 </a>
                 <a href="/docs" className="btn-secondary">
                   View documentation →

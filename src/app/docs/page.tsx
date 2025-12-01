@@ -407,6 +407,9 @@ export default function Documentation() {
               <p style={{ marginBottom: '16px', color: '#6b46c1' }}>
                 Quick links to FAIRy repositories and documentation:
               </p>
+              <p style={{ marginBottom: '16px', color: '#6b46c1', fontSize: '0.9375rem', fontStyle: 'italic' }}>
+                FAIRy-core is currently available as an early-alpha CLI via GitHub (no installer yet). See 'Getting started' for installation from source.
+              </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                 <div>
                   <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', marginBottom: '8px' }}>Repositories</h4>

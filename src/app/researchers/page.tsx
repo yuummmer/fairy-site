@@ -328,7 +328,7 @@ export default function ResearchersPage() {
           <div className="container">
             <h1>Researchers (Community)</h1>
             <p className="subheadline">
-              Working solo? Start free with FAIRy-core: rigid spreadsheet templates, rulepacks, and a one-command validator.
+              Working solo? You can try the FAIRy-core early alpha from GitHub: structured spreadsheet templates, starter rulepacks, and a one-command validator for testers comfortable with the command line.
             </p>
             <div style={{ 
               background: '#fef3c7', 
@@ -351,7 +351,7 @@ export default function ResearchersPage() {
                 className="btn-primary"
                 onClick={() => track('community_download_clicked')}
               >
-                Download FAIRy-core
+                Get FAIRy-core on GitHub
               </a>
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function ResearchersPage() {
             <div className="content-box">
               <h2>Get started with FAIRy-core</h2>
               <p>
-                FAIRy-core is the free, open-source validator for individual researchers. Use rigid spreadsheet templates, rulepacks, and a one-command validator to self-check your data before submission.
+                FAIRy-core is the free, open-source validator for individual researchers. Use structured spreadsheet templates, rulepacks, and a one-command validator to self-check your data before submission.
               </p>
             </div>
           </div>

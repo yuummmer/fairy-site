@@ -298,7 +298,7 @@ export default function Navigation() {
                     <div className="dropdown-option-description">
                       Validate locally with starter templates and common rulepacks.
                     </div>
-                    <a href="/researchers" className="dropdown-option-button">Download FAIRy-core →</a>
+                    <a href="/researchers" className="dropdown-option-button">Get FAIRy-core on GitHub →</a>
                   </div>
                   <div className="dropdown-option">
                     <div className="dropdown-option-title">Guided Pilot (Paid)</div>
@@ -337,7 +337,7 @@ export default function Navigation() {
                   <div style={{ fontSize: '0.8125rem', color: '#6b46c1', marginBottom: '0.5rem', lineHeight: '1.5' }}>
                     Validate locally with starter templates and common rulepacks.
                   </div>
-                  <a href="/researchers" className="dropdown-option-button" onClick={closeMenu} style={{ display: 'inline-block' }}>Download FAIRy-core →</a>
+                  <a href="/researchers" className="dropdown-option-button" onClick={closeMenu} style={{ display: 'inline-block' }}>Get FAIRy-core on GitHub →</a>
                 </div>
                 <div>
                   <div style={{ fontSize: '0.9375rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.25rem' }}>Guided Pilot (Paid)</div>
