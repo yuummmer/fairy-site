@@ -890,7 +890,7 @@ export default function OfferingsPage() {
                   <li>Core facility staff and bioinformatics teams who run QC before returning results to labs</li>
                   <li>Data stewards and RDM teams who need repository-style preflight checks</li>
                   <li>Collections managers handling hundreds of datasets across facilities, herbaria, and archives</li>
-                  <li>Groups that need to prove consistent QC before deposit for funder/compliance reporting</li>
+                  <li>Groups that need to demonstrate consistent QC before deposit for funder/compliance reporting</li>
                 </ul>
                 <p style={{ fontSize: '0.9375rem', color: '#6b46c1', textAlign: 'center', marginTop: '1.5rem', fontStyle: 'italic' }}>
                   Not a fit: Individual researchers submitting their own datasets (check out the solo tier instead).
@@ -913,7 +913,7 @@ export default function OfferingsPage() {
                 <div className="attestation-audience-card">
                   <h4>Institutions</h4>
                   <p>
-                    When a PI asks "who approved this?" six months later, you can point to the attestation: timestamp, file hashes, rulepack version, PASS/WARN/FAIL results. That protects you.
+                    When a PI asks "who approved this?" six months later, you can point to the attestation: timestamp, file hashes, rulepack version, PASS/WARN/FAIL results. That provides documentation of your process.
                   </p>
                 </div>
                 <div className="attestation-audience-card">
@@ -925,7 +925,7 @@ export default function OfferingsPage() {
                 <div className="attestation-audience-card">
                   <h4>Grant panels</h4>
                   <p>
-                    Funders increasingly ask for evidence of consistent QC practices. Attestation bundles provide a verifiable record you can share with leadership or include in compliance reports.
+                    Funders increasingly ask for evidence of consistent QC practices. Attestation bundles provide a verifiable record you can share with leadership or include in compliance documentation.
                   </p>
                 </div>
               </div>

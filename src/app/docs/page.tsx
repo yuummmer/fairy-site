@@ -393,7 +393,7 @@ export default function Documentation() {
 
             <div className="highlight-box" style={{ marginBottom: '40px', backgroundColor: '#fef3c7', borderColor: '#fbbf24' }}>
               <p style={{ marginBottom: '12px', fontWeight: '600', color: '#92400e' }}>
-                ⚠ Early alpha: Interfaces may change before v1.0
+                Early access: Local-first validation with readiness report attestation
               </p>
               <p style={{ fontSize: '0.875rem', color: '#78350f', marginBottom: '0' }}>
                 FAIRy is in active development. We&apos;re working with early partners to refine features and interfaces. 
@@ -408,7 +408,7 @@ export default function Documentation() {
                 Quick links to FAIRy repositories and documentation:
               </p>
               <p style={{ marginBottom: '16px', color: '#6b46c1', fontSize: '0.9375rem', fontStyle: 'italic' }}>
-                FAIRy-core is currently available as an early-alpha CLI via GitHub (no installer yet). See 'Getting started' for installation from source.
+                FAIRy-core is currently available as an early access CLI via GitHub (no installer yet). See 'Getting started' for installation from source. Local-first validation with readiness report attestation.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                 <div>
@@ -544,7 +544,7 @@ export default function Documentation() {
               <ul>
                 <li><strong>Institutions:</strong> Demonstrate that you have records of validation performed before submission, reducing administrative back-and-forth.</li>
                 <li><strong>Journals:</strong> Show that data quality checks were performed using standardized validation rules and versioned rulepacks—demonstrating due diligence.</li>
-                <li><strong>Grant panels:</strong> Prove that your institution has processes in place to streamline data deposition and reduce friction for data publication.</li>
+                <li><strong>Grant panels:</strong> Demonstrate that your institution has processes in place to streamline data deposition and reduce friction for data publication.</li>
               </ul>
             </div>
             
@@ -568,7 +568,7 @@ export default function Documentation() {
                 <a href="/samples/export-pack/FAIRy_attestation_example.json" download style={{ color: '#7c3aed', textDecoration: 'underline' }}>Download sample attestation file (FAIRy_attestation_example.json)</a>
               </p>
               <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '12px' }}>
-                Learn more about how attestation helps with compliance and due diligence in our <a href="/institutions#attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>institutions documentation</a>.
+                Learn more about how attestation can help with compliance documentation and due diligence in our <a href="/institutions#attestation" style={{ color: '#7c3aed', textDecoration: 'underline' }}>institutions documentation</a>.
               </p>
               <p style={{ fontSize: '0.875rem', color: '#6b46c1', marginTop: '12px', fontStyle: 'italic' }}>
                 Note: This is illustrative; production attestation files include a signed JSON format for institutional deployments.
@@ -701,7 +701,7 @@ export default function Documentation() {
             </div>
 
             <div className="highlight-box">
-              <h3>Core pilot promise</h3>
+              <h3>Core pilot approach</h3>
               <p>FAIRy’s job is simple:</p>
               <p><strong>One run →</strong> a human-readable readiness sheet (PASS / WARN / FAIL + how to fix) → plus a structured summary you can archive.</p>
               <div className="code-block">fairy validate /path/to/dataset --out out/</div>

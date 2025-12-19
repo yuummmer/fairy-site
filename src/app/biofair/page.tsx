@@ -415,7 +415,7 @@ export default function BiofairPage() {
                 <span className="bullet-text">We write down the 5–7 “don’t publish without this” metadata fields you absolutely need in your world (e.g. stable sample/site ID, ISO date, location/site, method/instrument, contact).</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">FAIRy enforces that locally and generates a data-free PASS / WARN / FAIL sheet plus fix hints.</span>
+                <span className="bullet-text">FAIRy checks that locally and generates a data-free PASS / WARN / FAIL sheet plus fix hints.</span>
               </li>
               <li className="bullet-item">
                 <span className="bullet-text">You can attach that sheet to submissions, internal handoffs, data management plans, etc.</span>

@@ -213,7 +213,7 @@ export default function OpenSciencePage() {
             marginRight: 'auto'
           }}>
             <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
-              ⚠ Early alpha: Interfaces may change before v1.0
+              Early access: Local-first validation with readiness report attestation
             </p>
           </div>
         </div>

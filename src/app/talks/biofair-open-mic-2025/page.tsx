@@ -395,7 +395,7 @@ fairy export --format zenodo`}</pre>
           </p>
           <div className="repo-link">
             <a href="https://github.com/datadabra/fairy" target="_blank" rel="noopener noreferrer" aria-label="View FAIRy repository on GitHub (opens in new window)">
-              View repository (early alpha) →
+              View repository (early access) →
             </a>
           </div>
         </section>

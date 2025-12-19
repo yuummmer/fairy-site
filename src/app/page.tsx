@@ -519,7 +519,7 @@ export default function Page() {
               maxWidth: '700px',
               margin: '0 auto 2rem'
             }}>
-              Piloting with university cores & collections teams.
+              Pilots in progress with university cores & collections teams.
             </p>
           </div>
         </section>
@@ -1168,7 +1168,7 @@ export default function Page() {
                     Attestation files
                   </h3>
                   <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
-                    Generate documented proof of validation with timestamps, rulepack versions, and file hashes. Perfect for compliance and due diligence.
+                    Generate documented proof of validation with timestamps, rulepack versions, and file hashes. Useful for compliance documentation and due diligence.
                   </p>
                 </div>
               </div>
@@ -1199,7 +1199,7 @@ export default function Page() {
                 marginRight: 'auto'
               }}>
                 <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
-                  ⚠ Early alpha: Interfaces may change before v1.0
+                  Early access: Local-first validation with readiness report attestation
                 </p>
               </div>
 

@@ -196,7 +196,7 @@ export default function VisionPage() {
           <h2 className="section-title">Where we're going</h2>
           <div className="section-content">
             <ul>
-              <li><strong>Institution-specific rulepacks:</strong> Each lab / core / collection has non-negotiable fields. We're making those rules repeatable and enforceable without endless email.</li>
+              <li><strong>Institution-specific rulepacks:</strong> Each lab / core / collection has non-negotiable fields. We're making those rules repeatable and consistent without endless email.</li>
               <li><strong>Submission readiness as a norm:</strong> "Attach your FAIRy readiness report with your dataset" becomes the new "fill out this checklist."</li>
               <li><strong>Trustable provenance:</strong> The attestation file travels with the dataset and proves what was actually validated, which helps with internal review, journal submission, and grant reporting.</li>
               <li><strong>Repeatable pre-intake checks:</strong> FAIRy gives institutions a repeatable pre-intake check — with both a human-readable fix list and a machine-readable attestation — so their data can confidently join larger integrated networks without weeks of one-off curator triage.</li>

@@ -328,7 +328,7 @@ export default function ResearchersPage() {
           <div className="container">
             <h1>Researchers (Community)</h1>
             <p className="subheadline">
-              Working solo? You can try the FAIRy-core early alpha from GitHub: structured spreadsheet templates, starter rulepacks, and a one-command validator for testers comfortable with the command line.
+              Working solo? You can try the FAIRy-core early access from GitHub: structured spreadsheet templates, starter rulepacks, and a one-command validator for testers comfortable with the command line. Local-first validation with readiness report attestation.
             </p>
             <div style={{ 
               background: '#fef3c7', 
@@ -342,7 +342,7 @@ export default function ResearchersPage() {
               marginRight: 'auto'
             }}>
               <p style={{ fontSize: '0.875rem', color: '#92400e', margin: '0', fontWeight: '600' }}>
-                ⚠ Early alpha: Interfaces may change before v1.0
+                Early access: Local-first validation with readiness report attestation
               </p>
             </div>
             <div style={{ marginTop: '2rem' }}>

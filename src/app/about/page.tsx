@@ -295,7 +295,7 @@ export default function AboutPage() {
               </p>
               <ul>
                 <li>a Submission Readiness Report they can send back to the submitter, and</li>
-                <li>an Attestation file — a timestamped record of what was checked, under which rules, and on which files by hash — that can be kept internally for review, audit, or compliance.</li>
+                <li>an Attestation file — a timestamped record of what was checked, under which rules, and on which files by hash — that can be kept internally for review, audit, or compliance documentation.</li>
               </ul>
             </div>
             <p>

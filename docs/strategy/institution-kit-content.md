@@ -17,7 +17,7 @@ FAIRy is designed for data stewards, core facilities, and collections who review
 
 ## 2. Security Summary & Architecture Overview
 
-### Key Guarantees
+### Key Features
 
 - FAIRy is local-first. It runs on a workstation or server inside your network. Nothing is uploaded to Datadabra.
 - FAIRy does not send telemetry dataset contents or metadata externally

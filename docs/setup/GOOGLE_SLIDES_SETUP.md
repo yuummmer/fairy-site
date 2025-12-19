@@ -74,7 +74,7 @@ Title: FAIRy by Datadabra
 Subtitle: Fix your data before you submit—local, open, and fast
 
 Description:
-A local-first validator, fixer, and packager for research datasets that helps institutions reduce bounced submissions and ensure FAIR compliance.
+A local-first validator, fixer, and packager for research datasets that helps institutions reduce bounced submissions and support FAIR compliance efforts.
 
 Highlight Box:
 Enterprise-ready • Privacy-first • Standards-mapped
