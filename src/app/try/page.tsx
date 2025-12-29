@@ -11,7 +11,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Install FAIRy-core and verify installation
-pip install -U fairy-core
+pip install "git+https://github.com/yuummmer/fairy-core.git@main"
 fairy --version
 
 # Clone the GEO rulepacks repository
@@ -29,7 +29,7 @@ fairy preflight \\
   --out      .tmp/geo_bulk_seq_report.json`;
 
   const windowsCommand = `# Install FAIRy-core and verify installation
-pip install -U fairy-core
+pip install "git+https://github.com/yuummmer/fairy-core.git@main"
 fairy --version
 
 # Clone the GEO rulepacks repository
