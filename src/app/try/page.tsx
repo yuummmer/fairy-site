@@ -190,11 +190,14 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
           font-size: 0.875rem;
           color: #4c1d95;
           margin-bottom: 1rem;
+          overflow-x: auto;
         }
         
         .output-preview pre {
           margin: 0;
           white-space: pre-wrap;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
           font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
         }
         
@@ -368,6 +371,19 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
           
           .command-box {
             padding-right: 5rem;
+          }
+          
+          .output-preview {
+            padding: 1rem;
+            font-size: 0.75rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          .output-preview pre {
+            white-space: pre;
+            word-wrap: normal;
+            overflow-x: auto;
           }
         }
       `}</style>
