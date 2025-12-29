@@ -242,6 +242,18 @@ fairy preflight `
           margin-top: 1rem;
         }
         
+        .note-container {
+          background: #f3e8ff;
+          border: 1px solid #e9d5ff;
+          border-radius: 0.75rem;
+          padding: 1rem 1.5rem;
+          margin: 1.5rem auto 0;
+          max-width: 700px;
+          font-size: 0.875rem;
+          color: #6b46c1;
+          line-height: 1.6;
+        }
+        
         .os-tabs {
           display: flex;
           gap: 0.5rem;
@@ -310,6 +322,9 @@ fairy preflight `
             <p>
               Run FAIRy locally in 2 minutes. No account needed. No uploads.
             </p>
+            <div className="note-container">
+              GEO (NCBI Gene Expression Omnibus) is a public repository for functional genomics data (e.g., RNA-seq). This demo checks whether a bulk-seq submission package is submission-ready.
+            </div>
           </section>
           
           {/* Command Section */}
