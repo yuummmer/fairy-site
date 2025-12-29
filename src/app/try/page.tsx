@@ -229,11 +229,15 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
         
         .video-wrapper {
           position: relative;
-          padding-bottom: 56.25%;
-          height: 0;
-          overflow: hidden;
           border-radius: 0.75rem;
+          overflow: hidden;
           background: #000;
+        }
+        
+        .video-wrapper video {
+          width: 100%;
+          height: auto;
+          display: block;
         }
         
         .video-wrapper iframe {
@@ -440,15 +444,17 @@ JSON report: .tmp/geo_bulk_seq_report.json`}</pre>
           <section className="video-section">
             <h2>4. Watch the walkthrough</h2>
             <div className="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/nflHD662Jak"
-                title="FAIRy: Reproducible Datasets by Default — DSLC Project Club"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              <video
+                controls
+                preload="metadata"
+                aria-label="FAIRy GEO preflight demo walkthrough"
+              >
+                <source src="/videos/fairy-geo-preflight-demo-3min-2025-12-29-v1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <p className="note">
-              3-minute demo showing how FAIRy validates datasets and generates readiness reports.
+              2-minute demo showing how FAIRy validates datasets and generates readiness reports.
             </p>
           </section>
         </div>
