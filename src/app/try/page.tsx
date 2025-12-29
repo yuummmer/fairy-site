@@ -6,26 +6,40 @@ export default function TryPage() {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<'unix' | 'windows'>('unix');
 
-  const unixCommand = `pip install -U fairy-core
+  const unixCommand = `# Create and activate a Python virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install FAIRy-core and verify installation
+pip install -U fairy-core
 fairy --version
 
+# Clone the GEO rulepacks repository
 git clone https://github.com/yuummmer/fairy-rulepacks-geo.git
 cd fairy-rulepacks-geo
+
+# Create output directory for reports
 mkdir -p .tmp
 
+# Run FAIRy preflight check on sample data
 fairy preflight \\
   --rulepack rulepacks/geo_bulk_seq/v0_2_0.json \\
   --samples  rulepacks/geo_bulk_seq/fixtures/samples.tsv \\
   --files    rulepacks/geo_bulk_seq/fixtures/files.tsv \\
   --out      .tmp/geo_bulk_seq_report.json`;
 
-  const windowsCommand = `pip install -U fairy-core
+  const windowsCommand = `# Install FAIRy-core and verify installation
+pip install -U fairy-core
 fairy --version
 
+# Clone the GEO rulepacks repository
 git clone https://github.com/yuummmer/fairy-rulepacks-geo.git
 cd fairy-rulepacks-geo
+
+# Create output directory for reports
 mkdir .tmp
 
+# Run FAIRy preflight check on sample data
 fairy preflight `
     + '`' + `
   --rulepack rulepacks/geo_bulk_seq/v0_2_0.json `
