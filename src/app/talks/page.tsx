@@ -129,6 +129,17 @@ export default function TalksPage() {
 
         <section className="talks-list">
           <div className="talk-card">
+            <h2>FAIRy: Reproducible Datasets by Default — DSLC Project Club</h2>
+            <p className="event-info">Data Science Learning Community Project • December 13, 2025</p>
+            <p className="abstract">
+              Community talk + live demo (recorded). Learn about FAIRy's approach to reproducible datasets by default, including the problem it solves, the validation approach, output/report bundles, rulepacks, and who it's for.
+            </p>
+            <a href="/talks/dslc-project-december-2024" className="read-more">
+              Watch video →
+            </a>
+          </div>
+
+          <div className="talk-card">
             <h2>BIOFAIR Open Mic 2025</h2>
             <p className="event-info">BIOFAIR Open Mic • October 30, 2025</p>
             <p className="abstract">
