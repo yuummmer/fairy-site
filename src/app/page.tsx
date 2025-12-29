@@ -521,6 +521,121 @@ export default function Page() {
             }}>
               Pilots in progress with university cores & collections teams.
             </p>
+            <div className="cta-buttons">
+              <a 
+                href="/try" 
+                className="btn-primary"
+              >
+                Try GEO preflight demo (2 min) →
+              </a>
+              <a 
+                href="https://github.com/yuummmer/fairy-core" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                Get FAIRy-core on GitHub
+              </a>
+              <a 
+                href="/preflight-mapping" 
+                className="btn-secondary"
+              >
+                Request a Pilot Scope
+              </a>
+            </div>
+            <p style={{ 
+              fontSize: '0.875rem', 
+              color: '#6b46c1', 
+              textAlign: 'center',
+              marginTop: '1rem',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              <a 
+                href="/talks/dslc-project-december-2024" 
+                style={{ 
+                  color: '#7c3aed', 
+                  textDecoration: 'underline',
+                  fontWeight: '500'
+                }}
+              >
+                Watch a 3-min walkthrough
+              </a>
+            </p>
+            <p style={{ 
+              fontSize: '0.875rem', 
+              color: '#6b46c1', 
+              textAlign: 'center',
+              marginTop: '0.5rem',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              No account. No upload. Local-first.
+            </p>
+          </div>
+        </section>
+        
+        {/* Validate vs Preflight Cards */}
+        <section style={{ padding: '2rem 0', backgroundColor: '#faf5ff' }}>
+          <div className="container">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem',
+              maxWidth: '800px',
+              margin: '0 auto'
+            }}>
+              <div style={{
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '0.75rem',
+                padding: '1.5rem',
+                textAlign: 'center'
+              }}>
+                <h3 style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  color: '#4c1d95',
+                  marginBottom: '0.5rem'
+                }}>
+                  Validate
+                </h3>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#6b46c1',
+                  margin: '0',
+                  lineHeight: '1.5'
+                }}>
+                  Lint a file (metadata table)
+                </p>
+              </div>
+              <div style={{
+                background: '#ffffff',
+                border: '2px solid #e9d5ff',
+                borderRadius: '0.75rem',
+                padding: '1.5rem',
+                textAlign: 'center'
+              }}>
+                <h3 style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '600',
+                  color: '#4c1d95',
+                  marginBottom: '0.5rem'
+                }}>
+                  Preflight
+                </h3>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#6b46c1',
+                  margin: '0',
+                  lineHeight: '1.5'
+                }}>
+                  Check a submission package (GEO/ENA/BagIt)
+                </p>
+              </div>
+            </div>
           </div>
         </section>
         
