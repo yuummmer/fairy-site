@@ -449,7 +449,7 @@ JSON report: .tmp/geo_bulk_seq_report.json`}</pre>
                 preload="metadata"
                 aria-label="FAIRy GEO preflight demo walkthrough"
               >
-                <source src="/videos/fairy-geo-preflight-demo-3min-2025-12-29-v1.mp4" type="video/mp4" />
+                <source src="/videos/fairy-geo-preflight-demo-2min-2025-12-29-v1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
