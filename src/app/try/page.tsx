@@ -10,45 +10,55 @@ export default function TryPage() {
 python3 -m venv .venv
 source .venv/bin/activate
 
-# Install FAIRy-core and verify installation
+# Install FAIRy (engine) from GitHub
+pip install -U pip
 pip install "git+https://github.com/yuummmer/fairy-core.git@main"
 fairy --version
 
-# Clone the GEO rulepacks repository
+# Clone GEO rulepacks (if rerunning, delete the folder first)
+rm -rf fairy-rulepacks-geo
 git clone https://github.com/yuummmer/fairy-rulepacks-geo.git
 cd fairy-rulepacks-geo
 
-# Create output directory for reports
+# Run preflight
 mkdir -p .tmp
-
-# Run FAIRy preflight check on sample data
 fairy preflight \\
   --rulepack rulepacks/geo_bulk_seq/v0_2_0.json \\
-  --samples  rulepacks/geo_bulk_seq/fixtures/samples.tsv \\
+  --samples  rulepacks/geo_bulk_seq/fixtures/samples_bad.tsv \\
   --files    rulepacks/geo_bulk_seq/fixtures/files.tsv \\
-  --out      .tmp/geo_bulk_seq_report.json`;
+  --out      .tmp/geo_bulk_seq_report.json
 
-  const windowsCommand = `# Install FAIRy-core and verify installation
+# Open the report
+less .tmp/geo_bulk_seq_report.md`;
+
+  const windowsCommand = `# Create and activate a Python virtual environment
+python -m venv .venv
+.venv\\Scripts\\Activate.ps1
+
+# Install FAIRy (engine) from GitHub
+pip install -U pip
 pip install "git+https://github.com/yuummmer/fairy-core.git@main"
 fairy --version
 
-# Clone the GEO rulepacks repository
+# Clone GEO rulepacks (if rerunning, delete the folder first)
+Remove-Item -Recurse -Force fairy-rulepacks-geo -ErrorAction SilentlyContinue
 git clone https://github.com/yuummmer/fairy-rulepacks-geo.git
 cd fairy-rulepacks-geo
 
-# Create output directory for reports
+# Run preflight
 mkdir .tmp
-
-# Run FAIRy preflight check on sample data
 fairy preflight `
     + '`' + `
   --rulepack rulepacks/geo_bulk_seq/v0_2_0.json `
     + '`' + `
-  --samples  rulepacks/geo_bulk_seq/fixtures/samples.tsv `
+  --samples  rulepacks/geo_bulk_seq/fixtures/samples_bad.tsv `
     + '`' + `
   --files    rulepacks/geo_bulk_seq/fixtures/files.tsv `
     + '`' + `
-  --out      .tmp/geo_bulk_seq_report.json`;
+  --out      .tmp/geo_bulk_seq_report.json
+
+# Open the report
+Get-Content .tmp/geo_bulk_seq_report.md | less`;
 
   const copyCommand = () => {
     const command = activeTab === 'unix' ? unixCommand : windowsCommand;
@@ -377,17 +387,13 @@ fairy preflight `
             </div>
             <div className="command-box">
               <pre className="command-text">{activeTab === 'unix' 
-                ? `# Open the report (choose one):
-subl .tmp/geo_bulk_seq_report.md
-# or: code .tmp/geo_bulk_seq_report.md
-# or: cat .tmp/geo_bulk_seq_report.md | head -n 80`
-                : `# Open the report (choose one):
-code .tmp/geo_bulk_seq_report.md
-# or: notepad .tmp/geo_bulk_seq_report.md
-# or: Get-Content .tmp/geo_bulk_seq_report.md -Head 80`}</pre>
+                ? `# Open the report
+less .tmp/geo_bulk_seq_report.md`
+                : `# Open the report
+Get-Content .tmp/geo_bulk_seq_report.md | less`}</pre>
             </div>
             <p className="note">
-              The report is saved as Markdown (.md) and JSON. Open the .md file in any text editor to see the human-readable results.
+              The report is saved as Markdown (.md) and JSON. Want a clean run? Swap <code>samples_bad.tsv</code> → <code>samples.tsv</code> in the preflight command.
             </p>
           </section>
           
