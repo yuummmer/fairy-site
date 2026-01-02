@@ -553,7 +553,7 @@ export default function Page() {
               marginRight: 'auto'
             }}>
               <a 
-                href="/talks/dslc-project-december-2024" 
+                href="/talks/dslc-project-december-2025" 
                 style={{ 
                   color: '#7c3aed', 
                   textDecoration: 'underline',

@@ -134,7 +134,7 @@ export default function TalksPage() {
             <p className="abstract">
               Community talk + live demo (recorded). Learn about FAIRy's approach to reproducible datasets by default, including the problem it solves, the validation approach, output/report bundles, rulepacks, and who it's for.
             </p>
-            <a href="/talks/dslc-project-december-2024" className="read-more">
+            <a href="/talks/dslc-project-december-2025" className="read-more">
               Watch video →
             </a>
           </div>
