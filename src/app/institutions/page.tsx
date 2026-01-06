@@ -1252,6 +1252,35 @@ export default function OfferingsPage() {
             </div>
           </div>
         </section>
+
+        {/* Related Links */}
+        <section className="section-white">
+          <div className="container">
+            <div style={{
+              background: '#f3e8ff',
+              border: '2px solid #e9d5ff',
+              borderRadius: '1rem',
+              padding: '2rem',
+              maxWidth: '800px',
+              margin: '0 auto'
+            }}>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+                Related
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <a href="/try" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                  Try FAIRy → Run the demo to see how it works (2 minutes)
+                </a>
+                <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                  Request a pilot → Scope a custom rulepack for your data
+                </a>
+                <a href="/sample-report" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                  Sample report → See what a full FAIRy readiness report looks like
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

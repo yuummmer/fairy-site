@@ -348,6 +348,41 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
           color: #6d28d9;
         }
         
+        .btn-primary {
+          background-color: #7c3aed;
+          color: white;
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.875rem;
+          transition: all 0.2s ease;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+          background-color: #6d28d9;
+          transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+          background-color: transparent;
+          color: #6b46c1;
+          padding: 0.75rem 1.5rem;
+          border: 2px solid #c4b5fd;
+          border-radius: 0.75rem;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.875rem;
+          transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+          border-color: #7c3aed;
+          color: #7c3aed;
+        }
+        
         @media (max-width: 768px) {
           .hero {
             padding: 3rem 0;
@@ -401,9 +436,12 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
             </div>
           </section>
           
-          {/* Command Section */}
+          {/* Run the kata locally */}
           <section className="command-section">
-            <h2>1. Run these commands</h2>
+            <h2>1. Run the kata locally</h2>
+            <p style={{ fontSize: '1rem', color: '#6b46c1', marginBottom: '1rem', lineHeight: '1.6' }}>
+              Copy and paste the commands below to install FAIRy, run it on the demo fixtures, and open the generated report.
+            </p>
             <div className="os-tabs">
               <button
                 className={`os-tab ${activeTab === 'unix' ? 'active' : ''}`}
@@ -428,42 +466,13 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
               <pre className="command-text">{activeTab === 'unix' ? unixCommand : windowsCommand}</pre>
             </div>
             <p className="note">
-              Runs locally on your machine. All processing happens offline.
-            </p>
-          </section>
-          
-          {/* Open Report Section */}
-          <section className="command-section">
-            <h2>2. Open the report</h2>
-            <div className="os-tabs">
-              <button
-                className={`os-tab ${activeTab === 'unix' ? 'active' : ''}`}
-                onClick={() => setActiveTab('unix')}
-              >
-                macOS / Linux
-              </button>
-              <button
-                className={`os-tab ${activeTab === 'windows' ? 'active' : ''}`}
-                onClick={() => setActiveTab('windows')}
-              >
-                Windows (PowerShell)
-              </button>
-            </div>
-            <div className="command-box">
-              <pre className="command-text">{activeTab === 'unix' 
-                ? `# Open the report
-less .tmp/geo_bulk_seq_report.md`
-                : `# Open the report
-Get-Content .tmp/geo_bulk_seq_report.md | less`}</pre>
-            </div>
-            <p className="note">
-              The report is saved as Markdown (.md) and JSON. Want a clean run? Swap <code>samples_bad.tsv</code> → <code>samples.tsv</code> in the preflight command.
+              This installs FAIRy, clones the demo fixtures, runs validation, and generates the report — all in one go. The report is saved as Markdown (.md) and JSON. Want a clean run? Swap <code>samples_bad.tsv</code> → <code>samples.tsv</code> in the preflight command.
             </p>
           </section>
           
           {/* What You'll See */}
           <section className="what-youll-see">
-            <h2>3. What you'll see</h2>
+            <h2>2. What you'll see</h2>
             <div className="output-preview">
               <pre>{`# FAIRy Preflight Report
 
@@ -540,7 +549,7 @@ _No baseline from prior run (first run or cache missing)._`}</pre>
           
           {/* Video Section */}
           <section className="video-section">
-            <h2>4. Watch the walkthrough</h2>
+            <h2>3. Watch the walkthrough</h2>
             <div className="video-wrapper">
               <video
                 controls
@@ -554,6 +563,63 @@ _No baseline from prior run (first run or cache missing)._`}</pre>
             <p className="note">
               2-minute demo showing how FAIRy validates datasets and generates readiness reports.
             </p>
+          </section>
+          
+          {/* Next Steps Section */}
+          <section className="command-section" style={{ background: '#f0fdf4', borderColor: '#bbf7d0' }}>
+            <h2>What's next?</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{
+                background: '#ffffff',
+                border: '1px solid #bbf7d0',
+                borderRadius: '0.75rem',
+                padding: '1.5rem'
+              }}>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  Ready for your own data?
+                </h3>
+                <p style={{ fontSize: '0.9375rem', color: '#6b46c1', marginBottom: '1rem', lineHeight: '1.6' }}>
+                  If you're working with your lab's data and need help setting up validation rules or creating custom rulepacks, request a pilot scope.
+                </p>
+                <a href="/preflight-mapping" className="btn-primary" style={{ display: 'inline-block', fontSize: '0.875rem', padding: '0.75rem 1.5rem' }}>
+                  Request a pilot scope →
+                </a>
+              </div>
+              <div style={{
+                background: '#ffffff',
+                border: '1px solid #bbf7d0',
+                borderRadius: '0.75rem',
+                padding: '1.5rem'
+              }}>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                  Want to use FAIRy-core?
+                </h3>
+                <p style={{ fontSize: '0.9375rem', color: '#6b46c1', marginBottom: '1rem', lineHeight: '1.6' }}>
+                  Get the open-source validator on GitHub and start using it with existing rulepacks.
+                </p>
+                <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'inline-block', fontSize: '0.875rem', padding: '0.75rem 1.5rem' }}>
+                  Get FAIRy-core on GitHub →
+                </a>
+              </div>
+            </div>
+          </section>
+          
+          {/* Related Links */}
+          <section className="command-section" style={{ background: '#f3e8ff', borderColor: '#e9d5ff' }}>
+            <h2 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+              Related
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <a href="/institutions" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                For institutions → Learn about pilot programs and institutional offerings
+              </a>
+              <a href="/sample-report" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                Sample report → See what a full FAIRy readiness report looks like
+              </a>
+              <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+                Request a pilot → Scope a custom rulepack for your data
+              </a>
+            </div>
           </section>
           
           {/* Contact Section */}

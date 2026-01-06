@@ -547,26 +547,6 @@ export default function Page() {
               fontSize: '0.875rem', 
               color: '#6b46c1', 
               textAlign: 'center',
-              marginTop: '1rem',
-              maxWidth: '600px',
-              marginLeft: 'auto',
-              marginRight: 'auto'
-            }}>
-              <a 
-                href="/talks/dslc-project-december-2025" 
-                style={{ 
-                  color: '#7c3aed', 
-                  textDecoration: 'underline',
-                  fontWeight: '500'
-                }}
-              >
-                Watch a 3-min walkthrough
-              </a>
-            </p>
-            <p style={{ 
-              fontSize: '0.875rem', 
-              color: '#6b46c1', 
-              textAlign: 'center',
               marginTop: '0.5rem',
               maxWidth: '600px',
               marginLeft: 'auto',
@@ -574,6 +554,30 @@ export default function Page() {
             }}>
               No account. No upload. Local-first.
             </p>
+          </div>
+        </section>
+        
+        {/* Quick Links Section */}
+        <section style={{ padding: '2rem 0', backgroundColor: '#ffffff', borderTop: '1px solid #e9d5ff', borderBottom: '1px solid #e9d5ff' }}>
+          <div className="container">
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+              <p style={{ fontSize: '0.9375rem', color: '#6b46c1', marginBottom: '1rem', fontWeight: '500' }}>
+                New here?
+              </p>
+              <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href="/try" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem', fontWeight: '500' }}>
+                  Try the demo (2 min)
+                </a>
+                <span style={{ color: '#c4b5fd' }}>•</span>
+                <a href="/institutions" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem', fontWeight: '500' }}>
+                  For institutions
+                </a>
+                <span style={{ color: '#c4b5fd' }}>•</span>
+                <a href="/sample-report" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem', fontWeight: '500' }}>
+                  View sample report
+                </a>
+              </div>
+            </div>
           </div>
         </section>
         
@@ -992,7 +996,7 @@ export default function Page() {
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 style={{ fontSize: '2rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
-                Don't get your dataset bounced by GEO, Zenodo, or your core facility
+                Don't get your dataset bounced by GEO, ENA, SRA, or your core facility
               </h2>
               <p style={{ fontSize: '1.125rem', color: '#6b46c1', maxWidth: '600px', margin: '0 auto 1rem' }}>
                 Tired of being told "fix your metadata" with no specifics? FAIRy runs locally and tells you exactly what's missing so you don't get yelled at.
@@ -1223,7 +1227,7 @@ export default function Page() {
                     Repository-specific rulepacks
                   </h3>
                   <p style={{ fontSize: '0.875rem', color: '#6b46c1', lineHeight: '1.6', margin: '0' }}>
-                    Pre-configured rulepacks for GEO, SRA, Zenodo, and other repositories. Each rulepack encodes the specific requirements and expectations of that repository.
+                    Pre-configured rulepacks for GEO, ENA, SRA, GBIF IPT/DwC-A, and other repositories. Each rulepack encodes the specific requirements and expectations of that repository.
                   </p>
                 </div>
 

@@ -345,12 +345,52 @@ export default function BiofairPage() {
       `}</style>
 
       <div className="container">
+        {/* Archived Label */}
+        <div style={{
+          background: '#fef3c7',
+          border: '2px solid #fbbf24',
+          borderRadius: '0.75rem',
+          padding: '0.75rem 1rem',
+          marginTop: '2rem',
+          marginBottom: '1.5rem',
+          textAlign: 'center'
+        }}>
+          <span style={{ 
+            fontSize: '0.875rem', 
+            fontWeight: '600', 
+            color: '#92400e',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}>
+            Archived
+          </span>
+        </div>
+
         {/* Hero Section */}
         <section className="hero">
-          <h1>Help shape a "BIOFAIR-ready" preflight check</h1>
-          <p className="subheadline">
-            A tiny, local metadata preflight for your domain (wet lab, ecology, environmental sensing, biodiversity collections, etc.) and a feedback loop to the BIOFAIR community.
-          </p>
+          <h1>BIOFAIR Open Mic (Oct 2025): FAIRy demo + notes</h1>
+          <div style={{
+            background: '#f3e8ff',
+            border: '1px solid #e9d5ff',
+            borderRadius: '0.75rem',
+            padding: '1.5rem',
+            marginTop: '2rem',
+            marginBottom: '2rem'
+          }}>
+            <p style={{ 
+              fontSize: '1rem', 
+              color: '#4c1d95', 
+              lineHeight: '1.7',
+              marginBottom: '1rem'
+            }}>
+              BIOFAIR surfaced a common pain: stewards and curators spend hours cleaning other people's spreadsheets. This pilot framing focuses on preventing that upstream by standardizing the minimum metadata contract (IDs, ISO dates, methods, contacts, etc.) and returning a data-free readiness sheet collaborators can act on.
+            </p>
+            <p style={{ margin: '0' }}>
+              <a href="/try" style={{ color: '#7c3aed', fontWeight: '600', textDecoration: 'underline' }}>
+                Try FAIRy now →
+              </a>
+            </p>
+          </div>
           <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#6b46c1' }}>
             <a href="/talks/biofair-open-mic-2025" style={{ color: '#7c3aed', fontWeight: '600', textDecoration: 'none' }}>
               Slides: View here →

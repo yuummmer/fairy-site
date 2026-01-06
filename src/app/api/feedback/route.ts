@@ -13,12 +13,13 @@ export async function POST(request: NextRequest) {
         { success: false, error: 'Name, title, email, and institution are required for demo requests' },
         { status: 400 }
       );
-    } else if (body.form_type === 'preflight_mapping' && (!body.email || !body.name || !body.institution)) {
+    } else if (body.form_type === 'preflight_mapping' && (!body.email || !body.name || !body.institution || 
+               !body.repo_standard || !body.dataset_types || !body.timeline_urgency || !body.biggest_headache)) {
       return NextResponse.json(
-        { success: false, error: 'Name, email, and organization are required' },
+        { success: false, error: 'All required fields must be filled in' },
         { status: 400 }
       );
-    } else if (body.form_type !== 'demo' && body.form_type !== 'biofair_pilot_interest' && body.form_type !== 'preflight_mapping' && !body.email) {
+    } else if (body.form_type !== 'demo' && body.form_type !== 'biofair_pilot_interest' && body.form_type !== 'preflight_mapping' && body.form_type !== 'preflight_mapping_deep' && !body.email) {
       return NextResponse.json(
         { success: false, error: 'Email is required' },
         { status: 400 }
@@ -65,6 +66,20 @@ export async function POST(request: NextRequest) {
         role: body.role || body.title || '',
         data_type: body.dataType || body.data_type || '',
         pilot_readiness: body.willingToPilot || body.pilot_readiness || '',
+        // Preflight mapping specific fields
+        repo_standard: body.repo_standard || '',
+        dataset_types: body.dataset_types || '',
+        timeline_urgency: body.timeline_urgency || '',
+        biggest_headache: body.biggest_headache || '',
+        anything_else: body.anything_else || '',
+        sample_volume: body.sample_volume || '',
+        can_share_sample: body.can_share_sample || '',
+        // Preflight mapping deep fields
+        controlled_vocab: body.controlled_vocab || '',
+        controlled_vocab_other: body.controlled_vocab_other || '',
+        controlled_vocab_not_sure: body.controlled_vocab_not_sure || false,
+        stakeholders_timeline: body.stakeholders_timeline || '',
+        example_links: body.example_links || '',
         timestamp: new Date().toISOString(),
         user_agent: request.headers.get('user-agent') || '',
         ip_address: request.headers.get('x-forwarded-for') || 
@@ -106,7 +121,22 @@ export async function POST(request: NextRequest) {
           name: submissionData.additional_data.name,
           org: submissionData.additional_data.org,
           institution: submissionData.additional_data.institution,
-          additional_info: submissionData.additional_data.additional_info
+          repo_standard: submissionData.additional_data.repo_standard,
+          dataset_types: submissionData.additional_data.dataset_types,
+          timeline_urgency: submissionData.additional_data.timeline_urgency,
+          biggest_headache: submissionData.additional_data.biggest_headache,
+          biggest_headache_other: submissionData.additional_data.biggest_headache_other,
+          sample_volume: submissionData.additional_data.sample_volume
+        });
+      } else if (submissionData.form_type === 'preflight_mapping_deep') {
+        console.log('preflight_mapping_deep submission', {
+          email: submissionData.email,
+          name: submissionData.additional_data.name,
+          institution: submissionData.additional_data.institution,
+          controlled_vocab: submissionData.additional_data.controlled_vocab,
+          controlled_vocab_other: submissionData.additional_data.controlled_vocab_other,
+          stakeholders_timeline: submissionData.additional_data.stakeholders_timeline,
+          example_links: submissionData.additional_data.example_links
         });
       }
     } catch {}

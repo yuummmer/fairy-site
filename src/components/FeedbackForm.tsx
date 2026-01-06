@@ -455,11 +455,15 @@ export default function FeedbackForm({ formType, onSubmit, className = '' }: Fee
         <label className="form-label">Which repositories do you submit to? (select all that apply)</label>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
           {[
-            { value: 'geo', label: 'GEO (Gene Expression Omnibus)' },
+            { value: 'ena', label: 'ENA (INSDC / Webin)' },
+            { value: 'sra', label: 'NCBI SRA (INSDC)' },
+            { value: 'geo', label: 'NCBI GEO' },
+            { value: 'gbif', label: 'GBIF IPT/DwC-A' },
             { value: 'zenodo', label: 'Zenodo' },
+            { value: 'dataverse', label: 'Dataverse' },
             { value: 'dryad', label: 'Dryad' },
             { value: 'figshare', label: 'Figshare' },
-            { value: 'institutional', label: 'Institutional repository' },
+            { value: 'custom', label: 'Custom / internal standard' },
             { value: 'other', label: 'Other' }
           ].map(option => (
             <label key={option.value} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>

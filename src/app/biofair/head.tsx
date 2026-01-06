@@ -1,15 +1,15 @@
 export default function Head() {
   return (
     <>
-      <title>BIOFAIR-ready preflight pilot | Datadabra</title>
+      <title>BIOFAIR Open Mic (Oct 2025): FAIRy demo + notes | Datadabra</title>
       <meta
         name="description"
-        content="Help shape a “BIOFAIR-ready” preflight check. Line up tiny readiness rulepacks for your domain and generate data-free readiness sheets (PASS / WARN / FAIL)."
+        content="Archived: BIOFAIR Open Mic presentation from October 2025. FAIRy demo and notes on addressing the common pain of stewards cleaning spreadsheets by standardizing metadata contracts upstream."
       />
-      <meta property="og:title" content="BIOFAIR-ready preflight pilot | Datadabra" />
+      <meta property="og:title" content="BIOFAIR Open Mic (Oct 2025): FAIRy demo + notes | Datadabra" />
       <meta
         property="og:description"
-        content="Help shape a “BIOFAIR-ready” preflight check for your domain and feed patterns back to the BIOFAIR community."
+        content="Archived: BIOFAIR Open Mic presentation from October 2025. FAIRy demo and notes on addressing the common pain of stewards cleaning spreadsheets by standardizing metadata contracts upstream."
       />
       <meta property="og:type" content="website" />
     </>

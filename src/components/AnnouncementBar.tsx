@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const ANNOUNCEMENT_ID = "2025-10-biofair";
+const ANNOUNCEMENT_ID = "2025-pilot-slots";
 const STORAGE_KEY = `announcement:dismissed:${ANNOUNCEMENT_ID}`;
 
 export default function AnnouncementBar() {
@@ -30,9 +30,10 @@ export default function AnnouncementBar() {
     <div className="bg-purple-100 border-b border-purple-200">
       <div className="mx-auto max-w-6xl px-4 py-2 text-sm flex items-center justify-between gap-3">
         <div className="text-purple-900">
-          <span className="font-medium">Announcement:</span> BIOFAIR update — a quick read on what’s next.
+          <span className="font-medium">⚠ Limited pilot slots</span>
           {" "}
-          <a href="/biofair" className="underline font-medium hover:text-purple-700">Read more</a>
+          We're accepting a small number of pilot engagements this quarter to refine the workflow.{" "}
+          <a href="/preflight-mapping" className="underline font-medium hover:text-purple-700">Apply →</a>
         </div>
         <button
           aria-label="Dismiss announcement"

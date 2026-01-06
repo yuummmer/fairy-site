@@ -340,34 +340,24 @@ export default function AboutPage() {
             </div>
             
             <div className="highlight-box" style={{ marginTop: '2rem' }}>
-              <h3>Institutional pilots (scoped engagement)</h3>
-              <p>
-                For data stewards, collections, and core facilities, we run a short pilot where we:
+              <h3>Work with me / Pilot</h3>
+              <p style={{ fontSize: '1rem', fontWeight: '600', color: '#4c1d95', marginBottom: '0.5rem' }}>
+                Paid pilots start at $3,000.
               </p>
-              <ul>
-                <li>capture your intake requirements (the "must not be blank / must match / must follow this pattern" rules),</li>
-                <li>encode them into a rulepack,</li>
-                <li>generate a readiness report in language you can forward internally, and</li>
-                <li>produce an attestation file that documents what was checked, when, and under which rules.</li>
+              <p style={{ fontSize: '1rem', color: '#6b46c1', marginBottom: '1.5rem' }}>
+                Most org pilots fall in the $6k–$8.5k range depending on complexity.
+              </p>
+              <ul style={{ fontSize: '1rem', color: '#6b46c1', marginLeft: '1.5rem', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+                <li>Dataset types</li>
+                <li>Controlled vocab</li>
+                <li>Stakeholders/timeline</li>
               </ul>
-              <p>
-                You keep that rulepack. You can continue running FAIRy internally with it, and you can add or refine rules over time as your policies change.
-              </p>
-              <p>
-                Some groups are comfortable maintaining their own rulepack after the pilot. Others ask us to maintain and update it for them and keep generating reports. Both paths are supported.
-              </p>
-              <p>
-                Pilots are structured, budgetable work.
-              </p>
-              <p style={{ marginBottom: '0' }}>
-                If you manage or review incoming datasets and want to scope a pilot, you can request one here:
-              </p>
               <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
                 <a 
                   href="/preflight-mapping" 
                   className="btn-primary"
                 >
-                  Start with a Preflight Mapping Session →
+                  Send repo/standard + sample count + deadline →
                 </a>
               </div>
             </div>

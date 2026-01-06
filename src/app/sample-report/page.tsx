@@ -581,9 +581,36 @@ _In first run: no previously-reported issues to clear._
         </div>
         
         <div className="checks-section" style={{ textAlign: 'center', paddingTop: '2rem' }}>
-          <p style={{ color: '#6b46c1', fontSize: '1rem' }}>
+          <p style={{ color: '#6b46c1', fontSize: '1rem', marginBottom: '2rem' }}>
             See how FAIRy's rulepacks map to real repository requirements <a href="/docs" style={{ color: '#7c3aed', textDecoration: 'underline' }}>in our documentation</a>.
           </p>
+        </div>
+
+        {/* Related Links */}
+        <div style={{
+          background: '#f3e8ff',
+          border: '2px solid #e9d5ff',
+          borderRadius: '1rem',
+          padding: '2rem',
+          marginTop: '3rem',
+          maxWidth: '800px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#4c1d95', marginBottom: '1rem' }}>
+            Related
+          </h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <a href="/try" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+              Try FAIRy → Run the demo to generate reports like this (2 minutes)
+            </a>
+            <a href="/preflight-mapping" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+              Request a pilot → Get custom rulepacks for your institution
+            </a>
+            <a href="/institutions" style={{ color: '#7c3aed', textDecoration: 'underline', fontSize: '0.9375rem' }}>
+              For institutions → Learn about pilot programs and offerings
+            </a>
+          </div>
         </div>
       </div>
     </>

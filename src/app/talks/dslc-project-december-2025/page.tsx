@@ -345,7 +345,7 @@ export default function DSLCProjectDecember2025Page() {
                 <span className="bullet-text">FAIRy generates one-page readiness reports (PASS/WARN/FAIL) and attestation bundles with timestamps, file hashes, and rulepack versions that can be attached to deposits as proof of review</span>
               </li>
               <li className="bullet-item">
-                <span className="bullet-text">Domain-specific validation rules encode repository requirements (e.g., GEO, ENA) and can be customized for institutional policies, making validation transparent and inspectable</span>
+                <span className="bullet-text">Domain-specific validation rules encode repository requirements (e.g., GEO, ENA, SRA, GBIF IPT/DwC-A) and can be customized for institutional policies, making validation transparent and inspectable</span>
               </li>
               <li className="bullet-item">
                 <span className="bullet-text">Designed for data stewards, core facilities, collections managers, and researchers who need to ensure datasets meet repository requirements before submission, reducing back-and-forth with curators</span>
@@ -358,7 +358,7 @@ export default function DSLCProjectDecember2025Page() {
           <div className="section-inner">
             <h2 className="section-title">Try FAIRy</h2>
             <p className="bullet-text" style={{ marginBottom: '1rem' }}>
-              Get started with FAIRy in 60 seconds. See the <a href="https://github.com/yuummmer/fairy-core#try-it-in-60-seconds" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'underline' }}>"Try it in 60 seconds"</a> section in the GitHub README for installation and quick start instructions.
+              Get started with FAIRy in 2 minutes. See the <a href="/try" style={{ color: '#7c3aed', textDecoration: 'underline' }}>Try FAIRy page</a> for installation and quick start instructions.
             </p>
             <p className="bullet-text">
               <a href="https://github.com/yuummmer/fairy-core" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', fontWeight: '600', textDecoration: 'none' }}>
