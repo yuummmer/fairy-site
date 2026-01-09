@@ -23,14 +23,14 @@ No raw data is included — just what's missing, why it matters, and how to fix 
 
 # FAIRy Submission Readiness Report
 
-- **Rulepack:** GEO-SEQ-BULK@0.1.0
-- **FAIRy version:** 0.1.0
+- **Rulepack:** geo_bulk_seq@0.2.0
+- **FAIRy version:** 0.2.2
 - **Run at (UTC):** ${utcTime}
 - **submission_ready:** \`False\` (This means a curator would still bounce this.)
 
 ## Summary
 
-- FAIL findings: 2 ['CORE.ID.UNMATCHED_SAMPLE', 'GEO.REQUIRED.MISSING_FIELD']
+- FAIL findings: 1 ['GEO.BIO.CONTEXT_MISSING']
 - WARN findings: 1 ['CORE.DATE.INVALID_ISO8601']
 
 If \`submission_ready\` is \`True\`, FAIRy believes this dataset is ready to submit.
@@ -43,25 +43,18 @@ If it's \`False\`, a curator would still bounce this and ask for changes.
 These hashes and dimensions identify the exact files that FAIRy validated.
 You can hand this block to a curator or PI as evidence of what was checked.
 
-### metadata.tsv
-
-- path: 'metadata.tsv'
-- sha256: 'a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2'
-- rows: '3'
-- cols: '8'
-
 ### samples.tsv
 
-- path: 'samples.tsv'
-- sha256: 'f965407ccaac8ee80953c634b7ad47a4c7441945dfebb8b5dabdb6657ed37165'
+- path: 'rulepacks/geo_bulk_seq/fixtures/samples_bad.tsv'
+- sha256: '96ae14a766369c0ab581bf7dc16af186fc732139adc23eb438d8de47ad49e798'
 - rows: '2'
-- cols: '10'
+- cols: '8'
 
 ### files.tsv
 
-- path: 'files.tsv'
-- sha256: '8ec6eaeb72ce5d853b76876da578dc251d392176a9384544a8eaf6433964d9fe'
-- rows: '3'
+- path: 'rulepacks/geo_bulk_seq/fixtures/files.tsv'
+- sha256: '3305edf715ad6f1bf9ade6ee48cfc84e6599d25e42cf2a32d8741a32185ed348'
+- rows: '4'
 - cols: '3'
 
 ---
@@ -73,9 +66,8 @@ Severity \`WARN\` means "soft violation / likely curator feedback."
 
 | Severity | Code | Location | Why it matters | How to fix |
 |----------|------|----------|----------------|------------|
-| FAIL | CORE.ID.UNMATCHED_SAMPLE | samples.tsv → sample_id (row 2 mismatch) | Every file must map to a described sample and vice versa. | Align sample_id across tables. |
-| FAIL | GEO.REQUIRED.MISSING_FIELD | metadata.tsv → platform_type (missing) | The repository requires platform_type to process your submission; missing this will delay acceptance. | Add platform_type column with values like 'Illumina HiSeq 2000' or 'Affymetrix Human Genome U133 Plus 2.0 Array'. |
-| WARN | CORE.DATE.INVALID_ISO8601 | row 0, column 'collection_date' | Ambiguous dates hurt reuse; a curator will probably ask you to fix this before accepting. | Use ISO8601 (YYYY-MM-DD). |
+| FAIL | GEO.BIO.CONTEXT_MISSING | row 1 | Sample does not provide tissue/cell_line/cell_type. | Fill at least one of: tissue, cell_line, or cell_type fields in your sample metadata. |
+| WARN | CORE.DATE.INVALID_ISO8601 | row 1, column 'collection_date' | Value is not ISO8601 (YYYY-MM-DD). | Use ISO8601 date format (YYYY-MM-DD), e.g., 2025-10-02. |
 
 ---
 
@@ -500,7 +492,7 @@ _In first run: no previously-reported issues to clear._
             className="btn btn-primary"
             onClick={downloadReport}
           >
-            Download example FAIRy Submission Readiness Report (PDF)
+            Download example FAIRy Submission Readiness Report (Markdown)
           </button>
         </div>
 
@@ -508,25 +500,25 @@ _In first run: no previously-reported issues to clear._
           <div className="summary-label">Submission Readiness Summary</div>
           
           <div className="summary-meta">
-            <div><strong>Dataset:</strong> GSM123456_sample_dataset</div>
+            <div><strong>Rulepack:</strong> geo_bulk_seq@0.2.0</div>
+            <div><strong>FAIRy version:</strong> 0.2.2</div>
             <div suppressHydrationWarning><strong>Generated locally:</strong> {generatedTimestamp}</div>
           </div>
           <div className="summary-status">
-            <span className="fail">2 FAIL</span> / <span className="warning">1 WARN</span>
+            <span className="fail">1 FAIL</span> / <span className="warning">1 WARN</span>
           </div>
           <div className="summary-description">
             Issues found that need attention before submission
           </div>
           
           <div className="summary-provenance">
-            <p><strong>Provenance:</strong> FAIRy pilot build (local run; pre-release)</p>
-            <p><strong>Command used (local run on 2025-10-14):</strong><br/>fairy validate /path/to/dataset --out out/ --format html</p>
+            <p><strong>Provenance:</strong> FAIRy preflight (local run)</p>
+            <p><strong>Command used:</strong><br/>fairy preflight --rulepack rulepacks/geo_bulk_seq/v0_2_0.json --samples rulepacks/geo_bulk_seq/fixtures/samples_bad.tsv --files rulepacks/geo_bulk_seq/fixtures/files.tsv --out .tmp/geo_bulk_seq_report.json</p>
             <p>File hash digest (so you can prove which exact files were checked):</p>
             <div className="manifest">
               <strong>SHA256 manifest:</strong><br/>
-              dataset_metadata.json: a1b2c3d4e5f6...<br/>
-              sample_1.fastq: f6e5d4c3b2a1...<br/>
-              sample_2.fastq: 1a2b3c4d5e6f...
+              samples.tsv: 96ae14a766369c0ab581bf7dc16af186fc732139adc23eb438d8de47ad49e798<br/>
+              files.tsv: 3305edf715ad6f1bf9ade6ee48cfc84e6599d25e42cf2a32d8741a32185ed348
             </div>
           </div>
         </div>
@@ -549,28 +541,19 @@ _In first run: no previously-reported issues to clear._
                 <td>
                   <span className="severity-badge fail">FAIL</span>
                 </td>
-                <td className="code-cell">CORE.ID.UNMATCHED_SAMPLE</td>
-                <td className="where-cell">samples.tsv → sample_id (row 2 mismatch)</td>
-                <td>Every file must map to a described sample and vice versa.</td>
-                <td>Align sample_id across tables.</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="severity-badge fail">FAIL</span>
-                </td>
-                <td className="code-cell">GEO.REQUIRED.MISSING_FIELD</td>
-                <td className="where-cell">metadata.tsv → platform_type (missing)</td>
-                <td>The repository requires platform_type to process your submission; missing this will delay acceptance.</td>
-                <td>Add platform_type column with values like 'Illumina HiSeq 2000' or 'Affymetrix Human Genome U133 Plus 2.0 Array'.</td>
+                <td className="code-cell">GEO.BIO.CONTEXT_MISSING</td>
+                <td className="where-cell">row 1</td>
+                <td>Sample does not provide tissue/cell_line/cell_type.</td>
+                <td>Fill at least one of: tissue, cell_line, or cell_type fields in your sample metadata.</td>
               </tr>
               <tr>
                 <td>
                   <span className="severity-badge warning">WARN</span>
                 </td>
                 <td className="code-cell">CORE.DATE.INVALID_ISO8601</td>
-                <td className="where-cell">row 0, column 'collection_date'</td>
-                <td>Ambiguous dates hurt reuse; a curator will probably ask you to fix this before accepting.</td>
-                <td>Use ISO8601 (YYYY-MM-DD).</td>
+                <td className="where-cell">row 1, column 'collection_date'</td>
+                <td>Value is not ISO8601 (YYYY-MM-DD).</td>
+                <td>Use ISO8601 date format (YYYY-MM-DD), e.g., 2025-10-02.</td>
               </tr>
             </tbody>
           </table>

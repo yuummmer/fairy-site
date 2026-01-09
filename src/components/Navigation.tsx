@@ -310,6 +310,7 @@ export default function Navigation() {
                 </div>
               </div>
               <a href="/docs" className="toc-link">Documentation</a>
+              <a href="/gallery" className="toc-link">Gallery</a>
               <a href="/talks" className="toc-link">Talks</a>
               <a href="/open-science" className="toc-link">Open Science</a>
               <a href="/about" className="toc-link">About</a>
@@ -348,6 +349,7 @@ export default function Navigation() {
                 </div>
               </div>
               <a href="/docs" className="mobile-link" onClick={closeMenu}>Documentation</a>
+              <a href="/gallery" className="mobile-link" onClick={closeMenu}>Gallery</a>
               <a href="/talks" className="mobile-link" onClick={closeMenu}>Talks</a>
               <a href="/open-science" className="mobile-link" onClick={closeMenu}>Open Science</a>
               <a href="/about" className="mobile-link" onClick={closeMenu}>About</a>
