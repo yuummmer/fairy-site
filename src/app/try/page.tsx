@@ -431,6 +431,9 @@ Get-Content .tmp/geo_bulk_seq_report.md | less`;
             <p>
               Run FAIRy locally in 2 minutes. No account needed. No uploads.
             </p>
+            <a href="#video-section" className="btn-primary" style={{ marginTop: '1.5rem', display: 'inline-block' }}>
+              Watch 2-min demo
+            </a>
             <div className="note-container">
               GEO (NCBI Gene Expression Omnibus) is a public repository for functional genomics data (e.g., RNA-seq). This demo checks whether a bulk-seq submission package is submission-ready.
             </div>
@@ -548,7 +551,7 @@ _No baseline from prior run (first run or cache missing)._`}</pre>
           </section>
           
           {/* Video Section */}
-          <section className="video-section">
+          <section id="video-section" className="video-section">
             <h2>3. Watch the walkthrough</h2>
             <div className="video-wrapper">
               <video
