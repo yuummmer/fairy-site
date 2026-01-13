@@ -13,6 +13,7 @@ export default function PreflightMappingPage() {
     datasetTypesOther: '',
     timelineUrgency: '',
     biggestHeadache: '',
+    biggestHeadacheOther: '',
     anythingElse: '',
     sampleVolume: '',
     canShareSample: ''
@@ -108,14 +109,18 @@ export default function PreflightMappingPage() {
             repoStandard: '',
             repoStandardOther: '',
             datasetTypes: [],
+            datasetTypesOther: '',
             timelineUrgency: '',
-            biggestHeadache: [],
+            biggestHeadache: '',
             biggestHeadacheOther: '',
-            sampleVolume: ''
+            anythingElse: '',
+            sampleVolume: '',
+            canShareSample: ''
           });
           setDeepFieldsData({
             controlledVocab: [],
             controlledVocabOther: '',
+            controlledVocabNotSure: false,
             stakeholdersTimeline: '',
             exampleLinks: ''
           });
@@ -144,6 +149,7 @@ export default function PreflightMappingPage() {
       datasetTypesOther: '',
       timelineUrgency: '',
       biggestHeadache: '',
+      biggestHeadacheOther: '',
       anythingElse: '',
       sampleVolume: '',
       canShareSample: ''
@@ -211,6 +217,7 @@ export default function PreflightMappingPage() {
             : formData.datasetTypes.join(', '),
           timeline_urgency: formData.timelineUrgency,
           biggest_headache: formData.biggestHeadache,
+          biggest_headache_other: formData.biggestHeadacheOther || '',
           anything_else: formData.anythingElse || '',
           sample_volume: formData.sampleVolume || '',
           can_share_sample: formData.canShareSample

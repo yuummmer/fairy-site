@@ -71,6 +71,7 @@ export async function POST(request: NextRequest) {
         dataset_types: body.dataset_types || '',
         timeline_urgency: body.timeline_urgency || '',
         biggest_headache: body.biggest_headache || '',
+        biggest_headache_other: body.biggest_headache_other || '',
         anything_else: body.anything_else || '',
         sample_volume: body.sample_volume || '',
         can_share_sample: body.can_share_sample || '',
